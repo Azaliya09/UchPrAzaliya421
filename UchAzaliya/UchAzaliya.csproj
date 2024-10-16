@@ -75,6 +75,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\MaterialsComponentsAccounting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\RegistrationСlient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -86,6 +90,9 @@
     </Compile>
     <Compile Include="Pages\EmployeeAccounting.xaml.cs">
       <DependentUpon>EmployeeAccounting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MaterialsComponentsAccounting.xaml.cs">
+      <DependentUpon>MaterialsComponentsAccounting.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\RegistrationСlient.xaml.cs">
       <DependentUpon>RegistrationСlient.xaml</DependentUpon>
