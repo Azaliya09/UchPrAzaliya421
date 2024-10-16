@@ -71,6 +71,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\EmployeeAccounting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\RegistrationСlient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -79,6 +83,9 @@
   <ItemGroup>
     <Compile Include="Pages\Authtorization.xaml.cs">
       <DependentUpon>Authtorization.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EmployeeAccounting.xaml.cs">
+      <DependentUpon>EmployeeAccounting.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\RegistrationСlient.xaml.cs">
       <DependentUpon>RegistrationСlient.xaml</DependentUpon>
@@ -110,6 +117,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Bases\" />
+    <Folder Include="Components\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resorces\Logo_Monochrome.png" />

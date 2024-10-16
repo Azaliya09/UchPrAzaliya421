@@ -1,0 +1,59 @@
+﻿<Page x:Class="UchAzaliya.Pages.EmployeeAccounting"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UchAzaliya.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="EmployeeAccounting">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300*"/>
+            <ColumnDefinition Width="500*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <TextBlock FontSize="18" FontWeight="DemiBold" HorizontalAlignment="Center" Margin="0 20 0 10">Учет работников</TextBlock>
+
+            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Margin="0 0 0 5">
+                <TextBlock Width="110">ФИО:</TextBlock>
+                <TextBox x:Name="FullNameTb"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 5">
+                <TextBlock Width="110">Дата <LineBreak/> рождения:</TextBlock>
+                <DatePicker x:Name="DateBorn" Width="180" Height="30" Margin="3"></DatePicker>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 5">
+                <TextBlock Width="110">Домашний <LineBreak/> адрес:</TextBlock>
+                <TextBox x:Name="AddressTb"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 5">
+                <TextBlock Width="110">Образование:</TextBlock>
+                <TextBox x:Name="EducationTb"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 5">
+                <TextBlock Width="110">Квалификация:</TextBlock>
+                <TextBox x:Name="QualificationTb"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 5">
+                <TextBlock Width="110" VerticalAlignment="Top">Операции:</TextBlock>
+                <TextBox x:Name="OperationsTb" Height="180"></TextBox>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <ScrollViewer Height="450">
+                <ListView x:Name="WorkersListView">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Фамилия" Width="150" DisplayMemberBinding="{Binding FullName}" />
+                            <GridViewColumn Header="Возраст" Width="100" DisplayMemberBinding="{Binding Age}" />
+                            <GridViewColumn Header="Операции" Width="250" DisplayMemberBinding="{Binding ProductionOperations}" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </ScrollViewer>
+        </StackPanel>
+
+    </Grid>
+</Page>
