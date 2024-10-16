@@ -13,17 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace UchAzaliya
+namespace UchAzaliya.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для RegistrationСlient.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class RegistrationСlient : Page
     {
-        public MainWindow()
+        public RegistrationСlient()
         {
             InitializeComponent();
-            
         }
     }
 }
