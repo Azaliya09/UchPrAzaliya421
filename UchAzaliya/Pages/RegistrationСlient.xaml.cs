@@ -24,5 +24,6 @@ namespace UchAzaliya.Pages
         {
             InitializeComponent();
         }
+
     }
 }

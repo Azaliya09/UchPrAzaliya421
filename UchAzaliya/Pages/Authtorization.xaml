@@ -9,6 +9,28 @@
       Title="Authtorization">
 
     <Grid>
-        
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 50">
+            <TextBlock FontSize="18" FontWeight="DemiBold" Margin="0 0 0 20" HorizontalAlignment="Center">Авторизация</TextBlock>
+            <StackPanel Orientation="Horizontal" Margin="0 0 0 10" HorizontalAlignment="Center">
+                <TextBlock Width="60">Логин:</TextBlock>
+                <TextBox Width="200" x:Name="LoginTb"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0 0 0 15" HorizontalAlignment="Center">
+                <TextBlock Width="60">Пароль:</TextBlock>
+                <PasswordBox Width="200" x:Name="PasswordPb"></PasswordBox>
+            </StackPanel>
+            <StackPanel  Orientation="Horizontal" Margin="0 0 0 15" HorizontalAlignment="Center">
+                <CheckBox  x:Name="RememberCb">Запомнить меня</CheckBox>
+            </StackPanel>
+            <Button x:Name="EnterBtn" Margin="0 0 0 7" Height="25" Width="100">Войти</Button>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 20">
+            <TextBlock Hyperlink.Click="TextBlock_Click" HorizontalAlignment="Center" Background="#00000000">
+                Нет аккаунта для входа?
+                <Hyperlink Foreground="#FF4867AC">
+                    Зарегистрироваться!
+                </Hyperlink>
+            </TextBlock>
+        </StackPanel>
     </Grid>
 </Page>

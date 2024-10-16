@@ -9,6 +9,46 @@
       Title="RegistrationСlient">
 
     <Grid>
-        
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock FontSize="18" FontWeight="DemiBold" HorizontalAlignment="Center" Margin="0 20 0 10">Регистрация</TextBlock>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
+                <Border CornerRadius="100" BorderThickness="2" BorderBrush="Black" Width="80" Height="80">
+                    <Image  x:Name="ProfileImage"  Width="80" Height="80">
+                        <Image.Clip>
+                            <EllipseGeometry RadiusX="100" RadiusY="100" Center="100,100"/>
+                        </Image.Clip>
+                    </Image>
+                </Border>
+                <StackPanel Orientation="Horizontal" >
+                    <Button x:Name="EditImage" Width="130" Height="25">Изменить фото</Button>
+                    <Button x:Name="DeleteImage" Width="130" Height="25">Удалить фото</Button>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Margin="0 0 0 5">
+                <TextBlock Width="100">Фамилия:</TextBlock>
+                <TextBox x:Name="LastNameTb"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 5">
+                <TextBlock Width="100">Имя:</TextBlock>
+                <TextBox x:Name="NameTb"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 5">
+                <TextBlock Width="100">Отчество:</TextBlock>
+                <TextBox x:Name="PatronymicTb"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0 0 0 5">
+                    <TextBlock Width="100">Логин:</TextBlock>
+                    <TextBox x:Name="LoginTb"></TextBox>
+                </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Width="100">Пароль:</TextBlock>
+                <TextBox x:Name="PasswordTb"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                <Button x:Name="BackBtn" Width="100" Height="25" Margin="15">Назад</Button>
+                <Button Margin="10" Width="100"  Height="25" x:Name="SaveBtn">Сохранить</Button>
+            </StackPanel>
+            </StackPanel>
+
     </Grid>
 </Page>
