@@ -22,6 +22,6 @@
             <Button BorderThickness="2" BorderBrush="Black" Width="80" x:Name="ExitBTN">Выход</Button>
         </StackPanel>
 
-        <Frame x:Name="MyFrame" Grid.Row="1" NavigationUIVisibility="Hidden" Navigated="MyFrame_Navigated"></Frame>
+        <Frame x:Name="MyFrame" Grid.Row="1" NavigationUIVisibility="Hidden"></Frame>
     </Grid>
 </Window>

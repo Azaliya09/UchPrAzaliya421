@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UchAzaliya.Pages;
 
 namespace UchAzaliya.Pages
 {
@@ -23,6 +24,10 @@ namespace UchAzaliya.Pages
         public Authtorization()
         {
             InitializeComponent();
+        }
+        private void TextBlock_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new RegistrationСlient());
         }
     }
 }

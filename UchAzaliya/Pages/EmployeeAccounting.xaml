@@ -38,11 +38,11 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 5">
                 <TextBlock Width="110" VerticalAlignment="Top">Операции:</TextBlock>
-                <TextBox x:Name="OperationsTb" Height="180"></TextBox>
+                <TextBox x:Name="OperationsTb" Height="140"></TextBox>
             </StackPanel>
         </StackPanel>
         <StackPanel Grid.Column="1">
-            <ScrollViewer Height="450">
+            <ScrollViewer Height="400">
                 <ListView x:Name="WorkersListView">
                     <ListView.View>
                         <GridView>
@@ -53,6 +53,10 @@
                     </ListView.View>
                 </ListView>
             </ScrollViewer>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button x:Name="AddBtn" Width="180">Добавить работника</Button>
+                <Button x:Name="DeleteBtn" Width="180">Удалить работника</Button>
+            </StackPanel>
         </StackPanel>
 
     </Grid>
