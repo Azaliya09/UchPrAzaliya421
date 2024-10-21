@@ -1,0 +1,96 @@
+﻿<Page x:Class="UchAzaliya.Pages.AddEmployee"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UchAzaliya.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddEmployee">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="84*"/>
+            <RowDefinition Height="122*"/>
+            <RowDefinition Height="19*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.ColumnSpan="2" Grid.Row="0">
+            <TextBlock FontSize="18" FontWeight="DemiBold" HorizontalAlignment="Center" Margin="0 20 0 10">Добавить работника</TextBlock>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
+                <Border CornerRadius="100" BorderThickness="2" BorderBrush="Black" Width="80" Height="80">
+                    <Image  x:Name="ProfileImage"  Width="80" Height="80">
+                        <Image.Clip>
+                            <EllipseGeometry RadiusX="100" RadiusY="100" Center="100,100"/>
+                        </Image.Clip>
+                    </Image>
+                </Border>
+                <StackPanel Orientation="Horizontal" >
+                    <Button x:Name="EditImage" Width="130" Height="25">Изменить фото</Button>
+                    <Button x:Name="DeleteImage" Width="130" Height="25">Удалить фото</Button>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Column="0" Grid.Row="1">
+            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Margin="0 0 0 5">
+                <TextBlock Width="100">Фамилия:</TextBlock>
+                <TextBox x:Name="LastNameTb"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 5">
+                <TextBlock Width="100">Имя:</TextBlock>
+                <TextBox x:Name="NameTb"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 5">
+                <TextBlock Width="100">Отчество:</TextBlock>
+                <TextBox x:Name="PatronymicTb"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Width="100">Роль:</TextBlock>
+                <ComboBox  Width="180" Height="30" Margin="5" x:Name="RoleСb"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 5">
+                <TextBlock Width="100">Логин:</TextBlock>
+                <TextBox x:Name="LoginTb"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Width="100">Пароль:</TextBlock>
+                <TextBox x:Name="PasswordTb"></TextBox>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.ColumnSpan="2" Grid.Row="2"  VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="BackBtn" Width="100" Height="25" Margin="15">Назад</Button>
+                <Button Margin="10" Width="100"  Height="25" x:Name="SaveBtn">Сохранить</Button>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 5">
+                <TextBlock Width="110">Дата <LineBreak/> рождения:</TextBlock>
+                <DatePicker x:Name="DateBorn" Width="180" Height="30" Margin="3"></DatePicker>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 5">
+                <TextBlock Width="110">Домашний <LineBreak/> адрес:</TextBlock>
+                <TextBox x:Name="AddressTb"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 5">
+                <TextBlock Width="110">Образование:</TextBlock>
+                <TextBox x:Name="EducationTb"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 5">
+                <TextBlock Width="110">Квалификация:</TextBlock>
+                <TextBox x:Name="QualificationTb"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 5">
+                <TextBlock Width="110" VerticalAlignment="Top">Операции:</TextBlock>
+                <TextBox x:Name="OperationsTb" Height="60"></TextBox>
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</Page>
