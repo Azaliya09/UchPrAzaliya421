@@ -19,7 +19,7 @@
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center"  Grid.ColumnSpan="2">
             <!--<Button BorderThickness="2" BorderBrush="Black" Width="80" Margin="5"  x:Name="BackBTN" Click="BackBTN_Click">Назад</Button>-->
-            <Button BorderThickness="2" BorderBrush="Black" Width="80" x:Name="ExitBTN" Click="ExitBTN_Click">Выход</Button>
+            <Button BorderThickness="2" Background="#FFF3CC8D" Foreground="Black" BorderBrush="Black" Width="80" x:Name="ExitBTN" Click="ExitBTN_Click">Выход</Button>
         </StackPanel>
 
         <Frame x:Name="MyFrame" Grid.Row="1" NavigationUIVisibility="Hidden"></Frame>

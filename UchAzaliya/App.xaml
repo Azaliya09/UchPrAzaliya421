@@ -6,9 +6,9 @@
     <Application.Resources>
         <Style TargetType="Button">
             <Setter Property="Margin" Value="5"></Setter>
-            <Setter Property="Background" Value="#FFFEF9DE"></Setter>
+            <Setter Property="Background" Value="#FF0883D8"></Setter>
             <Setter Property="FontFamily" Value="Century Gothic"></Setter>
-            <Setter Property="Foreground" Value="Black"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
             <Style.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="7"></Setter>

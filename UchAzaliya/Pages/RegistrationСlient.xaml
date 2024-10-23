@@ -6,22 +6,22 @@
       xmlns:local="clr-namespace:UchAzaliya.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="RegistrationСlient">
+      Title="RegistrationСlient"  Background="#FFFEF9DE">
 
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock FontSize="18" FontWeight="DemiBold" HorizontalAlignment="Center" Margin="0 20 0 10">Регистрация</TextBlock>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
                 <Border CornerRadius="100" BorderThickness="2" BorderBrush="Black" Width="80" Height="80">
-                    <Image  x:Name="ProfileImage"  Width="80" Height="80">
+                    <Image  x:Name="ProfileImage" Stretch="Fill" Margin="-1.5,-2,0,0" Width="80" Height="80">
                         <Image.Clip>
-                            <EllipseGeometry RadiusX="100" RadiusY="100" Center="100,100"/>
+                            <EllipseGeometry RadiusX="35" RadiusY="35" Center="40,40"/>
                         </Image.Clip>
                     </Image>
                 </Border>
                 <StackPanel Orientation="Horizontal" >
-                    <Button x:Name="EditImage" Width="130" Height="25">Изменить фото</Button>
-                    <Button x:Name="DeleteImage" Width="130" Height="25">Удалить фото</Button>
+                    <Button x:Name="EditImage" Width="130" Height="25" Click="EditImage_Click">Изменить фото</Button>
+                    <Button x:Name="DeleteImage" Width="130" Height="25" Click="DeleteImage_Click">Удалить фото</Button>
                 </StackPanel>
             </StackPanel>
             <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Margin="0 0 0 5">
