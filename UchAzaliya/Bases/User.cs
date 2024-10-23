@@ -27,7 +27,7 @@ namespace UchAzaliya.Bases
         public string Surname { get; set; }
         public string Patronymic { get; set; }
         public int Id_Role { get; set; }
-        public int Id_Image { get; set; }
+        public Nullable<int> Id_Image { get; set; }
     
         public virtual ActiveSession ActiveSession { get; set; }
         public virtual ImageStockUser ImageStockUser { get; set; }

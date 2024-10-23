@@ -73,100 +73,100 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bases\ActiveSession.cs">
-      <DependentUpon>ModelBase.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Bases\Address.cs">
-      <DependentUpon>ModelBase.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Bases\Component.cs">
-      <DependentUpon>ModelBase.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Bases\ComponentProduct.cs">
-      <DependentUpon>ModelBase.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Bases\ComponentType.cs">
-      <DependentUpon>ModelBase.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Bases\CreatingProcess.cs">
-      <DependentUpon>ModelBase.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Bases\Document.cs">
-      <DependentUpon>ModelBase.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Bases\ImageStockComponent.cs">
-      <DependentUpon>ModelBase.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Bases\ImageStockMaterial.cs">
-      <DependentUpon>ModelBase.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Bases\ImageStockUser.cs">
-      <DependentUpon>ModelBase.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Bases\Material.cs">
-      <DependentUpon>ModelBase.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Bases\MaterialProduct.cs">
-      <DependentUpon>ModelBase.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Bases\MaterialType.cs">
-      <DependentUpon>ModelBase.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Bases\ModelBase.Context.cs">
+    <Compile Include="Bases\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelBase.Context.tt</DependentUpon>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Bases\ModelBase.cs">
+    <Compile Include="Bases\Model1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelBase.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Bases\ModelBase.Designer.cs">
+    <Compile Include="Bases\Model1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelBase.edmx</DependentUpon>
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Bases\Order.cs">
-      <DependentUpon>ModelBase.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Bases\Product.cs">
-      <DependentUpon>ModelBase.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Bases\ProductPart.cs">
-      <DependentUpon>ModelBase.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Bases\Provider.cs">
-      <DependentUpon>ModelBase.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Bases\Role.cs">
-      <DependentUpon>ModelBase.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Bases\SizeObject.cs">
-      <DependentUpon>ModelBase.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Bases\SizeType.cs">
-      <DependentUpon>ModelBase.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Bases\Standart.cs">
-      <DependentUpon>ModelBase.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Bases\sysdiagrams.cs">
-      <DependentUpon>ModelBase.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Bases\TypeWorkstation.cs">
-      <DependentUpon>ModelBase.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Bases\User.cs">
-      <DependentUpon>ModelBase.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Bases\Worker.cs">
-      <DependentUpon>ModelBase.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Bases\WorkerProcess.cs">
-      <DependentUpon>ModelBase.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Bases\Workstation.cs">
-      <DependentUpon>ModelBase.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -247,12 +247,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Bases\ModelBase.edmx">
+    <EntityDeploy Include="Bases\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelBase.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Bases\ModelBase.edmx.diagram">
-      <DependentUpon>ModelBase.edmx</DependentUpon>
+    <None Include="Bases\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -270,19 +270,20 @@
     <Resource Include="Resorces\Logo_Monochrome.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Bases\ModelBase.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ModelBase.Context.cs</LastGenOutput>
-      <DependentUpon>ModelBase.edmx</DependentUpon>
-    </Content>
-    <Content Include="Bases\ModelBase.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelBase.edmx</DependentUpon>
-      <LastGenOutput>ModelBase.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="Bases\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Bases\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Resource Include="Resorces\icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

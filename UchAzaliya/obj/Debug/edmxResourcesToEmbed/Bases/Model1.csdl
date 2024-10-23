@@ -605,7 +605,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_User_Role">
-    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
     <End Role="User" Type="Self.User" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Role">
@@ -664,7 +664,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="TransporterBaseEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="TransporterBaseEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="ActiveSession" EntityType="Self.ActiveSession" />
     <EntitySet Name="Address" EntityType="Self.Address" />
     <EntitySet Name="Component" EntityType="Self.Component" />

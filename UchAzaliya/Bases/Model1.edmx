@@ -221,7 +221,7 @@
           <Property Name="Surname" Type="nvarchar" MaxLength="50" />
           <Property Name="Patronymic" Type="nvarchar" MaxLength="50" />
           <Property Name="Id_Role" Type="int" Nullable="false" />
-          <Property Name="Id_Image" Type="int" Nullable="false" />
+          <Property Name="Id_Image" Type="int" />
         </EntityType>
         <EntityType Name="Worker">
           <Key>
@@ -538,7 +538,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_User_Role">
-          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
           <End Role="User" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Role">
@@ -1026,7 +1026,7 @@
           <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Id_Role" Type="Int32" Nullable="false" />
-          <Property Name="Id_Image" Type="Int32" Nullable="false" />
+          <Property Name="Id_Image" Type="Int32" />
           <NavigationProperty Name="ActiveSession" Relationship="Self.FK_ActiveSession_User" FromRole="User" ToRole="ActiveSession" />
           <NavigationProperty Name="ImageStockUser" Relationship="Self.FK_User_ImageStockUser" FromRole="User" ToRole="ImageStockUser" />
           <NavigationProperty Name="Order" Relationship="Self.FK_Order_User" FromRole="User" ToRole="Order" />
@@ -1368,7 +1368,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_User_Role">
-          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
           <End Role="User" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Role">
@@ -1427,7 +1427,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="TransporterBaseEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="TransporterBaseEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ActiveSession" EntityType="Self.ActiveSession" />
           <EntitySet Name="Address" EntityType="Self.Address" />
           <EntitySet Name="Component" EntityType="Self.Component" />
@@ -1581,7 +1581,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище TransporterBaseModelContainer" CdmEntityContainer="TransporterBaseEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище TransporterBaseModelContainer" CdmEntityContainer="TransporterBaseEntities1">
           <EntitySetMapping Name="ActiveSession">
             <EntityTypeMapping TypeName="TransporterBaseModel.ActiveSession">
               <MappingFragment StoreEntitySet="ActiveSession">

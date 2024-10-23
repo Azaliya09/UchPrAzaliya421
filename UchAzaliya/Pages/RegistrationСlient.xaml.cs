@@ -14,7 +14,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 using UchAzaliya.Bases;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace UchAzaliya.Pages
 {
@@ -73,7 +75,59 @@ namespace UchAzaliya.Pages
 
         private void DeleteImage_Click(object sender, RoutedEventArgs e)
         {
-            ProfileImage.Source = null;
+            ProfileImage.Source = new BitmapImage (new Uri("/Resorces/icon.png", UriKind.Relative));
+        }
+
+        private void SaveBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (LoginTb != null && PasswordTb != null && SurnameTb != null && NameTb != null && PatronymicTb != null)
+            {
+                if (addedImage != null)
+                {
+                    ImageStockUser newImage = new ImageStockUser()
+                    {
+                        ImageSource = addedImage.ImageSource,
+                    };
+                    App.Connection.ImageStockUser.Add(newImage);
+                    App.Connection.SaveChanges();
+                    int ProfileImage = newImage.Id_Image;
+                    User newUser = new User()
+                    {
+                        Login = LoginTb.Text,
+                        Password = PasswordTb.Text,
+                        Surname = SurnameTb.Text,
+                        Name = NameTb.Text,
+                        Patronymic = PatronymicTb.Text,
+                        Id_Role = 1,
+                        Id_Image = addedImage.Id_Image,
+                    };
+                    App.Connection.User.Add(newUser);
+                    App.Connection.SaveChanges();
+                }
+                else
+                {
+                    User newUser = new User()
+                    {
+                        Login = LoginTb.Text,
+                        Password = PasswordTb.Text,
+                        Surname = SurnameTb.Text,
+                        Name = NameTb.Text,
+                        Patronymic = PatronymicTb.Text,
+                    };
+                    App.Connection.User.Add(newUser);
+                    App.Connection.SaveChanges();
+                }
+                NavigationService.Navigate(new Authtorization());
+            }
+            else
+            {
+                MessageBox.Show("Не все поля заполнены!");
+            }
+        }
+
+        private void BackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Authtorization());
         }
     }
 }

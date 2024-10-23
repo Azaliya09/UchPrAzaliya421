@@ -15,7 +15,7 @@ namespace UchAzaliya
     /// </summary>
     public partial class App : Application
     {
-        public static TransporterBaseEntities Connection = new TransporterBaseEntities();
+        public static TransporterBaseEntities1 Connection = new TransporterBaseEntities1();
         public static User CorUser;
         public static Button ExitBtn;
     }

@@ -13,7 +13,7 @@
             <TextBlock FontSize="18" FontWeight="DemiBold" HorizontalAlignment="Center" Margin="0 20 0 10">Регистрация</TextBlock>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
                 <Border CornerRadius="100" BorderThickness="2" BorderBrush="Black" Width="80" Height="80">
-                    <Image  x:Name="ProfileImage" Stretch="Fill" Margin="-1.5,-2,0,0" Width="80" Height="80">
+                    <Image  x:Name="ProfileImage" Stretch="Fill" Margin="-1.5,-2,0,0" Width="80" Height="80" Source="/Resorces/icon.png">
                         <Image.Clip>
                             <EllipseGeometry RadiusX="35" RadiusY="35" Center="40,40"/>
                         </Image.Clip>
@@ -26,7 +26,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Margin="0 0 0 5">
                 <TextBlock Width="100">Фамилия:</TextBlock>
-                <TextBox x:Name="LastNameTb"></TextBox>
+                <TextBox x:Name="SurnameTb"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 5">
                 <TextBlock Width="100">Имя:</TextBlock>
@@ -45,8 +45,8 @@
                 <TextBox x:Name="PasswordTb"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
-                <Button x:Name="BackBtn" Width="100" Height="25" Margin="15">Назад</Button>
-                <Button Margin="10" Width="100"  Height="25" x:Name="SaveBtn">Сохранить</Button>
+                <Button x:Name="BackBtn" Width="100" Height="25" Margin="15" Click="BackBtn_Click">Назад</Button>
+                <Button Margin="10" Width="100"  Height="25" x:Name="SaveBtn" Click="SaveBtn_Click">Сохранить</Button>
             </StackPanel>
             </StackPanel>
 

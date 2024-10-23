@@ -13,10 +13,10 @@ namespace UchAzaliya.Bases
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TransporterBaseEntities : DbContext
+    public partial class TransporterBaseEntities1 : DbContext
     {
-        public TransporterBaseEntities()
-            : base("name=TransporterBaseEntities")
+        public TransporterBaseEntities1()
+            : base("name=TransporterBaseEntities1")
         {
         }
     
