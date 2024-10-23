@@ -34,7 +34,11 @@
                             </DataGrid.Columns>
                         </DataGrid>
                     </ScrollViewer>
-                    <Button x:Name="DeleteMBtn" Width="100">Удалить</Button>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Button x:Name="DeleteMBtn" Width="100">Удалить</Button>
+                        <Button x:Name="EditMBtn" Width="100">Изменить</Button>
+                        <Button x:Name="AddMBtn" Width="100">Добавить</Button>
+                    </StackPanel>
                 </StackPanel>
             </TabItem>
 
@@ -54,7 +58,12 @@
                             </DataGrid.Columns>
                         </DataGrid>
                     </ScrollViewer>
-                    <Button x:Name="DeleteCBtn" Width="100">Удалить</Button>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Button x:Name="DeleteCBtn" Width="100">Удалить</Button>
+                        <Button x:Name="EditCBtn" Width="100">Изменить</Button>
+                        <Button x:Name="AddCBtn" Width="100">Добавить</Button>
+                    </StackPanel>
+                    
                 </StackPanel>
             </TabItem>
         </TabControl>

@@ -35,8 +35,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -63,10 +72,114 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Bases\ActiveSession.cs">
+      <DependentUpon>ModelBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bases\Address.cs">
+      <DependentUpon>ModelBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bases\Component.cs">
+      <DependentUpon>ModelBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bases\ComponentProduct.cs">
+      <DependentUpon>ModelBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bases\ComponentType.cs">
+      <DependentUpon>ModelBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bases\CreatingProcess.cs">
+      <DependentUpon>ModelBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bases\Document.cs">
+      <DependentUpon>ModelBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bases\ImageStockComponent.cs">
+      <DependentUpon>ModelBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bases\ImageStockMaterial.cs">
+      <DependentUpon>ModelBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bases\ImageStockUser.cs">
+      <DependentUpon>ModelBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bases\Material.cs">
+      <DependentUpon>ModelBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bases\MaterialProduct.cs">
+      <DependentUpon>ModelBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bases\MaterialType.cs">
+      <DependentUpon>ModelBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bases\ModelBase.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelBase.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bases\ModelBase.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bases\ModelBase.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelBase.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Bases\Order.cs">
+      <DependentUpon>ModelBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bases\Product.cs">
+      <DependentUpon>ModelBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bases\ProductPart.cs">
+      <DependentUpon>ModelBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bases\Provider.cs">
+      <DependentUpon>ModelBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bases\Role.cs">
+      <DependentUpon>ModelBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bases\SizeObject.cs">
+      <DependentUpon>ModelBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bases\SizeType.cs">
+      <DependentUpon>ModelBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bases\Standart.cs">
+      <DependentUpon>ModelBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bases\sysdiagrams.cs">
+      <DependentUpon>ModelBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bases\TypeWorkstation.cs">
+      <DependentUpon>ModelBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bases\User.cs">
+      <DependentUpon>ModelBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bases\Worker.cs">
+      <DependentUpon>ModelBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bases\WorkerProcess.cs">
+      <DependentUpon>ModelBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bases\Workstation.cs">
+      <DependentUpon>ModelBase.tt</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\AddEditComponents.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AddEditMaterials.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AddEmployee.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -89,6 +202,12 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\AddEditComponents.xaml.cs">
+      <DependentUpon>AddEditComponents.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddEditMaterials.xaml.cs">
+      <DependentUpon>AddEditMaterials.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AddEmployee.xaml.cs">
       <DependentUpon>AddEmployee.xaml</DependentUpon>
     </Compile>
@@ -121,6 +240,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="Bases\ModelBase.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelBase.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Bases\ModelBase.edmx.diagram">
+      <DependentUpon>ModelBase.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -130,11 +257,25 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Bases\" />
     <Folder Include="Components\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resorces\Logo_Monochrome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Bases\ModelBase.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModelBase.Context.cs</LastGenOutput>
+      <DependentUpon>ModelBase.edmx</DependentUpon>
+    </Content>
+    <Content Include="Bases\ModelBase.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelBase.edmx</DependentUpon>
+      <LastGenOutput>ModelBase.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

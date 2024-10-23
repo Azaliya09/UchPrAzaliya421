@@ -23,3 +23,9 @@ C:\Users\user\Desktop\Uchebka\Uchebnaya_Azaliya\UchPrAzaliya421\UchAzaliya\obj\D
 C:\Users\user\Desktop\Uchebka\Uchebnaya_Azaliya\UchPrAzaliya421\UchAzaliya\obj\Debug\UchAzaliya.csproj.CoreCompileInputs.cache
 C:\Users\user\Desktop\Uchebka\Uchebnaya_Azaliya\UchPrAzaliya421\UchAzaliya\obj\Debug\UchAzaliya.exe
 C:\Users\user\Desktop\Uchebka\Uchebnaya_Azaliya\UchPrAzaliya421\UchAzaliya\obj\Debug\UchAzaliya.pdb
+C:\Users\user\Desktop\Uchebka\Uchebnaya_Azaliya\UchPrAzaliya421\UchAzaliya\obj\Debug\Pages\AddEditComponents.g.cs
+C:\Users\user\Desktop\Uchebka\Uchebnaya_Azaliya\UchPrAzaliya421\UchAzaliya\obj\Debug\Pages\AddEditMaterials.g.cs
+C:\Users\user\Desktop\Uchebka\Uchebnaya_Azaliya\UchPrAzaliya421\UchAzaliya\obj\Debug\Pages\AddEmployee.g.cs
+C:\Users\user\Desktop\Uchebka\Uchebnaya_Azaliya\UchPrAzaliya421\UchAzaliya\obj\Debug\Pages\AddEditComponents.baml
+C:\Users\user\Desktop\Uchebka\Uchebnaya_Azaliya\UchPrAzaliya421\UchAzaliya\obj\Debug\Pages\AddEditMaterials.baml
+C:\Users\user\Desktop\Uchebka\Uchebnaya_Azaliya\UchPrAzaliya421\UchAzaliya\obj\Debug\Pages\AddEmployee.baml
