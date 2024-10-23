@@ -5,6 +5,8 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using UchAzaliya.Bases;
 
 namespace UchAzaliya
 {
@@ -13,5 +15,8 @@ namespace UchAzaliya
     /// </summary>
     public partial class App : Application
     {
+        public static TransporterBaseEntities Connection = new TransporterBaseEntities();
+        public static User CorUser;
+        public static Button ExitBtn;
     }
 }

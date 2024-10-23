@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UchAzaliya"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" MinHeight="500" MinWidth="850" Height="500" Width="850">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="24*"/>
@@ -18,8 +18,8 @@
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center"  Grid.ColumnSpan="2">
-            <Button BorderThickness="2" BorderBrush="Black" Width="80" Margin="5"  x:Name="BackBTN">Назад</Button>
-            <Button BorderThickness="2" BorderBrush="Black" Width="80" x:Name="ExitBTN">Выход</Button>
+            <!--<Button BorderThickness="2" BorderBrush="Black" Width="80" Margin="5"  x:Name="BackBTN" Click="BackBTN_Click">Назад</Button>-->
+            <Button BorderThickness="2" BorderBrush="Black" Width="80" x:Name="ExitBTN" Click="ExitBTN_Click">Выход</Button>
         </StackPanel>
 
         <Frame x:Name="MyFrame" Grid.Row="1" NavigationUIVisibility="Hidden"></Frame>

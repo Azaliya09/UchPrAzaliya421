@@ -29,3 +29,12 @@ C:\Users\user\Desktop\Uchebka\Uchebnaya_Azaliya\UchPrAzaliya421\UchAzaliya\obj\D
 C:\Users\user\Desktop\Uchebka\Uchebnaya_Azaliya\UchPrAzaliya421\UchAzaliya\obj\Debug\Pages\AddEditComponents.baml
 C:\Users\user\Desktop\Uchebka\Uchebnaya_Azaliya\UchPrAzaliya421\UchAzaliya\obj\Debug\Pages\AddEditMaterials.baml
 C:\Users\user\Desktop\Uchebka\Uchebnaya_Azaliya\UchPrAzaliya421\UchAzaliya\obj\Debug\Pages\AddEmployee.baml
+C:\Users\user\Desktop\Uchebka\Uchebnaya_Azaliya\UchPrAzaliya421\UchAzaliya\bin\Debug\EntityFramework.dll
+C:\Users\user\Desktop\Uchebka\Uchebnaya_Azaliya\UchPrAzaliya421\UchAzaliya\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\user\Desktop\Uchebka\Uchebnaya_Azaliya\UchPrAzaliya421\UchAzaliya\bin\Debug\EntityFramework.xml
+C:\Users\user\Desktop\Uchebka\Uchebnaya_Azaliya\UchPrAzaliya421\UchAzaliya\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\user\Desktop\Uchebka\Uchebnaya_Azaliya\UchPrAzaliya421\UchAzaliya\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\user\Desktop\Uchebka\Uchebnaya_Azaliya\UchPrAzaliya421\UchAzaliya\obj\Debug\Pages\ForUser.g.cs
+C:\Users\user\Desktop\Uchebka\Uchebnaya_Azaliya\UchPrAzaliya421\UchAzaliya\obj\Debug\UchAzaliya_Content.g.cs
+C:\Users\user\Desktop\Uchebka\Uchebnaya_Azaliya\UchPrAzaliya421\UchAzaliya\obj\Debug\Pages\ForUser.baml
+C:\Users\user\Desktop\Uchebka\Uchebnaya_Azaliya\UchPrAzaliya421\UchAzaliya\obj\Debug\UchAzaliya.csproj.CopyComplete

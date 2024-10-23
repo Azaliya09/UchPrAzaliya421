@@ -1,0 +1,756 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище TransporterBaseModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ActiveSession">
+    <Key>
+      <PropertyRef Name="Login_User" />
+    </Key>
+    <Property Name="Login_User" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Computer_Number" Type="int" />
+  </EntityType>
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="Id_Address" />
+    </Key>
+    <Property Name="Id_Address" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" />
+    <Property Name="Street" Type="nvarchar" MaxLength="50" />
+    <Property Name="HouseNumber" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Component">
+    <Key>
+      <PropertyRef Name="Id_Component" />
+    </Key>
+    <Property Name="Id_Component" Type="int" Nullable="false" />
+    <Property Name="Name_Component" Type="nvarchar" MaxLength="50" />
+    <Property Name="Id_SizeType" Type="int" />
+    <Property Name="Count" Type="int" />
+    <Property Name="Name_Provider" Type="nvarchar" MaxLength="50" />
+    <Property Name="Id_Image" Type="int" />
+    <Property Name="Id_ComponentType" Type="int" />
+    <Property Name="Cost" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Weight" Type="int" />
+  </EntityType>
+  <EntityType Name="ComponentProduct">
+    <Key>
+      <PropertyRef Name="Id_CompProd" />
+    </Key>
+    <Property Name="Id_CompProd" Type="int" Nullable="false" />
+    <Property Name="Id_Component" Type="int" />
+    <Property Name="Id_Product" Type="int" />
+    <Property Name="Count" Type="int" />
+  </EntityType>
+  <EntityType Name="ComponentType">
+    <Key>
+      <PropertyRef Name="Id_ComponentType" />
+    </Key>
+    <Property Name="Id_ComponentType" Type="int" Nullable="false" />
+    <Property Name="Name_ComponentType" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CreatingProcess">
+    <Key>
+      <PropertyRef Name="Process_Name" />
+    </Key>
+    <Property Name="Number_Process" Type="int" Nullable="false" />
+    <Property Name="Id_Product" Type="int" Nullable="false" />
+    <Property Name="Process_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Id_Workstation" Type="int" />
+  </EntityType>
+  <EntityType Name="Document">
+    <Key>
+      <PropertyRef Name="Id_Document" />
+    </Key>
+    <Property Name="Id_Document" Type="int" Nullable="false" />
+    <Property Name="Type_Document" Type="nvarchar" MaxLength="50" />
+    <Property Name="Name_Document" Type="nvarchar" MaxLength="50" />
+    <Property Name="Id_Order" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ImageStockComponent">
+    <Key>
+      <PropertyRef Name="Id_Image" />
+    </Key>
+    <Property Name="Id_Image" Type="int" Nullable="false" />
+    <Property Name="Name_Image" Type="nvarchar" MaxLength="50" />
+    <Property Name="ImageSource" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="ImageStockMaterial">
+    <Key>
+      <PropertyRef Name="Id_Image" />
+    </Key>
+    <Property Name="Id_Image" Type="int" Nullable="false" />
+    <Property Name="Name_Image" Type="nvarchar" MaxLength="50" />
+    <Property Name="ImageSource" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="ImageStockUser">
+    <Key>
+      <PropertyRef Name="Id_Image" />
+    </Key>
+    <Property Name="Id_Image" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name_Image" Type="nvarchar" MaxLength="50" />
+    <Property Name="ImageSource" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Material">
+    <Key>
+      <PropertyRef Name="Id_Material" />
+    </Key>
+    <Property Name="Id_Material" Type="int" Nullable="false" />
+    <Property Name="Name_Material" Type="nvarchar" MaxLength="50" />
+    <Property Name="Id_SizeType" Type="int" />
+    <Property Name="Count" Type="int" />
+    <Property Name="Id_Provider" Type="int" />
+    <Property Name="Id_Image" Type="int" />
+    <Property Name="Id_TypeMaterial" Type="int" />
+    <Property Name="Cost_Material" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Length_Material" Type="int" />
+    <Property Name="Description_Material" Type="nvarchar" MaxLength="300" />
+    <Property Name="Id_Standart" Type="int" />
+  </EntityType>
+  <EntityType Name="MaterialProduct">
+    <Key>
+      <PropertyRef Name="Id_MatProd" />
+    </Key>
+    <Property Name="Id_MatProd" Type="int" Nullable="false" />
+    <Property Name="Id_Material" Type="int" />
+    <Property Name="Id_Product" Type="int" />
+    <Property Name="Count" Type="int" />
+  </EntityType>
+  <EntityType Name="MaterialType">
+    <Key>
+      <PropertyRef Name="Id_MaterialType" />
+    </Key>
+    <Property Name="Id_MaterialType" Type="int" Nullable="false" />
+    <Property Name="Name_MaterialType" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="Id_Order" />
+    </Key>
+    <Property Name="Id_Order" Type="int" Nullable="false" />
+    <Property Name="Name_Order" Type="nvarchar" MaxLength="50" />
+    <Property Name="DateStart" Type="date" />
+    <Property Name="DateEnd" Type="date" />
+    <Property Name="Id_Product" Type="int" Nullable="false" />
+    <Property Name="Id_Client" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Id_Manager" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cost" Type="decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id_Product" />
+    </Key>
+    <Property Name="Id_Product" Type="int" Nullable="false" />
+    <Property Name="Name_Product" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ProductPart">
+    <Key>
+      <PropertyRef Name="Id_Part" />
+      <PropertyRef Name="Id_Product" />
+    </Key>
+    <Property Name="Id_Part" Type="int" Nullable="false" />
+    <Property Name="Id_Product" Type="int" Nullable="false" />
+    <Property Name="Count" Type="int" />
+  </EntityType>
+  <EntityType Name="Provider">
+    <Key>
+      <PropertyRef Name="Name_Provider" />
+    </Key>
+    <Property Name="Name_Provider" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Id_Address" Type="int" />
+    <Property Name="DeliveryDate" Type="date" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id_Role" />
+    </Key>
+    <Property Name="Id_Role" Type="int" Nullable="false" />
+    <Property Name="Name_Role" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SizeObject">
+    <Key>
+      <PropertyRef Name="Id_SizeObject" />
+    </Key>
+    <Property Name="Id_SizeObject" Type="int" Nullable="false" />
+    <Property Name="Name_SizeObject" Type="nvarchar" MaxLength="50" />
+    <Property Name="Value_SizeObject" Type="float" />
+    <Property Name="Id_SizeType" Type="int" />
+    <Property Name="Id_Product" Type="int" />
+  </EntityType>
+  <EntityType Name="SizeType">
+    <Key>
+      <PropertyRef Name="Id_SizeType" />
+    </Key>
+    <Property Name="Id_SizeType" Type="int" Nullable="false" />
+    <Property Name="Name_SizeType" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Standart">
+    <Key>
+      <PropertyRef Name="Id_Standart" />
+    </Key>
+    <Property Name="Id_Standart" Type="int" Nullable="false" />
+    <Property Name="Name_Standart" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description_Standart" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TypeWorkstation">
+    <Key>
+      <PropertyRef Name="Id_Type" />
+    </Key>
+    <Property Name="Id_Type" Type="int" Nullable="false" />
+    <Property Name="Name_Type" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Login" />
+    </Key>
+    <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="50" />
+    <Property Name="Patronymic" Type="nvarchar" MaxLength="50" />
+    <Property Name="Id_Role" Type="int" Nullable="false" />
+    <Property Name="Id_Image" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Worker">
+    <Key>
+      <PropertyRef Name="Login" />
+    </Key>
+    <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateBorn" Type="date" />
+    <Property Name="Id_Address" Type="int" />
+    <Property Name="Education" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="WorkerProcess">
+    <Key>
+      <PropertyRef Name="Id_WorkProc" />
+    </Key>
+    <Property Name="Id_WorkProc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Login_Worker" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name_Process" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Workstation">
+    <Key>
+      <PropertyRef Name="Id_Workstation" />
+    </Key>
+    <Property Name="Id_Workstation" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="300" />
+    <Property Name="Id_TypeWorkstation" Type="int" />
+    <Property Name="Name__Workstation" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_ActiveSession_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="ActiveSession" Type="Self.ActiveSession" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Login" />
+      </Principal>
+      <Dependent Role="ActiveSession">
+        <PropertyRef Name="Login_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Component_ComponentType">
+    <End Role="ComponentType" Type="Self.ComponentType" Multiplicity="0..1" />
+    <End Role="Component" Type="Self.Component" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ComponentType">
+        <PropertyRef Name="Id_ComponentType" />
+      </Principal>
+      <Dependent Role="Component">
+        <PropertyRef Name="Id_ComponentType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Component_ImageStockComponent">
+    <End Role="ImageStockComponent" Type="Self.ImageStockComponent" Multiplicity="0..1" />
+    <End Role="Component" Type="Self.Component" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ImageStockComponent">
+        <PropertyRef Name="Id_Image" />
+      </Principal>
+      <Dependent Role="Component">
+        <PropertyRef Name="Id_Image" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Component_Provider">
+    <End Role="Provider" Type="Self.Provider" Multiplicity="0..1" />
+    <End Role="Component" Type="Self.Component" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provider">
+        <PropertyRef Name="Name_Provider" />
+      </Principal>
+      <Dependent Role="Component">
+        <PropertyRef Name="Name_Provider" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ComponentProduct_Component">
+    <End Role="Component" Type="Self.Component" Multiplicity="0..1" />
+    <End Role="ComponentProduct" Type="Self.ComponentProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Component">
+        <PropertyRef Name="Id_Component" />
+      </Principal>
+      <Dependent Role="ComponentProduct">
+        <PropertyRef Name="Id_Component" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ComponentProduct_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="ComponentProduct" Type="Self.ComponentProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id_Product" />
+      </Principal>
+      <Dependent Role="ComponentProduct">
+        <PropertyRef Name="Id_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CreatingProcess_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="CreatingProcess" Type="Self.CreatingProcess" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id_Product" />
+      </Principal>
+      <Dependent Role="CreatingProcess">
+        <PropertyRef Name="Id_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CreatingProcess_Workstation">
+    <End Role="Workstation" Type="Self.Workstation" Multiplicity="0..1" />
+    <End Role="CreatingProcess" Type="Self.CreatingProcess" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workstation">
+        <PropertyRef Name="Id_Workstation" />
+      </Principal>
+      <Dependent Role="CreatingProcess">
+        <PropertyRef Name="Id_Workstation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Document_Order">
+    <End Role="Order" Type="Self.Order" Multiplicity="1" />
+    <End Role="Document" Type="Self.Document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="Id_Order" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="Id_Order" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_ImageStockMaterial">
+    <End Role="ImageStockMaterial" Type="Self.ImageStockMaterial" Multiplicity="0..1" />
+    <End Role="Material" Type="Self.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ImageStockMaterial">
+        <PropertyRef Name="Id_Image" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="Id_Image" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_MaterialType">
+    <End Role="MaterialType" Type="Self.MaterialType" Multiplicity="0..1" />
+    <End Role="Material" Type="Self.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MaterialType">
+        <PropertyRef Name="Id_MaterialType" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="Id_TypeMaterial" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_SizeType">
+    <End Role="SizeType" Type="Self.SizeType" Multiplicity="0..1" />
+    <End Role="Material" Type="Self.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SizeType">
+        <PropertyRef Name="Id_SizeType" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="Id_SizeType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_Standart">
+    <End Role="Standart" Type="Self.Standart" Multiplicity="0..1" />
+    <End Role="Material" Type="Self.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Standart">
+        <PropertyRef Name="Id_Standart" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="Id_Standart" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MaterialProduct_Material">
+    <End Role="Material" Type="Self.Material" Multiplicity="0..1" />
+    <End Role="MaterialProduct" Type="Self.MaterialProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Material">
+        <PropertyRef Name="Id_Material" />
+      </Principal>
+      <Dependent Role="MaterialProduct">
+        <PropertyRef Name="Id_Material" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MaterialProduct_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="MaterialProduct" Type="Self.MaterialProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id_Product" />
+      </Principal>
+      <Dependent Role="MaterialProduct">
+        <PropertyRef Name="Id_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id_Product" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="Id_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Login" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="Id_Client" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_User1">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Login" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="Id_Manager" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductPart_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="ProductPart" Type="Self.ProductPart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id_Product" />
+      </Principal>
+      <Dependent Role="ProductPart">
+        <PropertyRef Name="Id_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductPart_Product1">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="ProductPart" Type="Self.ProductPart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id_Product" />
+      </Principal>
+      <Dependent Role="ProductPart">
+        <PropertyRef Name="Id_Part" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Provider_Address">
+    <End Role="Address" Type="Self.Address" Multiplicity="0..1" />
+    <End Role="Provider" Type="Self.Provider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="Id_Address" />
+      </Principal>
+      <Dependent Role="Provider">
+        <PropertyRef Name="Id_Address" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SizeObject_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="SizeObject" Type="Self.SizeObject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id_Product" />
+      </Principal>
+      <Dependent Role="SizeObject">
+        <PropertyRef Name="Id_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SizeObject_SizeType">
+    <End Role="SizeType" Type="Self.SizeType" Multiplicity="0..1" />
+    <End Role="SizeObject" Type="Self.SizeObject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SizeType">
+        <PropertyRef Name="Id_SizeType" />
+      </Principal>
+      <Dependent Role="SizeObject">
+        <PropertyRef Name="Id_SizeType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_ImageStockUser">
+    <End Role="ImageStockUser" Type="Self.ImageStockUser" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ImageStockUser">
+        <PropertyRef Name="Id_Image" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="Id_Role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id_Role" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="Id_Image" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Worker_Address">
+    <End Role="Address" Type="Self.Address" Multiplicity="0..1" />
+    <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="Id_Address" />
+      </Principal>
+      <Dependent Role="Worker">
+        <PropertyRef Name="Id_Address" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Worker_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Worker" Type="Self.Worker" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Login" />
+      </Principal>
+      <Dependent Role="Worker">
+        <PropertyRef Name="Login" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorkerProcess_CreatingProcess">
+    <End Role="CreatingProcess" Type="Self.CreatingProcess" Multiplicity="1" />
+    <End Role="WorkerProcess" Type="Self.WorkerProcess" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CreatingProcess">
+        <PropertyRef Name="Process_Name" />
+      </Principal>
+      <Dependent Role="WorkerProcess">
+        <PropertyRef Name="Name_Process" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorkerProcess_Worker">
+    <End Role="Worker" Type="Self.Worker" Multiplicity="1" />
+    <End Role="WorkerProcess" Type="Self.WorkerProcess" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Worker">
+        <PropertyRef Name="Login" />
+      </Principal>
+      <Dependent Role="WorkerProcess">
+        <PropertyRef Name="Login_Worker" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Workstation_TypeWorkstation">
+    <End Role="TypeWorkstation" Type="Self.TypeWorkstation" Multiplicity="0..1" />
+    <End Role="Workstation" Type="Self.Workstation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeWorkstation">
+        <PropertyRef Name="Id_Type" />
+      </Principal>
+      <Dependent Role="Workstation">
+        <PropertyRef Name="Id_TypeWorkstation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище TransporterBaseModelContainer">
+    <EntitySet Name="ActiveSession" EntityType="Self.ActiveSession" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Component" EntityType="Self.Component" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ComponentProduct" EntityType="Self.ComponentProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ComponentType" EntityType="Self.ComponentType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CreatingProcess" EntityType="Self.CreatingProcess" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Document" EntityType="Self.Document" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ImageStockComponent" EntityType="Self.ImageStockComponent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ImageStockMaterial" EntityType="Self.ImageStockMaterial" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ImageStockUser" EntityType="Self.ImageStockUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Material" EntityType="Self.Material" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MaterialProduct" EntityType="Self.MaterialProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MaterialType" EntityType="Self.MaterialType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductPart" EntityType="Self.ProductPart" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Provider" EntityType="Self.Provider" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SizeObject" EntityType="Self.SizeObject" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SizeType" EntityType="Self.SizeType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Standart" EntityType="Self.Standart" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TypeWorkstation" EntityType="Self.TypeWorkstation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Worker" EntityType="Self.Worker" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorkerProcess" EntityType="Self.WorkerProcess" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Workstation" EntityType="Self.Workstation" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ActiveSession_User" Association="Self.FK_ActiveSession_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="ActiveSession" EntitySet="ActiveSession" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Component_ComponentType" Association="Self.FK_Component_ComponentType">
+      <End Role="ComponentType" EntitySet="ComponentType" />
+      <End Role="Component" EntitySet="Component" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Component_ImageStockComponent" Association="Self.FK_Component_ImageStockComponent">
+      <End Role="ImageStockComponent" EntitySet="ImageStockComponent" />
+      <End Role="Component" EntitySet="Component" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Component_Provider" Association="Self.FK_Component_Provider">
+      <End Role="Provider" EntitySet="Provider" />
+      <End Role="Component" EntitySet="Component" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ComponentProduct_Component" Association="Self.FK_ComponentProduct_Component">
+      <End Role="Component" EntitySet="Component" />
+      <End Role="ComponentProduct" EntitySet="ComponentProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ComponentProduct_Product" Association="Self.FK_ComponentProduct_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="ComponentProduct" EntitySet="ComponentProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CreatingProcess_Product" Association="Self.FK_CreatingProcess_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="CreatingProcess" EntitySet="CreatingProcess" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CreatingProcess_Workstation" Association="Self.FK_CreatingProcess_Workstation">
+      <End Role="Workstation" EntitySet="Workstation" />
+      <End Role="CreatingProcess" EntitySet="CreatingProcess" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Document_Order" Association="Self.FK_Document_Order">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="Document" EntitySet="Document" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_ImageStockMaterial" Association="Self.FK_Material_ImageStockMaterial">
+      <End Role="ImageStockMaterial" EntitySet="ImageStockMaterial" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_MaterialType" Association="Self.FK_Material_MaterialType">
+      <End Role="MaterialType" EntitySet="MaterialType" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_SizeType" Association="Self.FK_Material_SizeType">
+      <End Role="SizeType" EntitySet="SizeType" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_Standart" Association="Self.FK_Material_Standart">
+      <End Role="Standart" EntitySet="Standart" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MaterialProduct_Material" Association="Self.FK_MaterialProduct_Material">
+      <End Role="Material" EntitySet="Material" />
+      <End Role="MaterialProduct" EntitySet="MaterialProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MaterialProduct_Product" Association="Self.FK_MaterialProduct_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="MaterialProduct" EntitySet="MaterialProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Product" Association="Self.FK_Order_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_User" Association="Self.FK_Order_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_User1" Association="Self.FK_Order_User1">
+      <End Role="User" EntitySet="User" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductPart_Product" Association="Self.FK_ProductPart_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="ProductPart" EntitySet="ProductPart" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductPart_Product1" Association="Self.FK_ProductPart_Product1">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="ProductPart" EntitySet="ProductPart" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Provider_Address" Association="Self.FK_Provider_Address">
+      <End Role="Address" EntitySet="Address" />
+      <End Role="Provider" EntitySet="Provider" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SizeObject_Product" Association="Self.FK_SizeObject_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="SizeObject" EntitySet="SizeObject" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SizeObject_SizeType" Association="Self.FK_SizeObject_SizeType">
+      <End Role="SizeType" EntitySet="SizeType" />
+      <End Role="SizeObject" EntitySet="SizeObject" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_ImageStockUser" Association="Self.FK_User_ImageStockUser">
+      <End Role="ImageStockUser" EntitySet="ImageStockUser" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Worker_Address" Association="Self.FK_Worker_Address">
+      <End Role="Address" EntitySet="Address" />
+      <End Role="Worker" EntitySet="Worker" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Worker_User" Association="Self.FK_Worker_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Worker" EntitySet="Worker" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorkerProcess_CreatingProcess" Association="Self.FK_WorkerProcess_CreatingProcess">
+      <End Role="CreatingProcess" EntitySet="CreatingProcess" />
+      <End Role="WorkerProcess" EntitySet="WorkerProcess" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorkerProcess_Worker" Association="Self.FK_WorkerProcess_Worker">
+      <End Role="Worker" EntitySet="Worker" />
+      <End Role="WorkerProcess" EntitySet="WorkerProcess" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Workstation_TypeWorkstation" Association="Self.FK_Workstation_TypeWorkstation">
+      <End Role="TypeWorkstation" EntitySet="TypeWorkstation" />
+      <End Role="Workstation" EntitySet="Workstation" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
