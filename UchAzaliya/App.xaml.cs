@@ -18,5 +18,6 @@ namespace UchAzaliya
         public static TransporterBaseEntities2 Connection = new TransporterBaseEntities2();
         public static User CorUser;
         public static Button ExitBtn;
+        public static MainWindow mainWindow;
     }
 }

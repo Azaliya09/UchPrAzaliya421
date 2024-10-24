@@ -27,6 +27,7 @@ namespace UchAzaliya
         {
             InitializeComponent();
             App.ExitBtn = ExitBTN;
+            App.mainWindow = this;
             if(App.CorUser == null)
             {
                 ExitBTN.Visibility = Visibility.Hidden;

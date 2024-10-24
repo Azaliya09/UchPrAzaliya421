@@ -18,10 +18,9 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Width="100">Роль:</TextBlock>
-                <ComboBox Margin="3 10" Width="180" x:Name="RoleCb"></ComboBox>
+                <ComboBox DisplayMemberPath="Name_Role" Margin="3 10" Width="180" x:Name="RoleCb"></ComboBox>
             </StackPanel>
-            <TextBlock FontSize="10" HorizontalAlignment="Center">*Выберите любую роль, кроме 'Заказчик'</TextBlock>
-            <Button Margin="20" x:Name="SaveBtn" Width="200" Height="20">Сохранить и продолжить</Button>
+            <Button Margin="20" x:Name="SaveBtn" Width="200" Height="20" Click="SaveBtn_Click">Сохранить и продолжить</Button>
         </StackPanel>
     </Grid>
 </Window>

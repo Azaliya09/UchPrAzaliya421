@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using UchAzaliya.Pages;
 using UchAzaliya.Bases;
+using UchAzaliya.Components;
 
 namespace UchAzaliya.Pages
 {
@@ -44,10 +45,10 @@ namespace UchAzaliya.Pages
         {
             try
             {
-                User user = App.Connection.User.FirstOrDefault(z => z.Login == LoginTb.Text &&  z.Password == PasswordPb.Password);
+                User user = App.Connection.User.FirstOrDefault(z => z.Login == LoginTb.Text && z.Password == PasswordPb.Password);
                 if (user != null)
                 {
-                    if(RememberCb.IsChecked == true)
+                    if (RememberCb.IsChecked == true)
                     {
                         ActiveSession session = new ActiveSession
                         {
@@ -56,7 +57,6 @@ namespace UchAzaliya.Pages
                         };
                         App.Connection.ActiveSession.Add(session);
                         App.Connection.SaveChanges();
-
                     }
                     App.CorUser = user;
                     MessageBox.Show($"Добро пожаловать \n {user.Name}", "Добрый день", MessageBoxButton.OK, MessageBoxImage.Information);

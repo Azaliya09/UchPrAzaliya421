@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml.Linq;
 using UchAzaliya.Bases;
+using UchAzaliya.Components;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace UchAzaliya.Pages
@@ -80,6 +81,11 @@ namespace UchAzaliya.Pages
 
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
+            if (!PasswordValidator.IsValidPassword(PasswordTb.Text))
+            {
+                MessageBox.Show("Пароль не соответствует требованиям!");
+                return;
+            }
             if (LoginTb != null && PasswordTb != null && SurnameTb != null && NameTb != null && PatronymicTb != null)
             {
                 if (addedImage != null)

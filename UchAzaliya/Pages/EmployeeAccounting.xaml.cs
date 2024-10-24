@@ -1,21 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Xml.Linq;
 using UchAzaliya.Bases;
-
-
+using UchAzaliya.Windows;
 
 namespace UchAzaliya.Pages
 {
@@ -33,11 +21,36 @@ namespace UchAzaliya.Pages
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
-            
+            User user = new User();
+            Worker worker = new Worker() { IsDeleted = false};
+            Address address = new Address();
 
-            App.Connection.SaveChanges();
-            MessageBox.Show("Работник добавлен");
-            NavigationService.Navigate(new EmployeeAccounting());
+            string[] FIO = FullNameTb.Text.Split(' ');
+            if (FIO.Length < 3)
+            {
+                MessageBox.Show("ФИО не заполнили полностью!");
+                return;
+            }
+            user.Name = FIO[0];
+            user.Surname = FIO[1];
+            user.Patronymic = FIO[2];
+
+            worker.DateBorn = DateB.SelectedDate;
+
+            string[] AddressS = AddressTb.Text.Split(' ');
+            if (AddressS.Length < 3)
+            {
+                MessageBox.Show("Адрес не заполнили полностью!");
+                return;
+            }
+            address.City = AddressS[0];
+            address.Street = AddressS[1];
+            address.HouseNumber = AddressS[2];
+
+            worker.Education = EducationTb.Text;
+            worker.Qualification = QualificationTb.Text;
+
+            new RegUserWindow(user, worker, address).ShowDialog();
         }
 
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)
