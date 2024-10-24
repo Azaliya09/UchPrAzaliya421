@@ -17,7 +17,7 @@
     <Property Name="Street" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="HouseNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Provider" Relationship="Self.FK_Provider_Address" FromRole="Address" ToRole="Provider" />
-    <NavigationProperty Name="Worker" Relationship="Self.FK_Worker_Address" FromRole="Address" ToRole="Worker" />
+    <NavigationProperty Name="Worker" Relationship="TransporterBaseModel.FK_Worker_Address" FromRole="Address" ToRole="Worker" />
   </EntityType>
   <EntityType Name="Component">
     <Key>
@@ -203,7 +203,7 @@
     </Key>
     <Property Name="Id_Role" Type="Int32" Nullable="false" />
     <Property Name="Name_Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="User" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
+    <NavigationProperty Name="User" Relationship="Self.FK_User_Role1" FromRole="Role" ToRole="User" />
   </EntityType>
   <EntityType Name="SizeObject">
     <Key>
@@ -263,25 +263,13 @@
     <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Id_Role" Type="Int32" Nullable="false" />
-    <Property Name="Id_Image" Type="Int32" />
+    <Property Name="Id_Image" Type="Int32" Nullable="false" />
     <NavigationProperty Name="ActiveSession" Relationship="Self.FK_ActiveSession_User" FromRole="User" ToRole="ActiveSession" />
     <NavigationProperty Name="ImageStockUser" Relationship="Self.FK_User_ImageStockUser" FromRole="User" ToRole="ImageStockUser" />
     <NavigationProperty Name="Order" Relationship="Self.FK_Order_User" FromRole="User" ToRole="Order" />
     <NavigationProperty Name="Order1" Relationship="Self.FK_Order_User1" FromRole="User" ToRole="Order" />
-    <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
-    <NavigationProperty Name="Worker" Relationship="Self.FK_Worker_User" FromRole="User" ToRole="Worker" />
-  </EntityType>
-  <EntityType Name="Worker">
-    <Key>
-      <PropertyRef Name="Login" />
-    </Key>
-    <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="DateBorn" Type="DateTime" Precision="0" />
-    <Property Name="Id_Address" Type="Int32" />
-    <Property Name="Education" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Address" Relationship="Self.FK_Worker_Address" FromRole="Worker" ToRole="Address" />
-    <NavigationProperty Name="User" Relationship="Self.FK_Worker_User" FromRole="Worker" ToRole="User" />
-    <NavigationProperty Name="WorkerProcess" Relationship="Self.FK_WorkerProcess_Worker" FromRole="Worker" ToRole="WorkerProcess" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_User_Role1" FromRole="User" ToRole="Role" />
+    <NavigationProperty Name="Worker" Relationship="TransporterBaseModel.FK_Worker_User" FromRole="User" ToRole="Worker" />
   </EntityType>
   <EntityType Name="WorkerProcess">
     <Key>
@@ -291,7 +279,7 @@
     <Property Name="Login_Worker" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Name_Process" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="CreatingProcess" Relationship="Self.FK_WorkerProcess_CreatingProcess" FromRole="WorkerProcess" ToRole="CreatingProcess" />
-    <NavigationProperty Name="Worker" Relationship="Self.FK_WorkerProcess_Worker" FromRole="WorkerProcess" ToRole="Worker" />
+    <NavigationProperty Name="Worker" Relationship="TransporterBaseModel.FK_WorkerProcess_Worker" FromRole="WorkerProcess" ToRole="Worker" />
   </EntityType>
   <EntityType Name="Workstation">
     <Key>
@@ -324,18 +312,6 @@
         <PropertyRef Name="Id_Address" />
       </Principal>
       <Dependent Role="Provider">
-        <PropertyRef Name="Id_Address" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Worker_Address">
-    <End Role="Address" Type="Self.Address" Multiplicity="0..1" />
-    <End Role="Worker" Type="Self.Worker" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Address">
-        <PropertyRef Name="Id_Address" />
-      </Principal>
-      <Dependent Role="Worker">
         <PropertyRef Name="Id_Address" />
       </Dependent>
     </ReferentialConstraint>
@@ -604,15 +580,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_User_Role">
-    <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+  <Association Name="FK_User_Role1">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
     <End Role="User" Type="Self.User" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Role">
         <PropertyRef Name="Id_Role" />
       </Principal>
       <Dependent Role="User">
-        <PropertyRef Name="Id_Image" />
+        <PropertyRef Name="Id_Role" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -640,31 +616,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Worker_User">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="Worker" Type="Self.Worker" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Login" />
-      </Principal>
-      <Dependent Role="Worker">
-        <PropertyRef Name="Login" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_WorkerProcess_Worker">
-    <End Role="Worker" Type="Self.Worker" Multiplicity="1" />
-    <End Role="WorkerProcess" Type="Self.WorkerProcess" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Worker">
-        <PropertyRef Name="Login" />
-      </Principal>
-      <Dependent Role="WorkerProcess">
-        <PropertyRef Name="Login_Worker" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityContainer Name="TransporterBaseEntities1" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="TransporterBaseEntities2" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="ActiveSession" EntityType="Self.ActiveSession" />
     <EntitySet Name="Address" EntityType="Self.Address" />
     <EntitySet Name="Component" EntityType="Self.Component" />
@@ -689,7 +641,6 @@
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="TypeWorkstation" EntityType="Self.TypeWorkstation" />
     <EntitySet Name="User" EntityType="Self.User" />
-    <EntitySet Name="Worker" EntityType="Self.Worker" />
     <EntitySet Name="WorkerProcess" EntityType="Self.WorkerProcess" />
     <EntitySet Name="Workstation" EntityType="Self.Workstation" />
     <AssociationSet Name="FK_ActiveSession_User" Association="Self.FK_ActiveSession_User">
@@ -699,10 +650,6 @@
     <AssociationSet Name="FK_Provider_Address" Association="Self.FK_Provider_Address">
       <End Role="Address" EntitySet="Address" />
       <End Role="Provider" EntitySet="Provider" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Worker_Address" Association="Self.FK_Worker_Address">
-      <End Role="Address" EntitySet="Address" />
-      <End Role="Worker" EntitySet="Worker" />
     </AssociationSet>
     <AssociationSet Name="FK_Component_ComponentType" Association="Self.FK_Component_ComponentType">
       <End Role="ComponentType" EntitySet="ComponentType" />
@@ -792,7 +739,7 @@
       <End Role="Product" EntitySet="Product" />
       <End Role="SizeObject" EntitySet="SizeObject" />
     </AssociationSet>
-    <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+    <AssociationSet Name="FK_User_Role1" Association="Self.FK_User_Role1">
       <End Role="Role" EntitySet="Role" />
       <End Role="User" EntitySet="User" />
     </AssociationSet>
@@ -804,13 +751,72 @@
       <End Role="TypeWorkstation" EntitySet="TypeWorkstation" />
       <End Role="Workstation" EntitySet="Workstation" />
     </AssociationSet>
-    <AssociationSet Name="FK_Worker_User" Association="Self.FK_Worker_User">
+    <EntitySet Name="Worker" EntityType="TransporterBaseModel.Worker" />
+    <AssociationSet Name="FK_Worker_Address" Association="TransporterBaseModel.FK_Worker_Address">
+      <End Role="Address" EntitySet="Address" />
+      <End Role="Worker" EntitySet="Worker" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Worker_User" Association="TransporterBaseModel.FK_Worker_User">
       <End Role="User" EntitySet="User" />
       <End Role="Worker" EntitySet="Worker" />
     </AssociationSet>
-    <AssociationSet Name="FK_WorkerProcess_Worker" Association="Self.FK_WorkerProcess_Worker">
+    <AssociationSet Name="FK_WorkerProcess_Worker" Association="TransporterBaseModel.FK_WorkerProcess_Worker">
       <End Role="Worker" EntitySet="Worker" />
       <End Role="WorkerProcess" EntitySet="WorkerProcess" />
     </AssociationSet>
   </EntityContainer>
+  <EntityType Name="Worker">
+    <Key>
+      <PropertyRef Name="Login" />
+    </Key>
+    <Property Name="Login" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DateBorn" Type="DateTime" Precision="0" />
+    <Property Name="Id_Address" Type="Int32" />
+    <Property Name="Education" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Qualification" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="Address" Relationship="TransporterBaseModel.FK_Worker_Address" FromRole="Worker" ToRole="Address" />
+    <NavigationProperty Name="User" Relationship="TransporterBaseModel.FK_Worker_User" FromRole="Worker" ToRole="User" />
+    <NavigationProperty Name="WorkerProcess" Relationship="TransporterBaseModel.FK_WorkerProcess_Worker" FromRole="Worker" ToRole="WorkerProcess" />
+  </EntityType>
+  <Association Name="FK_Worker_Address">
+    <End Type="TransporterBaseModel.Address" Role="Address" Multiplicity="0..1" />
+    <End Type="TransporterBaseModel.Worker" Role="Worker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="Id_Address" />
+      </Principal>
+      <Dependent Role="Worker">
+        <PropertyRef Name="Id_Address" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Worker_User">
+    <End Type="TransporterBaseModel.User" Role="User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="TransporterBaseModel.Worker" Role="Worker" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Login" />
+      </Principal>
+      <Dependent Role="Worker">
+        <PropertyRef Name="Login" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorkerProcess_Worker">
+    <End Type="TransporterBaseModel.Worker" Role="Worker" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="TransporterBaseModel.WorkerProcess" Role="WorkerProcess" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Worker">
+        <PropertyRef Name="Login" />
+      </Principal>
+      <Dependent Role="WorkerProcess">
+        <PropertyRef Name="Login_Worker" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

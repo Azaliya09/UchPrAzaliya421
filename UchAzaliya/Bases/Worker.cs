@@ -24,6 +24,8 @@ namespace UchAzaliya.Bases
         public Nullable<System.DateTime> DateBorn { get; set; }
         public Nullable<int> Id_Address { get; set; }
         public string Education { get; set; }
+        public string Qualification { get; set; }
+        public Nullable<bool> IsDeleted { get; set; }
     
         public virtual Address Address { get; set; }
         public virtual User User { get; set; }

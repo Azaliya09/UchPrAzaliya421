@@ -98,7 +98,7 @@ namespace UchAzaliya.Pages
                         Surname = SurnameTb.Text,
                         Name = NameTb.Text,
                         Patronymic = PatronymicTb.Text,
-                        Id_Role = 1,
+                        Id_Role = 4,
                         Id_Image = addedImage.Id_Image,
                     };
                     App.Connection.User.Add(newUser);

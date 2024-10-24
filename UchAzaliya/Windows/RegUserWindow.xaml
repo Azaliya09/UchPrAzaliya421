@@ -1,0 +1,27 @@
+﻿<Window x:Class="UchAzaliya.Windows.RegUserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UchAzaliya.Windows"
+        mc:Ignorable="d"
+        Title="" Height="250" Width="400" Background="#FFFEF9DE">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" Margin="0 0 0 5">
+                <TextBlock Width="100">Логин:</TextBlock>
+                <TextBox x:Name="LoginTb"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Width="100">Пароль:</TextBlock>
+                <TextBox x:Name="PasswordTb"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Width="100">Роль:</TextBlock>
+                <ComboBox Margin="3 10" Width="180" x:Name="RoleCb"></ComboBox>
+            </StackPanel>
+            <TextBlock FontSize="10" HorizontalAlignment="Center">*Выберите любую роль, кроме 'Заказчик'</TextBlock>
+            <Button Margin="20" x:Name="SaveBtn" Width="200" Height="20">Сохранить и продолжить</Button>
+        </StackPanel>
+    </Grid>
+</Window>

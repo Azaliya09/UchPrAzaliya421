@@ -9,6 +9,8 @@
       Title="ForUser" Background="#FFFEF9DE">
 
     <Grid>
-        
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button   x:Name="ListEmpl" Width="130" Height="30" Click="ListEmpl_Click">Учет работников</Button>
+        </StackPanel>
     </Grid>
 </Page>

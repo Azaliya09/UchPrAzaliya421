@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace UchAzaliya.Pages
+namespace UchAzaliya.Windows
 {
     /// <summary>
-    /// Логика взаимодействия для AddEmployee.xaml
+    /// Логика взаимодействия для RegUserWindow.xaml
     /// </summary>
-    public partial class AddEmployee : Page
+    public partial class RegUserWindow : Window
     {
-        public AddEmployee()
+        public RegUserWindow()
         {
             InitializeComponent();
         }

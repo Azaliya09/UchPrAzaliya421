@@ -32,5 +32,10 @@ namespace UchAzaliya.Pages
                 App.ExitBtn.Visibility = Visibility.Visible;
             }
         }
+
+        private void ListEmpl_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new EmployeeAccounting());
+        }
     }
 }

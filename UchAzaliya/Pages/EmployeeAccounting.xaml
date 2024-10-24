@@ -7,55 +7,77 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="EmployeeAccounting" Background="#FFFEF9DE">
-
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="300*"/>
             <ColumnDefinition Width="500*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel>
-            <TextBlock FontSize="18" FontWeight="DemiBold" HorizontalAlignment="Center" Margin="0 20 0 10">Учет работников</TextBlock>
+        <Ellipse Grid.Column="1" Fill="#FFBB0C07" Width="40" Height="40" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10"/>
+        <Viewbox  Grid.Column="1" Width="40" Height="40" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="20 10">
+            <TextBlock  ToolTip="Для удаления/редактирования выберите элемент из списка"  Text="?" Foreground="White" TextAlignment="Center" />
+        </Viewbox>
 
-            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Margin="0 0 0 5">
-                <TextBlock Width="110">ФИО:</TextBlock>
-                <TextBox x:Name="FullNameTb"></TextBox>
+        <StackPanel>
+            <StackPanel x:Name="STPworker">
+                 <TextBlock FontSize="18" FontWeight="DemiBold" HorizontalAlignment="Center" Margin="0 20 0 10">Учет работников</TextBlock>
+                <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Margin="0 0 0 5">
+                    <TextBlock Width="110">ФИО:</TextBlock>
+                    <TextBox TextWrapping="Wrap"  Text="{Binding FullName}" x:Name="FullNameTb"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 5">
+                    <TextBlock Width="110">Дата <LineBreak/> рождения:</TextBlock>
+                    <DatePicker Text="{Binding DateBorn}" x:Name="DateB" Width="180" Height="30" Margin="3"></DatePicker>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 5">
+                    <TextBlock Width="110">Домашний <LineBreak/> адрес:</TextBlock>
+                    <TextBox TextWrapping="Wrap" Text="{Binding FullAddress}" x:Name="AddressTb"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 5">
+                    <TextBlock Width="110">Образование:</TextBlock>
+                    <TextBox TextWrapping="Wrap"  Text="{Binding Education}" x:Name="EducationTb"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 5">
+                    <TextBlock Width="110">Квалификация:</TextBlock>
+                    <TextBox TextWrapping="Wrap"  Text="{Binding Qualification}" x:Name="QualificationTb"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 5">
+                    <TextBlock Width="110" VerticalAlignment="Top">Операции:</TextBlock>
+                    <TextBox TextWrapping="Wrap"  Text="{Binding Operations}" x:Name="OperationsTb" Height="140"/>
+                </StackPanel>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 5">
-                <TextBlock Width="110">Дата <LineBreak/> рождения:</TextBlock>
-                <DatePicker x:Name="DateBorn" Width="180" Height="30" Margin="3"></DatePicker>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="ClearBtn" Width="130" Height="25" Margin="10 5" Click="ClearBtn_Click">Очистить поля</Button>
+                <Button x:Name="EditBtn" Width="130" Height="25" Margin="10 5" Click="EditBtn_Click">Редактировать</Button>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 5">
-                <TextBlock Width="110">Домашний <LineBreak/> адрес:</TextBlock>
-                <TextBox x:Name="AddressTb"></TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 5">
-                <TextBlock Width="110">Образование:</TextBlock>
-                <TextBox x:Name="EducationTb"></TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 5">
-                <TextBlock Width="110">Квалификация:</TextBlock>
-                <TextBox x:Name="QualificationTb"></TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 5">
-                <TextBlock Width="110" VerticalAlignment="Top">Операции:</TextBlock>
-                <TextBox x:Name="OperationsTb" Height="140"></TextBox>
-            </StackPanel>
+
         </StackPanel>
-        <StackPanel Grid.Column="1">
-            <ScrollViewer Height="400">
-                <ListView x:Name="WorkersListView">
+        <StackPanel Grid.Column="1" Margin="10" VerticalAlignment="Bottom">
+            <ScrollViewer Height="350">
+                <ListView x:Name="WorkersListView" SelectionChanged="WorkersListView_SelectionChanged">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Фамилия" Width="150" DisplayMemberBinding="{Binding FullName}" />
-                            <GridViewColumn Header="Возраст" Width="100" DisplayMemberBinding="{Binding Age}" />
-                            <GridViewColumn Header="Операции" Width="250" DisplayMemberBinding="{Binding ProductionOperations}" />
+                            <GridViewColumn Header="Фамилия" Width="150">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding User.Name}" TextWrapping="Wrap" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Возраст" Width="70" DisplayMemberBinding="{Binding Age}" />
+                            <GridViewColumn Header="Операции" Width="250">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Operations}" TextWrapping="Wrap" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
                         </GridView>
                     </ListView.View>
                 </ListView>
             </ScrollViewer>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button x:Name="AddBtn" Width="180">Добавить работника</Button>
-                <Button x:Name="DeleteBtn" Width="180">Удалить работника</Button>
+                <Button x:Name="AddBtn" Width="180" Height="25" Click="AddBtn_Click">Добавить работника</Button>
+                <Button x:Name="DeleteBtn" Width="180" Height="25" Click="DeleteBtn_Click">Удалить работника</Button>
             </StackPanel>
         </StackPanel>
 

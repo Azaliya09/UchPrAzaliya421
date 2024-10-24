@@ -24,5 +24,35 @@ namespace UchAzaliya.Pages
         {
             InitializeComponent();
         }
+
+        private void EditMBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddEditMaterials());
+        }
+
+        private void AddMBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddEditMaterials());
+        }
+
+        private void DeleteMBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //pam-pam
+        }
+
+        private void EditCBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddEditComponents());
+        }
+
+        private void AddCBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddEditComponents());
+        }
+
+        private void DeleteCBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //pohgf
+        }
     }
 }

@@ -13,10 +13,10 @@ namespace UchAzaliya.Bases
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TransporterBaseEntities1 : DbContext
+    public partial class TransporterBaseEntities2 : DbContext
     {
-        public TransporterBaseEntities1()
-            : base("name=TransporterBaseEntities1")
+        public TransporterBaseEntities2()
+            : base("name=TransporterBaseEntities2")
         {
         }
     
@@ -49,8 +49,8 @@ namespace UchAzaliya.Bases
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<TypeWorkstation> TypeWorkstation { get; set; }
         public virtual DbSet<User> User { get; set; }
-        public virtual DbSet<Worker> Worker { get; set; }
         public virtual DbSet<WorkerProcess> WorkerProcess { get; set; }
         public virtual DbSet<Workstation> Workstation { get; set; }
+        public virtual DbSet<Worker> Worker { get; set; }
     }
 }

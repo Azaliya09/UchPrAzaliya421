@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Хранилище TransporterBaseModelContainer" CdmEntityContainer="TransporterBaseEntities1">
+  <EntityContainerMapping StorageEntityContainer="Хранилище TransporterBaseModelContainer" CdmEntityContainer="TransporterBaseEntities2">
     <EntitySetMapping Name="ActiveSession">
       <EntityTypeMapping TypeName="TransporterBaseModel.ActiveSession">
         <MappingFragment StoreEntitySet="ActiveSession">
@@ -242,16 +242,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Worker">
-      <EntityTypeMapping TypeName="TransporterBaseModel.Worker">
-        <MappingFragment StoreEntitySet="Worker">
-          <ScalarProperty Name="Login" ColumnName="Login" />
-          <ScalarProperty Name="DateBorn" ColumnName="DateBorn" />
-          <ScalarProperty Name="Id_Address" ColumnName="Id_Address" />
-          <ScalarProperty Name="Education" ColumnName="Education" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="WorkerProcess">
       <EntityTypeMapping TypeName="TransporterBaseModel.WorkerProcess">
         <MappingFragment StoreEntitySet="WorkerProcess">
@@ -268,6 +258,18 @@
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Id_TypeWorkstation" ColumnName="Id_TypeWorkstation" />
           <ScalarProperty Name="Name__Workstation" ColumnName="Name__Workstation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Worker">
+      <EntityTypeMapping TypeName="TransporterBaseModel.Worker">
+        <MappingFragment StoreEntitySet="Worker">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+          <ScalarProperty Name="Education" ColumnName="Education" />
+          <ScalarProperty Name="Id_Address" ColumnName="Id_Address" />
+          <ScalarProperty Name="DateBorn" ColumnName="DateBorn" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

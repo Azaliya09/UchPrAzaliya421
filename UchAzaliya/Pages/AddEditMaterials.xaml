@@ -9,6 +9,8 @@
       Title="AddEditMaterials" Background="#FFFEF9DE">
 
     <Grid>
-        
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            
+        </StackPanel>
     </Grid>
 </Page>

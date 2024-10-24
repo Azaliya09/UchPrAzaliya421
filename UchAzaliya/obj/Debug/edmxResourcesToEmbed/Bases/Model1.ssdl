@@ -216,7 +216,7 @@
     <Property Name="Surname" Type="nvarchar" MaxLength="50" />
     <Property Name="Patronymic" Type="nvarchar" MaxLength="50" />
     <Property Name="Id_Role" Type="int" Nullable="false" />
-    <Property Name="Id_Image" Type="int" />
+    <Property Name="Id_Image" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Worker">
     <Key>
@@ -226,6 +226,8 @@
     <Property Name="DateBorn" Type="date" />
     <Property Name="Id_Address" Type="int" />
     <Property Name="Education" Type="nvarchar" MaxLength="50" />
+    <Property Name="Qualification" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsDeleted" Type="bit" />
   </EntityType>
   <EntityType Name="WorkerProcess">
     <Key>
@@ -532,15 +534,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_User_Role">
-    <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+  <Association Name="FK_User_Role1">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
     <End Role="User" Type="Self.User" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Role">
         <PropertyRef Name="Id_Role" />
       </Principal>
       <Dependent Role="User">
-        <PropertyRef Name="Id_Image" />
+        <PropertyRef Name="Id_Role" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -557,7 +559,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Worker_User">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Worker" Type="Self.Worker" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="User">
@@ -581,7 +585,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_WorkerProcess_Worker">
-    <End Role="Worker" Type="Self.Worker" Multiplicity="1" />
+    <End Role="Worker" Type="Self.Worker" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="WorkerProcess" Type="Self.WorkerProcess" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Worker">
@@ -728,7 +734,7 @@
       <End Role="ImageStockUser" EntitySet="ImageStockUser" />
       <End Role="User" EntitySet="User" />
     </AssociationSet>
-    <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+    <AssociationSet Name="FK_User_Role1" Association="Self.FK_User_Role1">
       <End Role="Role" EntitySet="Role" />
       <End Role="User" EntitySet="User" />
     </AssociationSet>
