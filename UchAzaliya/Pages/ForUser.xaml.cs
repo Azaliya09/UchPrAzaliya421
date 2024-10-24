@@ -37,5 +37,10 @@ namespace UchAzaliya.Pages
         {
             NavigationService.Navigate(new EmployeeAccounting());
         }
+
+        private void MatComp_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new MaterialsComponentsAccounting());
+        }
     }
 }

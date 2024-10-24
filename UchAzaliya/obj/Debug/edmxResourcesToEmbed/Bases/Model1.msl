@@ -19,31 +19,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Component">
-      <EntityTypeMapping TypeName="TransporterBaseModel.Component">
-        <MappingFragment StoreEntitySet="Component">
-          <ScalarProperty Name="Id_Component" ColumnName="Id_Component" />
-          <ScalarProperty Name="Name_Component" ColumnName="Name_Component" />
-          <ScalarProperty Name="Id_SizeType" ColumnName="Id_SizeType" />
-          <ScalarProperty Name="Count" ColumnName="Count" />
-          <ScalarProperty Name="Name_Provider" ColumnName="Name_Provider" />
-          <ScalarProperty Name="Id_Image" ColumnName="Id_Image" />
-          <ScalarProperty Name="Id_ComponentType" ColumnName="Id_ComponentType" />
-          <ScalarProperty Name="Cost" ColumnName="Cost" />
-          <ScalarProperty Name="Weight" ColumnName="Weight" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ComponentProduct">
-      <EntityTypeMapping TypeName="TransporterBaseModel.ComponentProduct">
-        <MappingFragment StoreEntitySet="ComponentProduct">
-          <ScalarProperty Name="Id_CompProd" ColumnName="Id_CompProd" />
-          <ScalarProperty Name="Id_Component" ColumnName="Id_Component" />
-          <ScalarProperty Name="Id_Product" ColumnName="Id_Product" />
-          <ScalarProperty Name="Count" ColumnName="Count" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ComponentType">
       <EntityTypeMapping TypeName="TransporterBaseModel.ComponentType">
         <MappingFragment StoreEntitySet="ComponentType">
@@ -99,33 +74,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Material">
-      <EntityTypeMapping TypeName="TransporterBaseModel.Material">
-        <MappingFragment StoreEntitySet="Material">
-          <ScalarProperty Name="Id_Material" ColumnName="Id_Material" />
-          <ScalarProperty Name="Name_Material" ColumnName="Name_Material" />
-          <ScalarProperty Name="Id_SizeType" ColumnName="Id_SizeType" />
-          <ScalarProperty Name="Count" ColumnName="Count" />
-          <ScalarProperty Name="Id_Provider" ColumnName="Id_Provider" />
-          <ScalarProperty Name="Id_Image" ColumnName="Id_Image" />
-          <ScalarProperty Name="Id_TypeMaterial" ColumnName="Id_TypeMaterial" />
-          <ScalarProperty Name="Cost_Material" ColumnName="Cost_Material" />
-          <ScalarProperty Name="Length_Material" ColumnName="Length_Material" />
-          <ScalarProperty Name="Description_Material" ColumnName="Description_Material" />
-          <ScalarProperty Name="Id_Standart" ColumnName="Id_Standart" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="MaterialProduct">
-      <EntityTypeMapping TypeName="TransporterBaseModel.MaterialProduct">
-        <MappingFragment StoreEntitySet="MaterialProduct">
-          <ScalarProperty Name="Id_MatProd" ColumnName="Id_MatProd" />
-          <ScalarProperty Name="Id_Material" ColumnName="Id_Material" />
-          <ScalarProperty Name="Id_Product" ColumnName="Id_Product" />
-          <ScalarProperty Name="Count" ColumnName="Count" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="MaterialType">
       <EntityTypeMapping TypeName="TransporterBaseModel.MaterialType">
         <MappingFragment StoreEntitySet="MaterialType">
@@ -162,15 +110,6 @@
           <ScalarProperty Name="Id_Part" ColumnName="Id_Part" />
           <ScalarProperty Name="Id_Product" ColumnName="Id_Product" />
           <ScalarProperty Name="Count" ColumnName="Count" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Provider">
-      <EntityTypeMapping TypeName="TransporterBaseModel.Provider">
-        <MappingFragment StoreEntitySet="Provider">
-          <ScalarProperty Name="Name_Provider" ColumnName="Name_Provider" />
-          <ScalarProperty Name="Id_Address" ColumnName="Id_Address" />
-          <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -270,6 +209,67 @@
           <ScalarProperty Name="Id_Address" ColumnName="Id_Address" />
           <ScalarProperty Name="DateBorn" ColumnName="DateBorn" />
           <ScalarProperty Name="Login" ColumnName="Login" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Component">
+      <EntityTypeMapping TypeName="TransporterBaseModel.Component">
+        <MappingFragment StoreEntitySet="Component">
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Id_ComponentType" ColumnName="Id_ComponentType" />
+          <ScalarProperty Name="Id_Image" ColumnName="Id_Image" />
+          <ScalarProperty Name="Name_Provider" ColumnName="Name_Provider" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="Id_SizeType" ColumnName="Id_SizeType" />
+          <ScalarProperty Name="Name_Component" ColumnName="Name_Component" />
+          <ScalarProperty Name="Id_Component" ColumnName="Id_Component" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ComponentProduct">
+      <EntityTypeMapping TypeName="TransporterBaseModel.ComponentProduct">
+        <MappingFragment StoreEntitySet="ComponentProduct">
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="Id_Product" ColumnName="Id_Product" />
+          <ScalarProperty Name="Id_Component" ColumnName="Id_Component" />
+          <ScalarProperty Name="Id_CompProd" ColumnName="Id_CompProd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Material">
+      <EntityTypeMapping TypeName="TransporterBaseModel.Material">
+        <MappingFragment StoreEntitySet="Material">
+          <ScalarProperty Name="Id_Standart" ColumnName="Id_Standart" />
+          <ScalarProperty Name="Description_Material" ColumnName="Description_Material" />
+          <ScalarProperty Name="Length_Material" ColumnName="Length_Material" />
+          <ScalarProperty Name="Cost_Material" ColumnName="Cost_Material" />
+          <ScalarProperty Name="Id_TypeMaterial" ColumnName="Id_TypeMaterial" />
+          <ScalarProperty Name="Id_Image" ColumnName="Id_Image" />
+          <ScalarProperty Name="Name_Provider" ColumnName="Name_Provider" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="Id_SizeType" ColumnName="Id_SizeType" />
+          <ScalarProperty Name="Name_Material" ColumnName="Name_Material" />
+          <ScalarProperty Name="Id_Material" ColumnName="Id_Material" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MaterialProduct">
+      <EntityTypeMapping TypeName="TransporterBaseModel.MaterialProduct">
+        <MappingFragment StoreEntitySet="MaterialProduct">
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="Id_Product" ColumnName="Id_Product" />
+          <ScalarProperty Name="Id_Material" ColumnName="Id_Material" />
+          <ScalarProperty Name="Id_MatProd" ColumnName="Id_MatProd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Provider">
+      <EntityTypeMapping TypeName="TransporterBaseModel.Provider">
+        <MappingFragment StoreEntitySet="Provider">
+          <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+          <ScalarProperty Name="Id_Address" ColumnName="Id_Address" />
+          <ScalarProperty Name="Name_Provider" ColumnName="Name_Provider" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

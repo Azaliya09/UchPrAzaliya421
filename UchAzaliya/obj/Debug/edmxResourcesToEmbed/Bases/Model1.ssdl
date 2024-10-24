@@ -20,7 +20,7 @@
     <Key>
       <PropertyRef Name="Id_Component" />
     </Key>
-    <Property Name="Id_Component" Type="int" Nullable="false" />
+    <Property Name="Id_Component" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="Name_Component" Type="nvarchar" MaxLength="50" />
     <Property Name="Id_SizeType" Type="int" />
     <Property Name="Count" Type="int" />
@@ -28,14 +28,14 @@
     <Property Name="Id_Image" Type="int" />
     <Property Name="Id_ComponentType" Type="int" />
     <Property Name="Cost" Type="decimal" Precision="10" Scale="2" />
-    <Property Name="Weight" Type="int" />
+    <Property Name="Weight" Type="decimal" Precision="10" Scale="6" />
   </EntityType>
   <EntityType Name="ComponentProduct">
     <Key>
       <PropertyRef Name="Id_CompProd" />
     </Key>
     <Property Name="Id_CompProd" Type="int" Nullable="false" />
-    <Property Name="Id_Component" Type="int" />
+    <Property Name="Id_Component" Type="nvarchar" MaxLength="10" />
     <Property Name="Id_Product" Type="int" />
     <Property Name="Count" Type="int" />
   </EntityType>
@@ -92,11 +92,11 @@
     <Key>
       <PropertyRef Name="Id_Material" />
     </Key>
-    <Property Name="Id_Material" Type="int" Nullable="false" />
+    <Property Name="Id_Material" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="Name_Material" Type="nvarchar" MaxLength="50" />
     <Property Name="Id_SizeType" Type="int" />
     <Property Name="Count" Type="int" />
-    <Property Name="Id_Provider" Type="int" />
+    <Property Name="Name_Provider" Type="nvarchar" MaxLength="50" />
     <Property Name="Id_Image" Type="int" />
     <Property Name="Id_TypeMaterial" Type="int" />
     <Property Name="Cost_Material" Type="decimal" Precision="10" Scale="2" />
@@ -109,7 +109,7 @@
       <PropertyRef Name="Id_MatProd" />
     </Key>
     <Property Name="Id_MatProd" Type="int" Nullable="false" />
-    <Property Name="Id_Material" Type="int" />
+    <Property Name="Id_Material" Type="nvarchar" MaxLength="10" />
     <Property Name="Id_Product" Type="int" />
     <Property Name="Count" Type="int" />
   </EntityType>
@@ -155,7 +155,7 @@
     </Key>
     <Property Name="Name_Provider" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Id_Address" Type="int" />
-    <Property Name="DeliveryDate" Type="date" />
+    <Property Name="DeliveryDate" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Role">
     <Key>

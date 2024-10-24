@@ -20,11 +20,11 @@ namespace UchAzaliya.Bases
             this.MaterialProduct = new HashSet<MaterialProduct>();
         }
     
-        public int Id_Material { get; set; }
+        public string Id_Material { get; set; }
         public string Name_Material { get; set; }
         public Nullable<int> Id_SizeType { get; set; }
         public Nullable<int> Count { get; set; }
-        public Nullable<int> Id_Provider { get; set; }
+        public string Name_Provider { get; set; }
         public Nullable<int> Id_Image { get; set; }
         public Nullable<int> Id_TypeMaterial { get; set; }
         public Nullable<decimal> Cost_Material { get; set; }

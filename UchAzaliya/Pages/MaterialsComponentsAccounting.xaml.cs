@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UchAzaliya.Bases;
 
 namespace UchAzaliya.Pages
 {
@@ -23,6 +24,8 @@ namespace UchAzaliya.Pages
         public MaterialsComponentsAccounting()
         {
             InitializeComponent();
+            MaterialsLV.ItemsSource = App.Connection.Material.ToList();
+            ComponentsLV.ItemsSource = App.Connection.Component.ToList();
         }
 
         private void EditMBtn_Click(object sender, RoutedEventArgs e)

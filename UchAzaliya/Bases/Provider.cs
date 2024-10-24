@@ -22,7 +22,7 @@ namespace UchAzaliya.Bases
     
         public string Name_Provider { get; set; }
         public Nullable<int> Id_Address { get; set; }
-        public Nullable<System.DateTime> DeliveryDate { get; set; }
+        public string DeliveryDate { get; set; }
     
         public virtual Address Address { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

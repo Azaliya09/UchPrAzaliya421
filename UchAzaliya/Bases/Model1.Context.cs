@@ -27,21 +27,16 @@ namespace UchAzaliya.Bases
     
         public virtual DbSet<ActiveSession> ActiveSession { get; set; }
         public virtual DbSet<Address> Address { get; set; }
-        public virtual DbSet<Component> Component { get; set; }
-        public virtual DbSet<ComponentProduct> ComponentProduct { get; set; }
         public virtual DbSet<ComponentType> ComponentType { get; set; }
         public virtual DbSet<CreatingProcess> CreatingProcess { get; set; }
         public virtual DbSet<Document> Document { get; set; }
         public virtual DbSet<ImageStockComponent> ImageStockComponent { get; set; }
         public virtual DbSet<ImageStockMaterial> ImageStockMaterial { get; set; }
         public virtual DbSet<ImageStockUser> ImageStockUser { get; set; }
-        public virtual DbSet<Material> Material { get; set; }
-        public virtual DbSet<MaterialProduct> MaterialProduct { get; set; }
         public virtual DbSet<MaterialType> MaterialType { get; set; }
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<ProductPart> ProductPart { get; set; }
-        public virtual DbSet<Provider> Provider { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<SizeObject> SizeObject { get; set; }
         public virtual DbSet<SizeType> SizeType { get; set; }
@@ -52,5 +47,10 @@ namespace UchAzaliya.Bases
         public virtual DbSet<WorkerProcess> WorkerProcess { get; set; }
         public virtual DbSet<Workstation> Workstation { get; set; }
         public virtual DbSet<Worker> Worker { get; set; }
+        public virtual DbSet<Component> Component { get; set; }
+        public virtual DbSet<ComponentProduct> ComponentProduct { get; set; }
+        public virtual DbSet<Material> Material { get; set; }
+        public virtual DbSet<MaterialProduct> MaterialProduct { get; set; }
+        public virtual DbSet<Provider> Provider { get; set; }
     }
 }

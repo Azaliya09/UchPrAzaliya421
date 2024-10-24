@@ -20,7 +20,7 @@ namespace UchAzaliya.Bases
             this.ComponentProduct = new HashSet<ComponentProduct>();
         }
     
-        public int Id_Component { get; set; }
+        public string Id_Component { get; set; }
         public string Name_Component { get; set; }
         public Nullable<int> Id_SizeType { get; set; }
         public Nullable<int> Count { get; set; }
@@ -28,12 +28,12 @@ namespace UchAzaliya.Bases
         public Nullable<int> Id_Image { get; set; }
         public Nullable<int> Id_ComponentType { get; set; }
         public Nullable<decimal> Cost { get; set; }
-        public Nullable<int> Weight { get; set; }
+        public Nullable<decimal> Weight { get; set; }
     
         public virtual ComponentType ComponentType { get; set; }
         public virtual ImageStockComponent ImageStockComponent { get; set; }
-        public virtual Provider Provider { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ComponentProduct> ComponentProduct { get; set; }
+        public virtual Provider Provider { get; set; }
     }
 }
