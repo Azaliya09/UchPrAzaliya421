@@ -31,6 +31,8 @@ namespace UchAzaliya.Bases
         public Nullable<int> Length_Material { get; set; }
         public string Description_Material { get; set; }
         public Nullable<int> Id_Standart { get; set; }
+        public Nullable<bool> IsDeleted { get; set; }
+        public Nullable<int> Id_Warehouse { get; set; }
     
         public virtual ImageStockMaterial ImageStockMaterial { get; set; }
         public virtual MaterialType MaterialType { get; set; }
@@ -38,5 +40,6 @@ namespace UchAzaliya.Bases
         public virtual Standart Standart { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MaterialProduct> MaterialProduct { get; set; }
+        public virtual Warehouse Warehouse { get; set; }
     }
 }

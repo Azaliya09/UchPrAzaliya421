@@ -212,21 +212,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Component">
-      <EntityTypeMapping TypeName="TransporterBaseModel.Component">
-        <MappingFragment StoreEntitySet="Component">
-          <ScalarProperty Name="Weight" ColumnName="Weight" />
-          <ScalarProperty Name="Cost" ColumnName="Cost" />
-          <ScalarProperty Name="Id_ComponentType" ColumnName="Id_ComponentType" />
-          <ScalarProperty Name="Id_Image" ColumnName="Id_Image" />
-          <ScalarProperty Name="Name_Provider" ColumnName="Name_Provider" />
-          <ScalarProperty Name="Count" ColumnName="Count" />
-          <ScalarProperty Name="Id_SizeType" ColumnName="Id_SizeType" />
-          <ScalarProperty Name="Name_Component" ColumnName="Name_Component" />
-          <ScalarProperty Name="Id_Component" ColumnName="Id_Component" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ComponentProduct">
       <EntityTypeMapping TypeName="TransporterBaseModel.ComponentProduct">
         <MappingFragment StoreEntitySet="ComponentProduct">
@@ -234,23 +219,6 @@
           <ScalarProperty Name="Id_Product" ColumnName="Id_Product" />
           <ScalarProperty Name="Id_Component" ColumnName="Id_Component" />
           <ScalarProperty Name="Id_CompProd" ColumnName="Id_CompProd" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Material">
-      <EntityTypeMapping TypeName="TransporterBaseModel.Material">
-        <MappingFragment StoreEntitySet="Material">
-          <ScalarProperty Name="Id_Standart" ColumnName="Id_Standart" />
-          <ScalarProperty Name="Description_Material" ColumnName="Description_Material" />
-          <ScalarProperty Name="Length_Material" ColumnName="Length_Material" />
-          <ScalarProperty Name="Cost_Material" ColumnName="Cost_Material" />
-          <ScalarProperty Name="Id_TypeMaterial" ColumnName="Id_TypeMaterial" />
-          <ScalarProperty Name="Id_Image" ColumnName="Id_Image" />
-          <ScalarProperty Name="Name_Provider" ColumnName="Name_Provider" />
-          <ScalarProperty Name="Count" ColumnName="Count" />
-          <ScalarProperty Name="Id_SizeType" ColumnName="Id_SizeType" />
-          <ScalarProperty Name="Name_Material" ColumnName="Name_Material" />
-          <ScalarProperty Name="Id_Material" ColumnName="Id_Material" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -270,6 +238,50 @@
           <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
           <ScalarProperty Name="Id_Address" ColumnName="Id_Address" />
           <ScalarProperty Name="Name_Provider" ColumnName="Name_Provider" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Component">
+      <EntityTypeMapping TypeName="TransporterBaseModel.Component">
+        <MappingFragment StoreEntitySet="Component">
+          <ScalarProperty Name="Id_Warehouse" ColumnName="Id_Warehouse" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Id_ComponentType" ColumnName="Id_ComponentType" />
+          <ScalarProperty Name="Id_Image" ColumnName="Id_Image" />
+          <ScalarProperty Name="Name_Provider" ColumnName="Name_Provider" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="Id_SizeType" ColumnName="Id_SizeType" />
+          <ScalarProperty Name="Name_Component" ColumnName="Name_Component" />
+          <ScalarProperty Name="Id_Component" ColumnName="Id_Component" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Material">
+      <EntityTypeMapping TypeName="TransporterBaseModel.Material">
+        <MappingFragment StoreEntitySet="Material">
+          <ScalarProperty Name="Id_Warehouse" ColumnName="Id_Warehouse" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Id_Standart" ColumnName="Id_Standart" />
+          <ScalarProperty Name="Description_Material" ColumnName="Description_Material" />
+          <ScalarProperty Name="Length_Material" ColumnName="Length_Material" />
+          <ScalarProperty Name="Cost_Material" ColumnName="Cost_Material" />
+          <ScalarProperty Name="Id_TypeMaterial" ColumnName="Id_TypeMaterial" />
+          <ScalarProperty Name="Id_Image" ColumnName="Id_Image" />
+          <ScalarProperty Name="Name_Provider" ColumnName="Name_Provider" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="Id_SizeType" ColumnName="Id_SizeType" />
+          <ScalarProperty Name="Name_Material" ColumnName="Name_Material" />
+          <ScalarProperty Name="Id_Material" ColumnName="Id_Material" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Warehouse">
+      <EntityTypeMapping TypeName="TransporterBaseModel.Warehouse">
+        <MappingFragment StoreEntitySet="Warehouse">
+          <ScalarProperty Name="Name_Warehouse" ColumnName="Name_Warehouse" />
+          <ScalarProperty Name="Id_Warehuose" ColumnName="Id_Warehuose" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

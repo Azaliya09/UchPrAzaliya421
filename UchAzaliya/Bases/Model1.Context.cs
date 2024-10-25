@@ -47,10 +47,11 @@ namespace UchAzaliya.Bases
         public virtual DbSet<WorkerProcess> WorkerProcess { get; set; }
         public virtual DbSet<Workstation> Workstation { get; set; }
         public virtual DbSet<Worker> Worker { get; set; }
-        public virtual DbSet<Component> Component { get; set; }
         public virtual DbSet<ComponentProduct> ComponentProduct { get; set; }
-        public virtual DbSet<Material> Material { get; set; }
         public virtual DbSet<MaterialProduct> MaterialProduct { get; set; }
         public virtual DbSet<Provider> Provider { get; set; }
+        public virtual DbSet<Component> Component { get; set; }
+        public virtual DbSet<Material> Material { get; set; }
+        public virtual DbSet<Warehouse> Warehouse { get; set; }
     }
 }

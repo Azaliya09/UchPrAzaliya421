@@ -64,6 +64,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Bases\Warehouse.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Components\PasswordValidator.cs" />
     <Compile Include="Windows\RegUserWindow.xaml.cs">
       <DependentUpon>RegUserWindow.xaml</DependentUpon>

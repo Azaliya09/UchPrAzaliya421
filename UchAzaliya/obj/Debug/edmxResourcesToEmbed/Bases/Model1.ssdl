@@ -29,6 +29,8 @@
     <Property Name="Id_ComponentType" Type="int" />
     <Property Name="Cost" Type="decimal" Precision="10" Scale="2" />
     <Property Name="Weight" Type="decimal" Precision="10" Scale="6" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="Id_Warehouse" Type="int" />
   </EntityType>
   <EntityType Name="ComponentProduct">
     <Key>
@@ -103,6 +105,8 @@
     <Property Name="Length_Material" Type="int" />
     <Property Name="Description_Material" Type="nvarchar" MaxLength="300" />
     <Property Name="Id_Standart" Type="int" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="Id_Warehouse" Type="int" />
   </EntityType>
   <EntityType Name="MaterialProduct">
     <Key>
@@ -218,6 +222,13 @@
     <Property Name="Id_Role" Type="int" Nullable="false" />
     <Property Name="Id_Image" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="Warehouse">
+    <Key>
+      <PropertyRef Name="Id_Warehuose" />
+    </Key>
+    <Property Name="Id_Warehuose" Type="int" Nullable="false" />
+    <Property Name="Name_Warehouse" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="Worker">
     <Key>
       <PropertyRef Name="Login" />
@@ -291,6 +302,18 @@
       </Principal>
       <Dependent Role="Component">
         <PropertyRef Name="Name_Provider" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Component_Warehouse">
+    <End Role="Warehouse" Type="Self.Warehouse" Multiplicity="0..1" />
+    <End Role="Component" Type="Self.Component" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Warehouse">
+        <PropertyRef Name="Id_Warehuose" />
+      </Principal>
+      <Dependent Role="Component">
+        <PropertyRef Name="Id_Warehouse" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -399,6 +422,18 @@
       </Principal>
       <Dependent Role="Material">
         <PropertyRef Name="Id_Standart" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_Warehouse">
+    <End Role="Warehouse" Type="Self.Warehouse" Multiplicity="0..1" />
+    <End Role="Material" Type="Self.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Warehouse">
+        <PropertyRef Name="Id_Warehuose" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="Id_Warehouse" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -635,6 +670,7 @@
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TypeWorkstation" EntityType="Self.TypeWorkstation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Warehouse" EntityType="Self.Warehouse" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Worker" EntityType="Self.Worker" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WorkerProcess" EntityType="Self.WorkerProcess" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Workstation" EntityType="Self.Workstation" Schema="dbo" store:Type="Tables" />
@@ -652,6 +688,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_Component_Provider" Association="Self.FK_Component_Provider">
       <End Role="Provider" EntitySet="Provider" />
+      <End Role="Component" EntitySet="Component" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Component_Warehouse" Association="Self.FK_Component_Warehouse">
+      <End Role="Warehouse" EntitySet="Warehouse" />
       <End Role="Component" EntitySet="Component" />
     </AssociationSet>
     <AssociationSet Name="FK_ComponentProduct_Component" Association="Self.FK_ComponentProduct_Component">
@@ -688,6 +728,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_Material_Standart" Association="Self.FK_Material_Standart">
       <End Role="Standart" EntitySet="Standart" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_Warehouse" Association="Self.FK_Material_Warehouse">
+      <End Role="Warehouse" EntitySet="Warehouse" />
       <End Role="Material" EntitySet="Material" />
     </AssociationSet>
     <AssociationSet Name="FK_MaterialProduct_Material" Association="Self.FK_MaterialProduct_Material">

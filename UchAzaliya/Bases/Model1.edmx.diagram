@@ -45,23 +45,26 @@
         <AssociationConnector Association="TransporterBaseModel.FK_Worker_Address" />
         <AssociationConnector Association="TransporterBaseModel.FK_Worker_User" />
         <AssociationConnector Association="TransporterBaseModel.FK_WorkerProcess_Worker" />
-        <EntityTypeShape EntityType="TransporterBaseModel.Component" Width="1.5" PointX="6.75" PointY="23" />
         <EntityTypeShape EntityType="TransporterBaseModel.ComponentProduct" Width="1.5" PointX="9" PointY="16.875" />
+        <AssociationConnector Association="TransporterBaseModel.FK_ComponentProduct_Product" />
+        <EntityTypeShape EntityType="TransporterBaseModel.MaterialProduct" Width="1.5" PointX="11.25" PointY="19.875" />
+        <AssociationConnector Association="TransporterBaseModel.FK_MaterialProduct_Product" />
+        <EntityTypeShape EntityType="TransporterBaseModel.Provider" Width="1.5" PointX="6" PointY="19.375" />
+        <AssociationConnector Association="TransporterBaseModel.FK_Provider_Address" />
+        <EntityTypeShape EntityType="TransporterBaseModel.Component" Width="1.5" PointX="8.25" PointY="21.625" />
+        <EntityTypeShape EntityType="TransporterBaseModel.Material" Width="1.5" PointX="9" PointY="28.375" />
         <AssociationConnector Association="TransporterBaseModel.FK_Component_ComponentType" />
         <AssociationConnector Association="TransporterBaseModel.FK_Component_ImageStockComponent" />
+        <AssociationConnector Association="TransporterBaseModel.FK_Component_Provider" />
         <AssociationConnector Association="TransporterBaseModel.FK_ComponentProduct_Component" />
-        <AssociationConnector Association="TransporterBaseModel.FK_ComponentProduct_Product" />
-        <EntityTypeShape EntityType="TransporterBaseModel.Material" Width="1.5" PointX="9" PointY="28.5" />
-        <EntityTypeShape EntityType="TransporterBaseModel.MaterialProduct" Width="1.5" PointX="11.25" PointY="19.875" />
         <AssociationConnector Association="TransporterBaseModel.FK_Material_ImageStockMaterial" />
         <AssociationConnector Association="TransporterBaseModel.FK_Material_MaterialType" />
         <AssociationConnector Association="TransporterBaseModel.FK_Material_SizeType" />
         <AssociationConnector Association="TransporterBaseModel.FK_Material_Standart" />
         <AssociationConnector Association="TransporterBaseModel.FK_MaterialProduct_Material" />
-        <AssociationConnector Association="TransporterBaseModel.FK_MaterialProduct_Product" />
-        <EntityTypeShape EntityType="TransporterBaseModel.Provider" Width="1.5" PointX="6" PointY="19.375" />
-        <AssociationConnector Association="TransporterBaseModel.FK_Provider_Address" />
-        <AssociationConnector Association="TransporterBaseModel.FK_Component_Provider" />
+        <EntityTypeShape EntityType="TransporterBaseModel.Warehouse" Width="1.5" PointX="6" PointY="25.5" />
+        <AssociationConnector Association="TransporterBaseModel.FK_Component_Warehouse" />
+        <AssociationConnector Association="TransporterBaseModel.FK_Material_Warehouse" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

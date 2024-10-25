@@ -21,11 +21,14 @@ namespace UchAzaliya.Pages
     /// </summary>
     public partial class MaterialsComponentsAccounting : Page
     {
+        private Material selectedMaterial;
+        private Component selectedComponent;
         public MaterialsComponentsAccounting()
         {
             InitializeComponent();
-            MaterialsLV.ItemsSource = App.Connection.Material.ToList();
-            ComponentsLV.ItemsSource = App.Connection.Component.ToList();
+            MaterialsLV.ItemsSource = App.Connection.Material.Where(z=>z.IsDeleted == false).ToList();
+            ComponentsLV.ItemsSource = App.Connection.Component.Where(z => z.IsDeleted == false).ToList();
+
         }
 
         private void EditMBtn_Click(object sender, RoutedEventArgs e)
@@ -40,7 +43,17 @@ namespace UchAzaliya.Pages
 
         private void DeleteMBtn_Click(object sender, RoutedEventArgs e)
         {
-            //pam-pam
+            if (MaterialsLV.SelectedItem != null)
+            {
+                selectedMaterial.IsDeleted = true;
+                App.Connection.SaveChanges();
+                MessageBox.Show("Материал удален");
+                NavigationService.Navigate(new MaterialsComponentsAccounting());
+            }
+            else
+            {
+                MessageBox.Show("Выберите элемент из списка для удаления");
+            }
         }
 
         private void EditCBtn_Click(object sender, RoutedEventArgs e)
@@ -55,7 +68,76 @@ namespace UchAzaliya.Pages
 
         private void DeleteCBtn_Click(object sender, RoutedEventArgs e)
         {
-            //pohgf
+            if(ComponentsLV.SelectedItem != null)
+            {
+                selectedComponent.IsDeleted = true;
+                App.Connection.SaveChanges();
+                MessageBox.Show("Комплектующее удалено");
+                NavigationService.Navigate(new MaterialsComponentsAccounting());
+            }
+            else
+            {
+                MessageBox.Show("Выберите элемент из списка для удаления");
+            }
+        }
+
+        private void MaterialsLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //if(MaterialsLV.SelectedItem is Material selectedMatetial)
+            //{
+
+            //}
+        }
+
+        private void ComponentsLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void FiltrComCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            IEnumerable<Component> components = App.Connection.Component;
+
+            if (FiltrComCb.SelectedIndex == 0)
+            {
+                components = components;
+            }
+            else if(FiltrComCb.SelectedIndex == 1)
+            {
+                components = components.Where(z => z.Id_Warehouse == 1);
+            }
+            else if (FiltrComCb.SelectedIndex == 2)
+            {
+                components = components.Where(z => z.Id_Warehouse == 2); ;
+            }
+            else if (FiltrComCb.SelectedIndex == 3)
+            {
+                components = components.Where(z => z.Id_Warehouse == 3); ;
+            }
+            ComponentsLV.ItemsSource = components.ToList();
+        }
+
+        private void FiltrMatCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            IEnumerable<Material> materials = App.Connection.Material;
+
+            if (FiltrMatCb.SelectedIndex == 0)
+            {
+                materials = materials;
+            }
+            else if (FiltrMatCb.SelectedIndex == 1)
+            {
+                materials = materials.Where(z => z.Id_Warehouse == 1);
+            }
+            else if (FiltrMatCb.SelectedIndex == 2)
+            {
+                materials = materials.Where(z => z.Id_Warehouse == 2); ;
+            }
+            else if (FiltrMatCb.SelectedIndex == 3)
+            {
+                materials = materials.Where(z => z.Id_Warehouse == 3); ;
+            }
+            MaterialsLV.ItemsSource = materials.ToList();
         }
     }
 }

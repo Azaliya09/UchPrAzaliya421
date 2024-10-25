@@ -13,19 +13,21 @@
         <Viewbox Width="40" Height="40" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="20 10">
             <TextBlock  ToolTip="Для удаления/редактирования выберите элемент из списка" Text="?" Foreground="White" TextAlignment="Center" />
         </Viewbox>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5">
-            <TextBlock>Фильтрация по складам:</TextBlock>
-            <ComboBox x:Name="FiltrCb" Margin="5">
-                <ComboBoxItem>Все</ComboBoxItem>
-                <ComboBoxItem>Склад 1</ComboBoxItem>
-                <ComboBoxItem>Склад 2</ComboBoxItem>
-            </ComboBox>
-        </StackPanel>
+        
         <TabControl VerticalAlignment="Center">
             <TabItem Header="Материалы">
                 <StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5">
+                        <TextBlock>Фильтрация по складам:</TextBlock>
+                        <ComboBox x:Name="FiltrMatCb" DisplayMemberPath="Name_Warehouse"  Margin="5" SelectionChanged="FiltrMatCb_SelectionChanged">
+                            <ComboBoxItem Content="Все"/>
+                            <ComboBoxItem Content="Центральный склад"/>
+                            <ComboBoxItem Content="Региональный склад"/>
+                            <ComboBoxItem Content="Склад на Промышленной улице"/>
+                        </ComboBox>
+                    </StackPanel>
                     <ScrollViewer Height="300">
-                        <ListView x:Name="MaterialsLV">
+                        <ListView x:Name="MaterialsLV" SelectionChanged="MaterialsLV_SelectionChanged">
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="Артикул" DisplayMemberBinding="{Binding Id_Material}" />
@@ -41,7 +43,7 @@
                                     <GridViewColumn Header="Закупочная цена" DisplayMemberBinding="{Binding Cost_Material}" />
                                     <GridViewColumn Width="90" Header="Поставщик" DisplayMemberBinding="{Binding Name_Provider}" />
                                     <GridViewColumn Header="Срок доставки" DisplayMemberBinding="{Binding Provider.DeliveryDate}" />
-                                    <GridViewColumn Header="Склад"/>
+                                    <GridViewColumn Header="Склад" DisplayMemberBinding="{Binding Warehouse.Name_Warehouse}"/>
                                 </GridView>
                             </ListView.View>
                         </ListView>
@@ -56,24 +58,33 @@
 
             <TabItem Header="Комплектующие">
                 <StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5">
+                        <TextBlock>Фильтрация по складам:</TextBlock>
+                        <ComboBox x:Name="FiltrComCb" DisplayMemberPath="Name_Warehouse"  Margin="5" SelectionChanged="FiltrComCb_SelectionChanged">
+                            <ComboBoxItem Content="Все"/>
+                            <ComboBoxItem Content="Центральный склад"/>
+                            <ComboBoxItem Content="Региональный склад"/>
+                            <ComboBoxItem Content="Склад на Промышленной улице"/>
+                        </ComboBox>
+                    </StackPanel>
                     <ScrollViewer Height="300">
-                        <ListView x:Name="ComponentsLV">
+                        <ListView x:Name="ComponentsLV" SelectionChanged="ComponentsLV_SelectionChanged">
                             <ListView.View>
                                 <GridView>
-                                    <GridViewColumn Header="Артикул" DisplayMemberBinding="{Binding Id_Material}" />
+                                    <GridViewColumn Header="Артикул" DisplayMemberBinding="{Binding Id_Component}" />
                                     <GridViewColumn Header="Наименование">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
-                                                <TextBlock Text="{Binding Name_Material}" TextWrapping="Wrap" />
+                                                <TextBlock Text="{Binding Name_Component}" TextWrapping="Wrap" />
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
                                     <GridViewColumn Width="70" Header="Кол-во" DisplayMemberBinding="{Binding Count}" />
                                     <GridViewColumn Width="120" Header="Ед. измерения" DisplayMemberBinding="{Binding SizeType.Name_SizeType}" />
-                                    <GridViewColumn Header="Закупочная цена" DisplayMemberBinding="{Binding Cost_Material}" />
+                                    <GridViewColumn Header="Закупочная цена" DisplayMemberBinding="{Binding Cost}" />
                                     <GridViewColumn Width="90" Header="Поставщик" DisplayMemberBinding="{Binding Provider.Name_Provider}" />
                                     <GridViewColumn Header="Срок доставки" DisplayMemberBinding="{Binding Provider.DeliveryDate}" />
-                                    <GridViewColumn Header="Склад"/>
+                                    <GridViewColumn Header="Склад" DisplayMemberBinding="{Binding Warehouse.Name_Warehouse}"/>
                                 </GridView>
                             </ListView.View>
                         </ListView>

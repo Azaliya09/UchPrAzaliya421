@@ -496,8 +496,23 @@
       <End Role="Worker" EntitySet="Worker" />
       <End Role="WorkerProcess" EntitySet="WorkerProcess" />
     </AssociationSet>
-    <EntitySet Name="Component" EntityType="TransporterBaseModel.Component" />
     <EntitySet Name="ComponentProduct" EntityType="TransporterBaseModel.ComponentProduct" />
+    <AssociationSet Name="FK_ComponentProduct_Product" Association="TransporterBaseModel.FK_ComponentProduct_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="ComponentProduct" EntitySet="ComponentProduct" />
+    </AssociationSet>
+    <EntitySet Name="MaterialProduct" EntityType="TransporterBaseModel.MaterialProduct" />
+    <AssociationSet Name="FK_MaterialProduct_Product" Association="TransporterBaseModel.FK_MaterialProduct_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="MaterialProduct" EntitySet="MaterialProduct" />
+    </AssociationSet>
+    <EntitySet Name="Provider" EntityType="TransporterBaseModel.Provider" />
+    <AssociationSet Name="FK_Provider_Address" Association="TransporterBaseModel.FK_Provider_Address">
+      <End Role="Address" EntitySet="Address" />
+      <End Role="Provider" EntitySet="Provider" />
+    </AssociationSet>
+    <EntitySet Name="Component" EntityType="TransporterBaseModel.Component" />
+    <EntitySet Name="Material" EntityType="TransporterBaseModel.Material" />
     <AssociationSet Name="FK_Component_ComponentType" Association="TransporterBaseModel.FK_Component_ComponentType">
       <End Role="ComponentType" EntitySet="ComponentType" />
       <End Role="Component" EntitySet="Component" />
@@ -506,16 +521,14 @@
       <End Role="ImageStockComponent" EntitySet="ImageStockComponent" />
       <End Role="Component" EntitySet="Component" />
     </AssociationSet>
+    <AssociationSet Name="FK_Component_Provider" Association="TransporterBaseModel.FK_Component_Provider">
+      <End Role="Provider" EntitySet="Provider" />
+      <End Role="Component" EntitySet="Component" />
+    </AssociationSet>
     <AssociationSet Name="FK_ComponentProduct_Component" Association="TransporterBaseModel.FK_ComponentProduct_Component">
       <End Role="Component" EntitySet="Component" />
       <End Role="ComponentProduct" EntitySet="ComponentProduct" />
     </AssociationSet>
-    <AssociationSet Name="FK_ComponentProduct_Product" Association="TransporterBaseModel.FK_ComponentProduct_Product">
-      <End Role="Product" EntitySet="Product" />
-      <End Role="ComponentProduct" EntitySet="ComponentProduct" />
-    </AssociationSet>
-    <EntitySet Name="Material" EntityType="TransporterBaseModel.Material" />
-    <EntitySet Name="MaterialProduct" EntityType="TransporterBaseModel.MaterialProduct" />
     <AssociationSet Name="FK_Material_ImageStockMaterial" Association="TransporterBaseModel.FK_Material_ImageStockMaterial">
       <End Role="ImageStockMaterial" EntitySet="ImageStockMaterial" />
       <End Role="Material" EntitySet="Material" />
@@ -536,18 +549,14 @@
       <End Role="Material" EntitySet="Material" />
       <End Role="MaterialProduct" EntitySet="MaterialProduct" />
     </AssociationSet>
-    <AssociationSet Name="FK_MaterialProduct_Product" Association="TransporterBaseModel.FK_MaterialProduct_Product">
-      <End Role="Product" EntitySet="Product" />
-      <End Role="MaterialProduct" EntitySet="MaterialProduct" />
-    </AssociationSet>
-    <EntitySet Name="Provider" EntityType="TransporterBaseModel.Provider" />
-    <AssociationSet Name="FK_Provider_Address" Association="TransporterBaseModel.FK_Provider_Address">
-      <End Role="Address" EntitySet="Address" />
-      <End Role="Provider" EntitySet="Provider" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Component_Provider" Association="TransporterBaseModel.FK_Component_Provider">
-      <End Role="Provider" EntitySet="Provider" />
+    <EntitySet Name="Warehouse" EntityType="TransporterBaseModel.Warehouse" />
+    <AssociationSet Name="FK_Component_Warehouse" Association="TransporterBaseModel.FK_Component_Warehouse">
+      <End Role="Warehouse" EntitySet="Warehouse" />
       <End Role="Component" EntitySet="Component" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_Warehouse" Association="TransporterBaseModel.FK_Material_Warehouse">
+      <End Role="Warehouse" EntitySet="Warehouse" />
+      <End Role="Material" EntitySet="Material" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Worker">
@@ -604,6 +613,74 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="ComponentProduct">
+    <Key>
+      <PropertyRef Name="Id_CompProd" />
+    </Key>
+    <Property Name="Id_CompProd" Type="Int32" Nullable="false" />
+    <Property Name="Id_Component" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Id_Product" Type="Int32" />
+    <Property Name="Count" Type="Int32" />
+    <NavigationProperty Name="Product" Relationship="TransporterBaseModel.FK_ComponentProduct_Product" FromRole="ComponentProduct" ToRole="Product" />
+    <NavigationProperty Name="Component" Relationship="TransporterBaseModel.FK_ComponentProduct_Component" FromRole="ComponentProduct" ToRole="Component" />
+  </EntityType>
+  <Association Name="FK_ComponentProduct_Product">
+    <End Type="TransporterBaseModel.Product" Role="Product" Multiplicity="0..1" />
+    <End Type="TransporterBaseModel.ComponentProduct" Role="ComponentProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id_Product" />
+      </Principal>
+      <Dependent Role="ComponentProduct">
+        <PropertyRef Name="Id_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="MaterialProduct">
+    <Key>
+      <PropertyRef Name="Id_MatProd" />
+    </Key>
+    <Property Name="Id_MatProd" Type="Int32" Nullable="false" />
+    <Property Name="Id_Material" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Id_Product" Type="Int32" />
+    <Property Name="Count" Type="Int32" />
+    <NavigationProperty Name="Product" Relationship="TransporterBaseModel.FK_MaterialProduct_Product" FromRole="MaterialProduct" ToRole="Product" />
+    <NavigationProperty Name="Material" Relationship="TransporterBaseModel.FK_MaterialProduct_Material" FromRole="MaterialProduct" ToRole="Material" />
+  </EntityType>
+  <Association Name="FK_MaterialProduct_Product">
+    <End Type="TransporterBaseModel.Product" Role="Product" Multiplicity="0..1" />
+    <End Type="TransporterBaseModel.MaterialProduct" Role="MaterialProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id_Product" />
+      </Principal>
+      <Dependent Role="MaterialProduct">
+        <PropertyRef Name="Id_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Provider">
+    <Key>
+      <PropertyRef Name="Name_Provider" />
+    </Key>
+    <Property Name="Name_Provider" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Id_Address" Type="Int32" />
+    <Property Name="DeliveryDate" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Address" Relationship="TransporterBaseModel.FK_Provider_Address" FromRole="Provider" ToRole="Address" />
+    <NavigationProperty Name="Component" Relationship="TransporterBaseModel.FK_Component_Provider" FromRole="Provider" ToRole="Component" />
+  </EntityType>
+  <Association Name="FK_Provider_Address">
+    <End Type="TransporterBaseModel.Address" Role="Address" Multiplicity="0..1" />
+    <End Type="TransporterBaseModel.Provider" Role="Provider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="Id_Address" />
+      </Principal>
+      <Dependent Role="Provider">
+        <PropertyRef Name="Id_Address" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityType Name="Component">
     <Key>
       <PropertyRef Name="Id_Component" />
@@ -617,21 +694,37 @@
     <Property Name="Id_ComponentType" Type="Int32" />
     <Property Name="Cost" Type="Decimal" Precision="10" Scale="2" />
     <Property Name="Weight" Type="Decimal" Precision="10" Scale="6" />
+    <Property Name="IsDeleted" Type="Boolean" />
     <NavigationProperty Name="ComponentType" Relationship="TransporterBaseModel.FK_Component_ComponentType" FromRole="Component" ToRole="ComponentType" />
     <NavigationProperty Name="ImageStockComponent" Relationship="TransporterBaseModel.FK_Component_ImageStockComponent" FromRole="Component" ToRole="ImageStockComponent" />
-    <NavigationProperty Name="ComponentProduct" Relationship="TransporterBaseModel.FK_ComponentProduct_Component" FromRole="Component" ToRole="ComponentProduct" />
     <NavigationProperty Name="Provider" Relationship="TransporterBaseModel.FK_Component_Provider" FromRole="Component" ToRole="Provider" />
+    <NavigationProperty Name="ComponentProduct" Relationship="TransporterBaseModel.FK_ComponentProduct_Component" FromRole="Component" ToRole="ComponentProduct" />
+    <Property Name="Id_Warehouse" Type="Int32" />
+    <NavigationProperty Name="Warehouse" Relationship="TransporterBaseModel.FK_Component_Warehouse" FromRole="Component" ToRole="Warehouse" />
   </EntityType>
-  <EntityType Name="ComponentProduct">
+  <EntityType Name="Material">
     <Key>
-      <PropertyRef Name="Id_CompProd" />
+      <PropertyRef Name="Id_Material" />
     </Key>
-    <Property Name="Id_CompProd" Type="Int32" Nullable="false" />
-    <Property Name="Id_Component" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-    <Property Name="Id_Product" Type="Int32" />
+    <Property Name="Id_Material" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Name_Material" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Id_SizeType" Type="Int32" />
     <Property Name="Count" Type="Int32" />
-    <NavigationProperty Name="Component" Relationship="TransporterBaseModel.FK_ComponentProduct_Component" FromRole="ComponentProduct" ToRole="Component" />
-    <NavigationProperty Name="Product" Relationship="TransporterBaseModel.FK_ComponentProduct_Product" FromRole="ComponentProduct" ToRole="Product" />
+    <Property Name="Name_Provider" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Id_Image" Type="Int32" />
+    <Property Name="Id_TypeMaterial" Type="Int32" />
+    <Property Name="Cost_Material" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Length_Material" Type="Int32" />
+    <Property Name="Description_Material" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Id_Standart" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="ImageStockMaterial" Relationship="TransporterBaseModel.FK_Material_ImageStockMaterial" FromRole="Material" ToRole="ImageStockMaterial" />
+    <NavigationProperty Name="MaterialType" Relationship="TransporterBaseModel.FK_Material_MaterialType" FromRole="Material" ToRole="MaterialType" />
+    <NavigationProperty Name="SizeType" Relationship="TransporterBaseModel.FK_Material_SizeType" FromRole="Material" ToRole="SizeType" />
+    <NavigationProperty Name="Standart" Relationship="TransporterBaseModel.FK_Material_Standart" FromRole="Material" ToRole="Standart" />
+    <NavigationProperty Name="MaterialProduct" Relationship="TransporterBaseModel.FK_MaterialProduct_Material" FromRole="Material" ToRole="MaterialProduct" />
+    <Property Name="Id_Warehouse" Type="Int32" />
+    <NavigationProperty Name="Warehouse" Relationship="TransporterBaseModel.FK_Material_Warehouse" FromRole="Material" ToRole="Warehouse" />
   </EntityType>
   <Association Name="FK_Component_ComponentType">
     <End Type="TransporterBaseModel.ComponentType" Role="ComponentType" Multiplicity="0..1" />
@@ -657,6 +750,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Component_Provider">
+    <End Type="TransporterBaseModel.Provider" Role="Provider" Multiplicity="0..1" />
+    <End Type="TransporterBaseModel.Component" Role="Component" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provider">
+        <PropertyRef Name="Name_Provider" />
+      </Principal>
+      <Dependent Role="Component">
+        <PropertyRef Name="Name_Provider" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_ComponentProduct_Component">
     <End Type="TransporterBaseModel.Component" Role="Component" Multiplicity="0..1" />
     <End Type="TransporterBaseModel.ComponentProduct" Role="ComponentProduct" Multiplicity="*" />
@@ -669,50 +774,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_ComponentProduct_Product">
-    <End Type="TransporterBaseModel.Product" Role="Product" Multiplicity="0..1" />
-    <End Type="TransporterBaseModel.ComponentProduct" Role="ComponentProduct" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Product">
-        <PropertyRef Name="Id_Product" />
-      </Principal>
-      <Dependent Role="ComponentProduct">
-        <PropertyRef Name="Id_Product" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityType Name="Material">
-    <Key>
-      <PropertyRef Name="Id_Material" />
-    </Key>
-    <Property Name="Id_Material" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
-    <Property Name="Name_Material" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Id_SizeType" Type="Int32" />
-    <Property Name="Count" Type="Int32" />
-    <Property Name="Name_Provider" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Id_Image" Type="Int32" />
-    <Property Name="Id_TypeMaterial" Type="Int32" />
-    <Property Name="Cost_Material" Type="Decimal" Precision="10" Scale="2" />
-    <Property Name="Length_Material" Type="Int32" />
-    <Property Name="Description_Material" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-    <Property Name="Id_Standart" Type="Int32" />
-    <NavigationProperty Name="ImageStockMaterial" Relationship="TransporterBaseModel.FK_Material_ImageStockMaterial" FromRole="Material" ToRole="ImageStockMaterial" />
-    <NavigationProperty Name="MaterialType" Relationship="TransporterBaseModel.FK_Material_MaterialType" FromRole="Material" ToRole="MaterialType" />
-    <NavigationProperty Name="SizeType" Relationship="TransporterBaseModel.FK_Material_SizeType" FromRole="Material" ToRole="SizeType" />
-    <NavigationProperty Name="Standart" Relationship="TransporterBaseModel.FK_Material_Standart" FromRole="Material" ToRole="Standart" />
-    <NavigationProperty Name="MaterialProduct" Relationship="TransporterBaseModel.FK_MaterialProduct_Material" FromRole="Material" ToRole="MaterialProduct" />
-  </EntityType>
-  <EntityType Name="MaterialProduct">
-    <Key>
-      <PropertyRef Name="Id_MatProd" />
-    </Key>
-    <Property Name="Id_MatProd" Type="Int32" Nullable="false" />
-    <Property Name="Id_Material" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-    <Property Name="Id_Product" Type="Int32" />
-    <Property Name="Count" Type="Int32" />
-    <NavigationProperty Name="Material" Relationship="TransporterBaseModel.FK_MaterialProduct_Material" FromRole="MaterialProduct" ToRole="Material" />
-    <NavigationProperty Name="Product" Relationship="TransporterBaseModel.FK_MaterialProduct_Product" FromRole="MaterialProduct" ToRole="Product" />
-  </EntityType>
   <Association Name="FK_Material_ImageStockMaterial">
     <End Type="TransporterBaseModel.ImageStockMaterial" Role="ImageStockMaterial" Multiplicity="0..1" />
     <End Type="TransporterBaseModel.Material" Role="Material" Multiplicity="*" />
@@ -773,49 +834,36 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_MaterialProduct_Product">
-    <End Type="TransporterBaseModel.Product" Role="Product" Multiplicity="0..1" />
-    <End Type="TransporterBaseModel.MaterialProduct" Role="MaterialProduct" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Product">
-        <PropertyRef Name="Id_Product" />
-      </Principal>
-      <Dependent Role="MaterialProduct">
-        <PropertyRef Name="Id_Product" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityType Name="Provider">
+  <EntityType Name="Warehouse">
     <Key>
-      <PropertyRef Name="Name_Provider" />
+      <PropertyRef Name="Id_Warehuose" />
     </Key>
-    <Property Name="Name_Provider" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Id_Address" Type="Int32" />
-    <Property Name="DeliveryDate" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Address" Relationship="TransporterBaseModel.FK_Provider_Address" FromRole="Provider" ToRole="Address" />
-    <NavigationProperty Name="Component" Relationship="TransporterBaseModel.FK_Component_Provider" FromRole="Provider" ToRole="Component" />
+    <Property Name="Id_Warehuose" Type="Int32" Nullable="false" />
+    <Property Name="Name_Warehouse" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Component" Relationship="TransporterBaseModel.FK_Component_Warehouse" FromRole="Warehouse" ToRole="Component" />
+    <NavigationProperty Name="Material" Relationship="TransporterBaseModel.FK_Material_Warehouse" FromRole="Warehouse" ToRole="Material" />
   </EntityType>
-  <Association Name="FK_Provider_Address">
-    <End Type="TransporterBaseModel.Address" Role="Address" Multiplicity="0..1" />
-    <End Type="TransporterBaseModel.Provider" Role="Provider" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Address">
-        <PropertyRef Name="Id_Address" />
-      </Principal>
-      <Dependent Role="Provider">
-        <PropertyRef Name="Id_Address" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Component_Provider">
-    <End Type="TransporterBaseModel.Provider" Role="Provider" Multiplicity="0..1" />
+  <Association Name="FK_Component_Warehouse">
+    <End Type="TransporterBaseModel.Warehouse" Role="Warehouse" Multiplicity="0..1" />
     <End Type="TransporterBaseModel.Component" Role="Component" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Provider">
-        <PropertyRef Name="Name_Provider" />
+      <Principal Role="Warehouse">
+        <PropertyRef Name="Id_Warehuose" />
       </Principal>
       <Dependent Role="Component">
-        <PropertyRef Name="Name_Provider" />
+        <PropertyRef Name="Id_Warehouse" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_Warehouse">
+    <End Type="TransporterBaseModel.Warehouse" Role="Warehouse" Multiplicity="0..1" />
+    <End Type="TransporterBaseModel.Material" Role="Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Warehouse">
+        <PropertyRef Name="Id_Warehuose" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="Id_Warehouse" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
