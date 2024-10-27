@@ -27,16 +27,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="CreatingProcess">
-      <EntityTypeMapping TypeName="TransporterBaseModel.CreatingProcess">
-        <MappingFragment StoreEntitySet="CreatingProcess">
-          <ScalarProperty Name="Number_Process" ColumnName="Number_Process" />
-          <ScalarProperty Name="Id_Product" ColumnName="Id_Product" />
-          <ScalarProperty Name="Process_Name" ColumnName="Process_Name" />
-          <ScalarProperty Name="Id_Workstation" ColumnName="Id_Workstation" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Document">
       <EntityTypeMapping TypeName="TransporterBaseModel.Document">
         <MappingFragment StoreEntitySet="Document">
@@ -282,6 +272,16 @@
         <MappingFragment StoreEntitySet="Warehouse">
           <ScalarProperty Name="Name_Warehouse" ColumnName="Name_Warehouse" />
           <ScalarProperty Name="Id_Warehuose" ColumnName="Id_Warehuose" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CreatingProcess">
+      <EntityTypeMapping TypeName="TransporterBaseModel.CreatingProcess">
+        <MappingFragment StoreEntitySet="CreatingProcess">
+          <ScalarProperty Name="Id_Workstation" ColumnName="Id_Workstation" />
+          <ScalarProperty Name="Id_Product" ColumnName="Id_Product" />
+          <ScalarProperty Name="Number_Process" ColumnName="Number_Process" />
+          <ScalarProperty Name="Process_Name" ColumnName="Process_Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

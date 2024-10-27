@@ -40,9 +40,32 @@
                     <TextBlock Width="110">Квалификация:</TextBlock>
                     <TextBox TextWrapping="Wrap"  Text="{Binding Qualification}" x:Name="QualificationTb"></TextBox>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 5">
-                    <TextBlock Width="110" VerticalAlignment="Top">Операции:</TextBlock>
-                    <TextBox TextWrapping="Wrap"  Text="{Binding Operations}" x:Name="OperationsTb" Height="140"/>
+                <StackPanel Orientation="Vertical"  Margin="0 0 0 5" MaxWidth="290">
+                    <TextBlock VerticalAlignment="Top" Margin="0 0 0 5">Операции:</TextBlock>
+                    <TextBox TextWrapping="Wrap" Text="{Binding Operations}" x:Name="OperationsTb" Height="140">
+                        <TextBox.Style>
+                            <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+                                <Style.Resources>
+                                    <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                                        <VisualBrush.Visual>
+                                            <Label Content="Операция 1, Операция 2, Операция 3" Foreground="#FF909090" FontWeight="DemiBold" />
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Style.Resources>
+                                <Style.Triggers>
+                                    <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                                        <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                    </Trigger>
+                                    <Trigger Property="Text" Value="{x:Null}">
+                                        <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                    </Trigger>
+                                    <Trigger Property="IsKeyboardFocused" Value="True">
+                                        <Setter Property="Background" Value="White" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
                 </StackPanel>
             </StackPanel>
             <StackPanel Orientation="Horizontal">

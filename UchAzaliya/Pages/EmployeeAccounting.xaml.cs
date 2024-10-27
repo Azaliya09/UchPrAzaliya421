@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Diagnostics;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
@@ -31,6 +32,10 @@ namespace UchAzaliya.Pages
                 MessageBox.Show("ФИО не заполнили полностью!");
                 return;
             }
+            string[] processes = OperationsTb.Text.Split(',');
+            
+
+
             user.Name = FIO[0];
             user.Surname = FIO[1];
             user.Patronymic = FIO[2];
@@ -50,7 +55,7 @@ namespace UchAzaliya.Pages
             worker.Education = EducationTb.Text;
             worker.Qualification = QualificationTb.Text;
 
-            new RegUserWindow(user, worker, address).ShowDialog();
+            new RegUserWindow(user, worker, address, processes).ShowDialog();
         }
 
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)
@@ -100,6 +105,22 @@ namespace UchAzaliya.Pages
                 selectedWorker.Education = EducationTb.Text;
                 selectedWorker.Qualification = QualificationTb.Text;
 
+                string[] processes = OperationsTb.Text.Split(',');
+                if (processes.Length > 0)
+                {
+                    for (int i = 0; i < processes.Length; i++)
+                    {
+                        string pro = processes[i].Trim();
+                        if (!App.Connection.CreatingProcess.Any(x => x.Process_Name == pro))
+                        {
+                            App.Connection.CreatingProcess.Add(new CreatingProcess() { Process_Name = pro});
+                            App.Connection.SaveChanges();
+                        }
+                        if(!App.Connection.WorkerProcess.Any(x => x.Login_Worker == selectedWorker.Login && x.Name_Process == pro ))
+                            App.Connection.WorkerProcess.Add(new WorkerProcess() { Login_Worker = selectedWorker.Login, Name_Process = pro });
+                    }
+                    App.Connection.SaveChanges();
+                }
 
                 App.Connection.SaveChanges();
                 MessageBox.Show("Данные обновлены");

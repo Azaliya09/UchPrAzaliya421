@@ -14,7 +14,7 @@
             <TextBlock  ToolTip="Для удаления/редактирования выберите элемент из списка" Text="?" Foreground="White" TextAlignment="Center" />
         </Viewbox>
         
-        <TabControl VerticalAlignment="Center">
+        <TabControl VerticalAlignment="Bottom" Margin="10" > 
             <TabItem Header="Материалы">
                 <StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5">

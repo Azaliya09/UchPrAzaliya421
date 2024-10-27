@@ -137,7 +137,7 @@ namespace UchAzaliya.Pages
             {
                 materials = materials.Where(z => z.Id_Warehouse == 3); ;
             }
-            MaterialsLV.ItemsSource = materials.ToList();
+            MaterialsLV.ItemsSource = materials.ToList(); 
         }
     }
 }

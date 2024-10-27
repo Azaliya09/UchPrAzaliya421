@@ -28,7 +28,6 @@ namespace UchAzaliya.Bases
         public virtual DbSet<ActiveSession> ActiveSession { get; set; }
         public virtual DbSet<Address> Address { get; set; }
         public virtual DbSet<ComponentType> ComponentType { get; set; }
-        public virtual DbSet<CreatingProcess> CreatingProcess { get; set; }
         public virtual DbSet<Document> Document { get; set; }
         public virtual DbSet<ImageStockComponent> ImageStockComponent { get; set; }
         public virtual DbSet<ImageStockMaterial> ImageStockMaterial { get; set; }
@@ -53,5 +52,6 @@ namespace UchAzaliya.Bases
         public virtual DbSet<Component> Component { get; set; }
         public virtual DbSet<Material> Material { get; set; }
         public virtual DbSet<Warehouse> Warehouse { get; set; }
+        public virtual DbSet<CreatingProcess> CreatingProcess { get; set; }
     }
 }

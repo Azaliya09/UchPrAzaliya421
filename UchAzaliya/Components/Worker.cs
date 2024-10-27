@@ -28,7 +28,7 @@ namespace UchAzaliya.Bases
                 for (int i = 0; i < list.Count; i++)
                 {
                     if (i == WorkerProcess.Count - 1)
-                        operations += list[i].Name_Process.ToString() + ".";
+                        operations += list[i].Name_Process.ToString() + " ";
                     else
                         operations += list[i].Name_Process.ToString() + ", ";
                 }

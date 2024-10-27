@@ -20,9 +20,9 @@ namespace UchAzaliya.Bases
             this.WorkerProcess = new HashSet<WorkerProcess>();
         }
     
-        public int Number_Process { get; set; }
-        public int Id_Product { get; set; }
         public string Process_Name { get; set; }
+        public Nullable<int> Number_Process { get; set; }
+        public Nullable<int> Id_Product { get; set; }
         public Nullable<int> Id_Workstation { get; set; }
     
         public virtual Product Product { get; set; }

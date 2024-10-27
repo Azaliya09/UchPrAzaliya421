@@ -27,18 +27,6 @@
     <Property Name="Name_ComponentType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Component" Relationship="TransporterBaseModel.FK_Component_ComponentType" FromRole="ComponentType" ToRole="Component" />
   </EntityType>
-  <EntityType Name="CreatingProcess">
-    <Key>
-      <PropertyRef Name="Process_Name" />
-    </Key>
-    <Property Name="Number_Process" Type="Int32" Nullable="false" />
-    <Property Name="Id_Product" Type="Int32" Nullable="false" />
-    <Property Name="Process_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Id_Workstation" Type="Int32" />
-    <NavigationProperty Name="Product" Relationship="Self.FK_CreatingProcess_Product" FromRole="CreatingProcess" ToRole="Product" />
-    <NavigationProperty Name="Workstation" Relationship="Self.FK_CreatingProcess_Workstation" FromRole="CreatingProcess" ToRole="Workstation" />
-    <NavigationProperty Name="WorkerProcess" Relationship="Self.FK_WorkerProcess_CreatingProcess" FromRole="CreatingProcess" ToRole="WorkerProcess" />
-  </EntityType>
   <EntityType Name="Document">
     <Key>
       <PropertyRef Name="Id_Document" />
@@ -107,13 +95,13 @@
     </Key>
     <Property Name="Id_Product" Type="Int32" Nullable="false" />
     <Property Name="Name_Product" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="CreatingProcess" Relationship="Self.FK_CreatingProcess_Product" FromRole="Product" ToRole="CreatingProcess" />
     <NavigationProperty Name="Order" Relationship="Self.FK_Order_Product" FromRole="Product" ToRole="Order" />
     <NavigationProperty Name="ProductPart" Relationship="Self.FK_ProductPart_Product" FromRole="Product" ToRole="ProductPart" />
     <NavigationProperty Name="ProductPart1" Relationship="Self.FK_ProductPart_Product1" FromRole="Product" ToRole="ProductPart" />
     <NavigationProperty Name="SizeObject" Relationship="Self.FK_SizeObject_Product" FromRole="Product" ToRole="SizeObject" />
     <NavigationProperty Name="ComponentProduct" Relationship="TransporterBaseModel.FK_ComponentProduct_Product" FromRole="Product" ToRole="ComponentProduct" />
     <NavigationProperty Name="MaterialProduct" Relationship="TransporterBaseModel.FK_MaterialProduct_Product" FromRole="Product" ToRole="MaterialProduct" />
+    <NavigationProperty Name="CreatingProcess" Relationship="TransporterBaseModel.FK_CreatingProcess_Product" FromRole="Product" ToRole="CreatingProcess" />
   </EntityType>
   <EntityType Name="ProductPart">
     <Key>
@@ -207,8 +195,8 @@
     <Property Name="Id_WorkProc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Login_Worker" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Name_Process" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="CreatingProcess" Relationship="Self.FK_WorkerProcess_CreatingProcess" FromRole="WorkerProcess" ToRole="CreatingProcess" />
     <NavigationProperty Name="Worker" Relationship="TransporterBaseModel.FK_WorkerProcess_Worker" FromRole="WorkerProcess" ToRole="Worker" />
+    <NavigationProperty Name="CreatingProcess" Relationship="TransporterBaseModel.FK_WorkerProcess_CreatingProcess1" FromRole="WorkerProcess" ToRole="CreatingProcess" />
   </EntityType>
   <EntityType Name="Workstation">
     <Key>
@@ -218,8 +206,8 @@
     <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
     <Property Name="Id_TypeWorkstation" Type="Int32" />
     <Property Name="Name__Workstation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="CreatingProcess" Relationship="Self.FK_CreatingProcess_Workstation" FromRole="Workstation" ToRole="CreatingProcess" />
     <NavigationProperty Name="TypeWorkstation" Relationship="Self.FK_Workstation_TypeWorkstation" FromRole="Workstation" ToRole="TypeWorkstation" />
+    <NavigationProperty Name="CreatingProcess" Relationship="TransporterBaseModel.FK_CreatingProcess_Workstation" FromRole="Workstation" ToRole="CreatingProcess" />
   </EntityType>
   <Association Name="FK_ActiveSession_User">
     <End Role="User" Type="Self.User" Multiplicity="1" />
@@ -230,42 +218,6 @@
       </Principal>
       <Dependent Role="ActiveSession">
         <PropertyRef Name="Login_User" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_CreatingProcess_Product">
-    <End Role="Product" Type="Self.Product" Multiplicity="1" />
-    <End Role="CreatingProcess" Type="Self.CreatingProcess" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Product">
-        <PropertyRef Name="Id_Product" />
-      </Principal>
-      <Dependent Role="CreatingProcess">
-        <PropertyRef Name="Id_Product" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_CreatingProcess_Workstation">
-    <End Role="Workstation" Type="Self.Workstation" Multiplicity="0..1" />
-    <End Role="CreatingProcess" Type="Self.CreatingProcess" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Workstation">
-        <PropertyRef Name="Id_Workstation" />
-      </Principal>
-      <Dependent Role="CreatingProcess">
-        <PropertyRef Name="Id_Workstation" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_WorkerProcess_CreatingProcess">
-    <End Role="CreatingProcess" Type="Self.CreatingProcess" Multiplicity="1" />
-    <End Role="WorkerProcess" Type="Self.WorkerProcess" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CreatingProcess">
-        <PropertyRef Name="Process_Name" />
-      </Principal>
-      <Dependent Role="WorkerProcess">
-        <PropertyRef Name="Name_Process" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -405,7 +357,6 @@
     <EntitySet Name="ActiveSession" EntityType="Self.ActiveSession" />
     <EntitySet Name="Address" EntityType="Self.Address" />
     <EntitySet Name="ComponentType" EntityType="Self.ComponentType" />
-    <EntitySet Name="CreatingProcess" EntityType="Self.CreatingProcess" />
     <EntitySet Name="Document" EntityType="Self.Document" />
     <EntitySet Name="ImageStockComponent" EntityType="Self.ImageStockComponent" />
     <EntitySet Name="ImageStockMaterial" EntityType="Self.ImageStockMaterial" />
@@ -426,18 +377,6 @@
     <AssociationSet Name="FK_ActiveSession_User" Association="Self.FK_ActiveSession_User">
       <End Role="User" EntitySet="User" />
       <End Role="ActiveSession" EntitySet="ActiveSession" />
-    </AssociationSet>
-    <AssociationSet Name="FK_CreatingProcess_Product" Association="Self.FK_CreatingProcess_Product">
-      <End Role="Product" EntitySet="Product" />
-      <End Role="CreatingProcess" EntitySet="CreatingProcess" />
-    </AssociationSet>
-    <AssociationSet Name="FK_CreatingProcess_Workstation" Association="Self.FK_CreatingProcess_Workstation">
-      <End Role="Workstation" EntitySet="Workstation" />
-      <End Role="CreatingProcess" EntitySet="CreatingProcess" />
-    </AssociationSet>
-    <AssociationSet Name="FK_WorkerProcess_CreatingProcess" Association="Self.FK_WorkerProcess_CreatingProcess">
-      <End Role="CreatingProcess" EntitySet="CreatingProcess" />
-      <End Role="WorkerProcess" EntitySet="WorkerProcess" />
     </AssociationSet>
     <AssociationSet Name="FK_Document_Order" Association="Self.FK_Document_Order">
       <End Role="Order" EntitySet="Order" />
@@ -557,6 +496,19 @@
     <AssociationSet Name="FK_Material_Warehouse" Association="TransporterBaseModel.FK_Material_Warehouse">
       <End Role="Warehouse" EntitySet="Warehouse" />
       <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <EntitySet Name="CreatingProcess" EntityType="TransporterBaseModel.CreatingProcess" />
+    <AssociationSet Name="FK_CreatingProcess_Product" Association="TransporterBaseModel.FK_CreatingProcess_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="CreatingProcess" EntitySet="CreatingProcess" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CreatingProcess_Workstation" Association="TransporterBaseModel.FK_CreatingProcess_Workstation">
+      <End Role="Workstation" EntitySet="Workstation" />
+      <End Role="CreatingProcess" EntitySet="CreatingProcess" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorkerProcess_CreatingProcess1" Association="TransporterBaseModel.FK_WorkerProcess_CreatingProcess1">
+      <End Role="CreatingProcess" EntitySet="CreatingProcess" />
+      <End Role="WorkerProcess" EntitySet="WorkerProcess" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Worker">
@@ -864,6 +816,54 @@
       </Principal>
       <Dependent Role="Material">
         <PropertyRef Name="Id_Warehouse" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="CreatingProcess">
+    <Key>
+      <PropertyRef Name="Process_Name" />
+    </Key>
+    <Property Name="Process_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Number_Process" Type="Int32" />
+    <Property Name="Id_Product" Type="Int32" />
+    <Property Name="Id_Workstation" Type="Int32" />
+    <NavigationProperty Name="Product" Relationship="TransporterBaseModel.FK_CreatingProcess_Product" FromRole="CreatingProcess" ToRole="Product" />
+    <NavigationProperty Name="Workstation" Relationship="TransporterBaseModel.FK_CreatingProcess_Workstation" FromRole="CreatingProcess" ToRole="Workstation" />
+    <NavigationProperty Name="WorkerProcess" Relationship="TransporterBaseModel.FK_WorkerProcess_CreatingProcess1" FromRole="CreatingProcess" ToRole="WorkerProcess" />
+  </EntityType>
+  <Association Name="FK_CreatingProcess_Product">
+    <End Type="TransporterBaseModel.Product" Role="Product" Multiplicity="0..1" />
+    <End Type="TransporterBaseModel.CreatingProcess" Role="CreatingProcess" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id_Product" />
+      </Principal>
+      <Dependent Role="CreatingProcess">
+        <PropertyRef Name="Id_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CreatingProcess_Workstation">
+    <End Type="TransporterBaseModel.Workstation" Role="Workstation" Multiplicity="0..1" />
+    <End Type="TransporterBaseModel.CreatingProcess" Role="CreatingProcess" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workstation">
+        <PropertyRef Name="Id_Workstation" />
+      </Principal>
+      <Dependent Role="CreatingProcess">
+        <PropertyRef Name="Id_Workstation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorkerProcess_CreatingProcess1">
+    <End Type="TransporterBaseModel.CreatingProcess" Role="CreatingProcess" Multiplicity="1" />
+    <End Type="TransporterBaseModel.WorkerProcess" Role="WorkerProcess" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CreatingProcess">
+        <PropertyRef Name="Process_Name" />
+      </Principal>
+      <Dependent Role="WorkerProcess">
+        <PropertyRef Name="Name_Process" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

@@ -24,12 +24,14 @@ namespace UchAzaliya.Windows
         private User user;
         private Worker worker;
         private Address address;
-        public RegUserWindow(User user, Worker worker, Address address)
+        private string[] processes;
+        public RegUserWindow(User user, Worker worker, Address address, string[] processes)
         {
             InitializeComponent();
             this.user = user;
             this.worker = worker;
             this.address = address;
+            this.processes = processes;
             RoleCb.ItemsSource = App.Connection.Role.Where(x => x.Id_Role != 1).ToList();
         }
 
@@ -55,6 +57,19 @@ namespace UchAzaliya.Windows
             App.Connection.Address.Add(address);
             worker.Id_Address = address.Id_Address;
             App.Connection.SaveChanges();
+
+            if (processes.Length > 0)
+            {
+                for (int i = 0; i < processes.Length; i++)
+                {
+                    string pro = processes[i].Trim();
+                    if (!App.Connection.CreatingProcess.Any(x => x.Process_Name == pro))
+                        App.Connection.CreatingProcess.Add(new CreatingProcess() { Process_Name = pro });
+                    App.Connection.WorkerProcess.Add(new WorkerProcess() { Login_Worker = worker.Login, Name_Process = pro });
+                }
+                App.Connection.SaveChanges();
+            }
+
             App.mainWindow.MyFrame.Navigate(new EmployeeAccounting());
             this.Close();
             MessageBox.Show("Сотрудник успешно добавлен!");

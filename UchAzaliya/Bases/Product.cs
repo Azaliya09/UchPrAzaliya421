@@ -17,20 +17,18 @@ namespace UchAzaliya.Bases
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
-            this.CreatingProcess = new HashSet<CreatingProcess>();
             this.Order = new HashSet<Order>();
             this.ProductPart = new HashSet<ProductPart>();
             this.ProductPart1 = new HashSet<ProductPart>();
             this.SizeObject = new HashSet<SizeObject>();
             this.ComponentProduct = new HashSet<ComponentProduct>();
             this.MaterialProduct = new HashSet<MaterialProduct>();
+            this.CreatingProcess = new HashSet<CreatingProcess>();
         }
     
         public int Id_Product { get; set; }
         public string Name_Product { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CreatingProcess> CreatingProcess { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Order { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -43,5 +41,7 @@ namespace UchAzaliya.Bases
         public virtual ICollection<ComponentProduct> ComponentProduct { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MaterialProduct> MaterialProduct { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CreatingProcess> CreatingProcess { get; set; }
     }
 }

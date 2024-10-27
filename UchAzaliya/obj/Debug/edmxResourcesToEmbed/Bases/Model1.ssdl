@@ -52,9 +52,9 @@
     <Key>
       <PropertyRef Name="Process_Name" />
     </Key>
-    <Property Name="Number_Process" Type="int" Nullable="false" />
-    <Property Name="Id_Product" Type="int" Nullable="false" />
     <Property Name="Process_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Number_Process" Type="int" />
+    <Property Name="Id_Product" Type="int" />
     <Property Name="Id_Workstation" Type="int" />
   </EntityType>
   <EntityType Name="Document">
@@ -342,7 +342,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_CreatingProcess_Product">
-    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
     <End Role="CreatingProcess" Type="Self.CreatingProcess" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Product">
@@ -607,7 +607,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_WorkerProcess_CreatingProcess">
+  <Association Name="FK_WorkerProcess_CreatingProcess1">
     <End Role="CreatingProcess" Type="Self.CreatingProcess" Multiplicity="1" />
     <End Role="WorkerProcess" Type="Self.WorkerProcess" Multiplicity="*" />
     <ReferentialConstraint>
@@ -790,7 +790,7 @@
       <End Role="User" EntitySet="User" />
       <End Role="Worker" EntitySet="Worker" />
     </AssociationSet>
-    <AssociationSet Name="FK_WorkerProcess_CreatingProcess" Association="Self.FK_WorkerProcess_CreatingProcess">
+    <AssociationSet Name="FK_WorkerProcess_CreatingProcess1" Association="Self.FK_WorkerProcess_CreatingProcess1">
       <End Role="CreatingProcess" EntitySet="CreatingProcess" />
       <End Role="WorkerProcess" EntitySet="WorkerProcess" />
     </AssociationSet>
