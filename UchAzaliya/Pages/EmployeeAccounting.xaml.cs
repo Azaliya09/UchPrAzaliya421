@@ -155,5 +155,10 @@ namespace UchAzaliya.Pages
             QualificationTb.Text = string.Empty;
             OperationsTb.Text = string.Empty;
         }
+
+        private void BackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ForUser());
+        }
     }
 }

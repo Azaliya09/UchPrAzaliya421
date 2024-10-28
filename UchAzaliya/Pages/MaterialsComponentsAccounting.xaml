@@ -53,7 +53,13 @@
                         <Button x:Name="EditMBtn" Width="130" Click="EditMBtn_Click">Редактировать</Button>
                         <Button x:Name="AddMBtn" Width="130" Click="AddMBtn_Click">Добавить</Button>
                     </StackPanel>
+                    <StackPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+                        <TextBlock x:Name="MaterialCountTb" FontWeight="Bold">0 из 0</TextBlock>
+                        <TextBlock FontWeight="Bold" Margin="40 0 0 0">общая закупочная стоимость:</TextBlock>
+                        <TextBlock x:Name="MaterialPriceTb" FontWeight="Bold" Margin="10 0 0 0">0 руб.</TextBlock>
+                    </StackPanel>
                 </StackPanel>
+                
             </TabItem>
 
             <TabItem Header="Комплектующие">
@@ -94,7 +100,11 @@
                         <Button x:Name="EditCBtn" Width="130" Click="EditCBtn_Click">Редактировать</Button>
                         <Button x:Name="AddCBtn" Width="130" Click="AddCBtn_Click">Добавить</Button>
                     </StackPanel>
-                    
+                    <StackPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+                        <TextBlock x:Name="CompCountTb" FontWeight="Bold">0 из 0</TextBlock>
+                        <TextBlock FontWeight="Bold" Margin="40 0 0 0">общая закупочная стоимость:</TextBlock>
+                        <TextBlock x:Name="CompPriceTb" FontWeight="Bold" Margin="10 0 0 0">0 руб.</TextBlock>
+                    </StackPanel>
                 </StackPanel>
             </TabItem>
         </TabControl>

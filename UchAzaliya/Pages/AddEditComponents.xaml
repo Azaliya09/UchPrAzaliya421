@@ -9,6 +9,50 @@
       Title="AddEditComponents" Background="#FFFEF9DE">
 
     <Grid>
-        
+        <Ellipse  Fill="#FFBB0C07" Width="40" Height="40" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10"/>
+        <Viewbox Width="40" Height="40" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="20 10">
+            <TextBlock  ToolTip="Данные с одинаковыми артикулами не будут сохраняться в базе данных" Text="?" Foreground="White" TextAlignment="Center" />
+        </Viewbox>
+
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock FontSize="18" FontWeight="Bold"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 10 0 20">Добавление комплектующих</TextBlock>
+            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Margin="0 0 0 5">
+                <TextBlock  Width="120">Артукул</TextBlock>
+                <TextBox x:Name="IDTb"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Margin="0 0 0 5" >
+                <TextBlock  Width="120">Наименование</TextBlock>
+                <TextBox x:Name="NameTb"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Margin="0 0 0 5" >
+                <TextBlock  Width="120">Количество</TextBlock>
+                <TextBox x:Name="CountTb"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Margin="0 0 0 5" >
+                <TextBlock  Width="120" TextWrapping="Wrap" Margin="-3 0 3 0">Единица измерения</TextBlock>
+                <ComboBox x:Name="SizeTypeCb" Width="180"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Margin="0 0 0 5">
+                <TextBlock  Width="120"  TextWrapping="Wrap">Закупочная цена</TextBlock>
+                <TextBox x:Name="PriceTb"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Margin="0 0 0 5">
+                <TextBlock  Width="120" Margin="-3 0 3 0">Поставщик</TextBlock>
+                <ComboBox x:Name="PoviderCb" Width="180"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Margin="0 0 0 5">
+                <TextBlock  Width="120"  TextWrapping="Wrap">Срок доставки</TextBlock>
+                <TextBox x:Name="DeliveryDateTb"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 5" >
+                <TextBlock  Width="120" Margin="-3 0 3 0">Склад</TextBlock>
+                <ComboBox x:Name="WarehouseCb" Width="180"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 10">
+                <Button x:Name="BackBtn" Width="100" Click="BackBtn_Click">Назад</Button>
+                <Button x:Name="SaveBtn" Width="100">Сохранить</Button>
+            </StackPanel>
+
+        </StackPanel>
     </Grid>
 </Page>

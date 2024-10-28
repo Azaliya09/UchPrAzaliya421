@@ -10,9 +10,11 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.Media3D;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using UchAzaliya.Bases;
+using Material = UchAzaliya.Bases.Material;
 
 namespace UchAzaliya.Pages
 {
@@ -21,24 +23,34 @@ namespace UchAzaliya.Pages
     /// </summary>
     public partial class MaterialsComponentsAccounting : Page
     {
+        
         private Material selectedMaterial;
         private Component selectedComponent;
         public MaterialsComponentsAccounting()
         {
             InitializeComponent();
             MaterialsLV.ItemsSource = App.Connection.Material.Where(z=>z.IsDeleted == false).ToList();
+           
+
             ComponentsLV.ItemsSource = App.Connection.Component.Where(z => z.IsDeleted == false).ToList();
 
         }
 
         private void EditMBtn_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AddEditMaterials());
+            if(MaterialsLV.SelectedItem != null)
+            {
+                NavigationService.Navigate(new AddEditMaterials(MaterialsLV.SelectedItem as Material));
+            }
+            else
+            {
+                MessageBox.Show("Выберите элемент из списка для редактирования");
+            }
         }
 
         private void AddMBtn_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AddEditMaterials());
+            NavigationService.Navigate(new AddEditMaterials(new Material ()));
         }
 
         private void DeleteMBtn_Click(object sender, RoutedEventArgs e)
@@ -58,7 +70,14 @@ namespace UchAzaliya.Pages
 
         private void EditCBtn_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AddEditComponents());
+            if (ComponentsLV.SelectedItem != null)
+            {
+                NavigationService.Navigate(new AddEditComponents());
+            }
+            else
+            {
+                MessageBox.Show("Выберите элемент из списка для редактирования");
+            }
         }
 
         private void AddCBtn_Click(object sender, RoutedEventArgs e)
@@ -115,6 +134,15 @@ namespace UchAzaliya.Pages
                 components = components.Where(z => z.Id_Warehouse == 3); ;
             }
             ComponentsLV.ItemsSource = components.ToList();
+
+            int count = components.Count();
+            CompCountTb.Text = $"{components.Count()} из {count}";
+            decimal price = 0;
+            foreach (var material in components)
+                price += (material.Cost == null ? 0 : (decimal)material.Cost);
+            CompPriceTb.Text = $"{price}";
+
+
         }
 
         private void FiltrMatCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -137,7 +165,14 @@ namespace UchAzaliya.Pages
             {
                 materials = materials.Where(z => z.Id_Warehouse == 3); ;
             }
-            MaterialsLV.ItemsSource = materials.ToList(); 
+            MaterialsLV.ItemsSource = materials.ToList();
+
+            int count = materials.Count();
+            MaterialCountTb.Text = $"{materials.Count()} из {count}";
+            decimal price = 0;
+            foreach (var material in materials)
+                price += (material.Cost_Material == null ? 0 : (decimal)material.Cost_Material);
+            MaterialPriceTb.Text = $"{price}";
         }
     }
 }
