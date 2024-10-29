@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UchAzaliya.Bases;
 
 namespace UchAzaliya.Pages
 {
@@ -20,14 +21,36 @@ namespace UchAzaliya.Pages
     /// </summary>
     public partial class AddEditComponents : Page
     {
-        public AddEditComponents()
+        private Component selComp;
+        public AddEditComponents(Component component)
         {
             InitializeComponent();
+            SizeTypeCb.ItemsSource = App.Connection.SizeType.ToList();
+            ProviderCb.ItemsSource = App.Connection.Provider.ToList();
+            WarehouseCb.ItemsSource = App.Connection.Warehouse.ToList();
+            selComp = component;
+            DataContext = component;
         }
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new MaterialsComponentsAccounting());
+        }
+
+        private void EditBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if(selComp != null)
+            {
+                App.Connection.SaveChanges();
+                MessageBox.Show("Данные обновлены");
+                NavigationService.Navigate(new MaterialsComponentsAccounting());
+
+            }
+        }
+
+        private void SaveBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //добавление компонента
         }
     }
 }

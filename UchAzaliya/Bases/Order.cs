@@ -28,11 +28,14 @@ namespace UchAzaliya.Bases
         public string Id_Client { get; set; }
         public string Id_Manager { get; set; }
         public Nullable<decimal> Cost { get; set; }
+        public Nullable<int> Id_Status { get; set; }
+        public Nullable<bool> IsDeleted { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Document> Document { get; set; }
         public virtual Product Product { get; set; }
         public virtual User User { get; set; }
         public virtual User User1 { get; set; }
+        public virtual Status Status { get; set; }
     }
 }

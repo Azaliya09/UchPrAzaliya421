@@ -42,6 +42,7 @@ namespace UchAzaliya.Pages
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
             Material material = new Material() { IsDeleted = false };
+            //условие на айдишник
             //if (IDTb.Text == App.Connection.Material.Id_Material.ToString())
             //{
             //    MessageBox.Show("Такой артикул уже существует");

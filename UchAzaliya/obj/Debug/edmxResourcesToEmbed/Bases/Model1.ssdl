@@ -136,6 +136,8 @@
     <Property Name="Id_Client" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Id_Manager" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Cost" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Id_Status" Type="int" />
+    <Property Name="IsDeleted" Type="bit" />
   </EntityType>
   <EntityType Name="Product">
     <Key>
@@ -192,6 +194,13 @@
     <Property Name="Id_Standart" Type="int" Nullable="false" />
     <Property Name="Name_Standart" Type="nvarchar" MaxLength="50" />
     <Property Name="Description_Standart" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="Id_Status" />
+    </Key>
+    <Property Name="Id_Status" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name_Status" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -473,6 +482,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Order_Status">
+    <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="Id_Status" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="Id_Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Order_User">
     <End Role="User" Type="Self.User" Multiplicity="1" />
     <End Role="Order" Type="Self.Order" Multiplicity="*" />
@@ -667,6 +688,7 @@
     <EntitySet Name="SizeObject" EntityType="Self.SizeObject" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SizeType" EntityType="Self.SizeType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Standart" EntityType="Self.Standart" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TypeWorkstation" EntityType="Self.TypeWorkstation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
@@ -744,6 +766,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_Order_Product" Association="Self.FK_Order_Product">
       <End Role="Product" EntitySet="Product" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Status" Association="Self.FK_Order_Status">
+      <End Role="Status" EntitySet="Status" />
       <End Role="Order" EntitySet="Order" />
     </AssociationSet>
     <AssociationSet Name="FK_Order_User" Association="Self.FK_Order_User">

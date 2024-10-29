@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\user\Desktop\Uchebka\Uchebnaya_Azaliya\UchPrAzaliya421\UchAzaliya\App.xaml
-9-1678617766
+121138445496
 21906734957
-491150815033
+531014958745
 18-18572749
-MainWindow.xaml;Pages\AddEditComponents.xaml;Pages\AddEditMaterials.xaml;Pages\Authtorization.xaml;Pages\EmployeeAccounting.xaml;Pages\ForUser.xaml;Pages\MaterialsComponentsAccounting.xaml;Pages\RegistrationСlient.xaml;Windows\RegUserWindow.xaml;
+MainWindow.xaml;Pages\AddEditComponents.xaml;Pages\AddEditMaterials.xaml;Pages\AddEditOrder.xaml;Pages\Authtorization.xaml;Pages\EmployeeAccounting.xaml;Pages\ForUser.xaml;Pages\MaterialsComponentsAccounting.xaml;Pages\OrdersList.xaml;Pages\RegistrationСlient.xaml;Pages\Workshops.xaml;Windows\RegUserWindow.xaml;
 
 True
 

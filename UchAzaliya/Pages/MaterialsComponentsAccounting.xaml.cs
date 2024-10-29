@@ -72,7 +72,7 @@ namespace UchAzaliya.Pages
         {
             if (ComponentsLV.SelectedItem != null)
             {
-                NavigationService.Navigate(new AddEditComponents());
+                NavigationService.Navigate(new AddEditComponents(ComponentsLV.SelectedItem as Component));
             }
             else
             {
@@ -82,7 +82,7 @@ namespace UchAzaliya.Pages
 
         private void AddCBtn_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AddEditComponents());
+            NavigationService.Navigate(new AddEditComponents(new Component()));
         }
 
         private void DeleteCBtn_Click(object sender, RoutedEventArgs e)

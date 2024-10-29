@@ -75,6 +75,8 @@
     <EntitySetMapping Name="Order">
       <EntityTypeMapping TypeName="TransporterBaseModel.Order">
         <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Id_Status" ColumnName="Id_Status" />
           <ScalarProperty Name="Id_Order" ColumnName="Id_Order" />
           <ScalarProperty Name="Name_Order" ColumnName="Name_Order" />
           <ScalarProperty Name="DateStart" ColumnName="DateStart" />
@@ -282,6 +284,14 @@
           <ScalarProperty Name="Id_Product" ColumnName="Id_Product" />
           <ScalarProperty Name="Number_Process" ColumnName="Number_Process" />
           <ScalarProperty Name="Process_Name" ColumnName="Process_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status">
+      <EntityTypeMapping TypeName="TransporterBaseModel.Status">
+        <MappingFragment StoreEntitySet="Status">
+          <ScalarProperty Name="Name_Status" ColumnName="Name_Status" />
+          <ScalarProperty Name="Id_Status" ColumnName="Id_Status" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

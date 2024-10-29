@@ -38,3 +38,7 @@ C:\Users\user\Desktop\Uchebka\Uchebnaya_Azaliya\UchPrAzaliya421\UchAzaliya\obj\D
 C:\Users\user\Desktop\Uchebka\Uchebnaya_Azaliya\UchPrAzaliya421\UchAzaliya\obj\Debug\UchAzaliya.csproj.CopyComplete
 C:\Users\user\Desktop\Uchebka\Uchebnaya_Azaliya\UchPrAzaliya421\UchAzaliya\obj\Debug\Windows\RegUserWindow.g.cs
 C:\Users\user\Desktop\Uchebka\Uchebnaya_Azaliya\UchPrAzaliya421\UchAzaliya\obj\Debug\Windows\RegUserWindow.baml
+C:\Users\user\Desktop\Uchebka\Uchebnaya_Azaliya\UchPrAzaliya421\UchAzaliya\obj\Debug\Pages\Workshops.g.cs
+C:\Users\user\Desktop\Uchebka\Uchebnaya_Azaliya\UchPrAzaliya421\UchAzaliya\obj\Debug\Pages\OrdersList.g.cs
+C:\Users\user\Desktop\Uchebka\Uchebnaya_Azaliya\UchPrAzaliya421\UchAzaliya\obj\Debug\Pages\OrdersList.baml
+C:\Users\user\Desktop\Uchebka\Uchebnaya_Azaliya\UchPrAzaliya421\UchAzaliya\obj\Debug\Pages\Workshops.baml

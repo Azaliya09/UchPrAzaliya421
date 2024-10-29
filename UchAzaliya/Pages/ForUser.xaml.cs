@@ -42,5 +42,11 @@ namespace UchAzaliya.Pages
         {
             NavigationService.Navigate(new MaterialsComponentsAccounting());
         }
+
+        private void ListOrder_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new OrdersList());
+            
+        }
     }
 }

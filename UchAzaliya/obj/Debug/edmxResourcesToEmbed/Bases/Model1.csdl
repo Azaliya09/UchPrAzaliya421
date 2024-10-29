@@ -88,6 +88,9 @@
     <NavigationProperty Name="Product" Relationship="Self.FK_Order_Product" FromRole="Order" ToRole="Product" />
     <NavigationProperty Name="User" Relationship="Self.FK_Order_User" FromRole="Order" ToRole="User" />
     <NavigationProperty Name="User1" Relationship="Self.FK_Order_User1" FromRole="Order" ToRole="User" />
+    <Property Name="Id_Status" Type="Int32" />
+    <NavigationProperty Name="Status" Relationship="TransporterBaseModel.FK_Order_Status" FromRole="Order" ToRole="Status" />
+    <Property Name="IsDeleted" Type="Boolean" />
   </EntityType>
   <EntityType Name="Product">
     <Key>
@@ -510,6 +513,11 @@
       <End Role="CreatingProcess" EntitySet="CreatingProcess" />
       <End Role="WorkerProcess" EntitySet="WorkerProcess" />
     </AssociationSet>
+    <EntitySet Name="Status" EntityType="TransporterBaseModel.Status" />
+    <AssociationSet Name="FK_Order_Status" Association="TransporterBaseModel.FK_Order_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Worker">
     <Key>
@@ -864,6 +872,26 @@
       </Principal>
       <Dependent Role="WorkerProcess">
         <PropertyRef Name="Name_Process" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="Id_Status" />
+    </Key>
+    <Property Name="Id_Status" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Order" Relationship="TransporterBaseModel.FK_Order_Status" FromRole="Status" ToRole="Order" />
+  </EntityType>
+  <Association Name="FK_Order_Status">
+    <End Type="TransporterBaseModel.Status" Role="Status" Multiplicity="0..1" />
+    <End Type="TransporterBaseModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="Id_Status" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="Id_Status" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

@@ -11,6 +11,7 @@
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <Button   x:Name="ListEmpl" Width="150" Height="30" Click="ListEmpl_Click">Учет работников</Button>
+            <Button   x:Name="ListOrder" Width="150" Height="30" Click="ListOrder_Click" >Список заказов</Button>
             <Button x:Name="MatComp" Width="150" Height="50" Click="MatComp_Click">
                 <TextBlock Text="Учет материалов и комплектующих" TextAlignment="Center" TextWrapping="Wrap" />
             </Button>

@@ -65,6 +65,8 @@
         <AssociationConnector Association="TransporterBaseModel.FK_CreatingProcess_Product" />
         <AssociationConnector Association="TransporterBaseModel.FK_CreatingProcess_Workstation" />
         <AssociationConnector Association="TransporterBaseModel.FK_WorkerProcess_CreatingProcess1" />
+        <EntityTypeShape EntityType="TransporterBaseModel.Status" Width="1.5" PointX="6.375" PointY="0.875" />
+        <AssociationConnector Association="TransporterBaseModel.FK_Order_Status" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -53,5 +53,6 @@ namespace UchAzaliya.Bases
         public virtual DbSet<Material> Material { get; set; }
         public virtual DbSet<Warehouse> Warehouse { get; set; }
         public virtual DbSet<CreatingProcess> CreatingProcess { get; set; }
+        public virtual DbSet<Status> Status { get; set; }
     }
 }
