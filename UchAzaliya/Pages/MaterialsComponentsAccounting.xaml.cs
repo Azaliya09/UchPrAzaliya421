@@ -1,18 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Media.Media3D;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using UchAzaliya.Bases;
 using Material = UchAzaliya.Bases.Material;
 
@@ -30,9 +20,17 @@ namespace UchAzaliya.Pages
         {
             InitializeComponent();
             MaterialsLV.ItemsSource = App.Connection.Material.Where(z=>z.IsDeleted == false).ToList();
-           
-
             ComponentsLV.ItemsSource = App.Connection.Component.Where(z => z.IsDeleted == false).ToList();
+
+            if(App.CorUser.Id_Role == 2 || App.CorUser.Id_Role == 3)
+            {
+                EditCBtn.Visibility = Visibility.Visible;
+                EditMBtn.Visibility = Visibility.Visible;
+                AddCBtn.Visibility = Visibility.Visible;
+                AddMBtn.Visibility = Visibility.Visible;
+                DeleteCBtn.Visibility = Visibility.Visible;
+                DeleteMBtn.Visibility = Visibility.Visible;
+            }
 
         }
 
@@ -53,20 +51,38 @@ namespace UchAzaliya.Pages
             NavigationService.Navigate(new AddEditMaterials(new Material ()));
         }
 
-        private void DeleteMBtn_Click(object sender, RoutedEventArgs e)
-        {
-            if (MaterialsLV.SelectedItem != null)
-            {
-                selectedMaterial.IsDeleted = true;
-                App.Connection.SaveChanges();
-                MessageBox.Show("Материал удален");
-                NavigationService.Navigate(new MaterialsComponentsAccounting());
-            }
-            else
-            {
-                MessageBox.Show("Выберите элемент из списка для удаления");
-            }
-        }
+        //private void DeleteMBtn_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if (MaterialsLV.SelectedItem != null)
+        //    {
+        //        var materials = App.Connection.Material;
+        //        if (materials.Any(x => x.Count != 0 && x.Id_Material == selectedMaterial.Id_Material))
+        //        {
+        //            MessageBox.Show("Этот материал нельзя удалить, т.к. он еще хранится на складе");
+        //        }
+        //        else
+        //        {
+        //            MessageBoxResult result = MessageBox.Show("Вы действительно желаете удалить этот материал?","Подтверждение удаления", MessageBoxButton.OKCancel,MessageBoxImage.Question);
+        //            if (result == MessageBoxResult.OK)
+        //            {
+        //                // Пользователь нажал "OK"
+        //                selectedMaterial.IsDeleted = true;
+        //                App.Connection.SaveChanges();
+        //                MessageBox.Show("Материал удален");
+        //            }
+        //            else
+        //            {
+        //                // Пользователь нажал "Cancel" или закрыл сообщение
+        //                MessageBox.Show("Удаление отменено");
+        //            }
+        //            NavigationService.Navigate(new MaterialsComponentsAccounting());
+        //        }
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Выберите элемент из списка для удаления");
+        //    }
+        //}
 
         private void EditCBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -173,6 +189,11 @@ namespace UchAzaliya.Pages
             foreach (var material in materials)
                 price += (material.Cost_Material == null ? 0 : (decimal)material.Cost_Material);
             MaterialPriceTb.Text = $"{price}";
+        }
+
+        private void BackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ForUser());
         }
     }
 }

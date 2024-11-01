@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UchAzaliya.Bases;
 
 namespace UchAzaliya.Pages
 {
@@ -20,9 +21,20 @@ namespace UchAzaliya.Pages
     /// </summary>
     public partial class AddEditOrder : Page
     {
-        public AddEditOrder()
+        public AddEditOrder(Order order)
         {
             InitializeComponent();
+            DataContext = order;
+        }
+
+        private void BackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new MaterialsComponentsAccounting());
+        }
+
+        private void SaveBtn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

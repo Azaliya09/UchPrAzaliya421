@@ -44,8 +44,10 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -64,33 +66,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Bases\Status.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Bases\Warehouse.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Components\PasswordValidator.cs" />
-    <Compile Include="Pages\AddEditOrder.xaml.cs">
-      <DependentUpon>AddEditOrder.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\OrdersList.xaml.cs">
-      <DependentUpon>OrdersList.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Workshops.xaml.cs">
-      <DependentUpon>Workshops.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\RegUserWindow.xaml.cs">
-      <DependentUpon>RegUserWindow.xaml</DependentUpon>
-    </Compile>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Bases\ActiveSession.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -110,6 +85,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Bases\Document.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bases\Icons.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Bases\ImageStockComponent.cs">
@@ -169,6 +147,9 @@
     <Compile Include="Bases\Standart.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Bases\Status.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Bases\sysdiagrams.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -178,14 +159,44 @@
     <Compile Include="Bases\User.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Bases\Warehouse.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Bases\Worker.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Bases\WorkerProcess.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Bases\Workshop.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bases\WorkshopIcons.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Bases\Workstation.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Components\PasswordValidator.cs" />
+    <Compile Include="Pages\AddEditOrder.xaml.cs">
+      <DependentUpon>AddEditOrder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\OrdersList.xaml.cs">
+      <DependentUpon>OrdersList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Workshops.xaml.cs">
+      <DependentUpon>Workshops.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\RegUserWindow.xaml.cs">
+      <DependentUpon>RegUserWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="Components\Address.cs" />
     <Compile Include="Components\User.cs" />
@@ -294,7 +305,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Resource Include="Resorces\Logo_Monochrome.png" />
   </ItemGroup>
@@ -303,6 +313,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resorces\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resorces\FirstAid.png" />
+    <Resource Include="Resorces\FireExtinguisher.png" />
+    <Resource Include="Resorces\Exit.jpg" />
+    <Resource Include="Resorces\Equipment.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Bases\Model1.Context.tt">
@@ -315,6 +331,13 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resorces\plan.png" />
+    <Resource Include="Resorces\users.png" />
+    <Resource Include="Resorces\order.png" />
+    <Resource Include="Resorces\matcomp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MainControls\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

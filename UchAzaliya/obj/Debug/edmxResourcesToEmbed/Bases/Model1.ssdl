@@ -66,6 +66,14 @@
     <Property Name="Name_Document" Type="nvarchar" MaxLength="50" />
     <Property Name="Id_Order" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="Icons">
+    <Key>
+      <PropertyRef Name="Id_Icon" />
+    </Key>
+    <Property Name="Id_Icon" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Icon_Source" Type="varbinary(max)" />
+    <Property Name="Name_Icon" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="ImageStockComponent">
     <Key>
       <PropertyRef Name="Id_Image" />
@@ -257,6 +265,25 @@
     <Property Name="Login_Worker" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Name_Process" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="Workshop">
+    <Key>
+      <PropertyRef Name="Id_Workshop" />
+    </Key>
+    <Property Name="Id_Workshop" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name_Workshop" Type="nvarchar" MaxLength="50" />
+    <Property Name="Workshop_Image" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="WorkshopIcons">
+    <Key>
+      <PropertyRef Name="Id_Icon" />
+    </Key>
+    <Property Name="Id_Icon" Type="int" Nullable="false" />
+    <Property Name="X_Position" Type="float" />
+    <Property Name="Y_Position" Type="float" />
+    <Property Name="Width_Icon" Type="float" />
+    <Property Name="Heaight_Icon" Type="float" />
+    <Property Name="Id_Workshop" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="Workstation">
     <Key>
       <PropertyRef Name="Id_Workstation" />
@@ -407,6 +434,18 @@
       </Principal>
       <Dependent Role="Material">
         <PropertyRef Name="Id_TypeMaterial" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_Provider">
+    <End Role="Provider" Type="Self.Provider" Multiplicity="0..1" />
+    <End Role="Material" Type="Self.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provider">
+        <PropertyRef Name="Name_Provider" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="Name_Provider" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -654,6 +693,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_WorkshopIcons_Icons">
+    <End Role="Icons" Type="Self.Icons" Multiplicity="1" />
+    <End Role="WorkshopIcons" Type="Self.WorkshopIcons" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Icons">
+        <PropertyRef Name="Id_Icon" />
+      </Principal>
+      <Dependent Role="WorkshopIcons">
+        <PropertyRef Name="Id_Icon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorkshopIcons_Workshop1">
+    <End Role="Workshop" Type="Self.Workshop" Multiplicity="1" />
+    <End Role="WorkshopIcons" Type="Self.WorkshopIcons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workshop">
+        <PropertyRef Name="Id_Workshop" />
+      </Principal>
+      <Dependent Role="WorkshopIcons">
+        <PropertyRef Name="Id_Workshop" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Workstation_TypeWorkstation">
     <End Role="TypeWorkstation" Type="Self.TypeWorkstation" Multiplicity="0..1" />
     <End Role="Workstation" Type="Self.Workstation" Multiplicity="*" />
@@ -674,6 +737,7 @@
     <EntitySet Name="ComponentType" EntityType="Self.ComponentType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CreatingProcess" EntityType="Self.CreatingProcess" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Document" EntityType="Self.Document" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Icons" EntityType="Self.Icons" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ImageStockComponent" EntityType="Self.ImageStockComponent" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ImageStockMaterial" EntityType="Self.ImageStockMaterial" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ImageStockUser" EntityType="Self.ImageStockUser" Schema="dbo" store:Type="Tables" />
@@ -695,6 +759,8 @@
     <EntitySet Name="Warehouse" EntityType="Self.Warehouse" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Worker" EntityType="Self.Worker" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WorkerProcess" EntityType="Self.WorkerProcess" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Workshop" EntityType="Self.Workshop" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorkshopIcons" EntityType="Self.WorkshopIcons" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Workstation" EntityType="Self.Workstation" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_ActiveSession_User" Association="Self.FK_ActiveSession_User">
       <End Role="User" EntitySet="User" />
@@ -742,6 +808,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_Material_MaterialType" Association="Self.FK_Material_MaterialType">
       <End Role="MaterialType" EntitySet="MaterialType" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_Provider" Association="Self.FK_Material_Provider">
+      <End Role="Provider" EntitySet="Provider" />
       <End Role="Material" EntitySet="Material" />
     </AssociationSet>
     <AssociationSet Name="FK_Material_SizeType" Association="Self.FK_Material_SizeType">
@@ -823,6 +893,14 @@
     <AssociationSet Name="FK_WorkerProcess_Worker" Association="Self.FK_WorkerProcess_Worker">
       <End Role="Worker" EntitySet="Worker" />
       <End Role="WorkerProcess" EntitySet="WorkerProcess" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorkshopIcons_Icons" Association="Self.FK_WorkshopIcons_Icons">
+      <End Role="Icons" EntitySet="Icons" />
+      <End Role="WorkshopIcons" EntitySet="WorkshopIcons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorkshopIcons_Workshop1" Association="Self.FK_WorkshopIcons_Workshop1">
+      <End Role="Workshop" EntitySet="Workshop" />
+      <End Role="WorkshopIcons" EntitySet="WorkshopIcons" />
     </AssociationSet>
     <AssociationSet Name="FK_Workstation_TypeWorkstation" Association="Self.FK_Workstation_TypeWorkstation">
       <End Role="TypeWorkstation" EntitySet="TypeWorkstation" />

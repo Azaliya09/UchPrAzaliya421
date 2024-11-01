@@ -13,10 +13,10 @@ namespace UchAzaliya.Bases
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TransporterBaseEntities2 : DbContext
+    public partial class TransporterBaseEntities4 : DbContext
     {
-        public TransporterBaseEntities2()
-            : base("name=TransporterBaseEntities2")
+        public TransporterBaseEntities4()
+            : base("name=TransporterBaseEntities4")
         {
         }
     
@@ -27,32 +27,35 @@ namespace UchAzaliya.Bases
     
         public virtual DbSet<ActiveSession> ActiveSession { get; set; }
         public virtual DbSet<Address> Address { get; set; }
+        public virtual DbSet<Component> Component { get; set; }
+        public virtual DbSet<ComponentProduct> ComponentProduct { get; set; }
         public virtual DbSet<ComponentType> ComponentType { get; set; }
+        public virtual DbSet<CreatingProcess> CreatingProcess { get; set; }
         public virtual DbSet<Document> Document { get; set; }
         public virtual DbSet<ImageStockComponent> ImageStockComponent { get; set; }
         public virtual DbSet<ImageStockMaterial> ImageStockMaterial { get; set; }
         public virtual DbSet<ImageStockUser> ImageStockUser { get; set; }
+        public virtual DbSet<Material> Material { get; set; }
+        public virtual DbSet<MaterialProduct> MaterialProduct { get; set; }
         public virtual DbSet<MaterialType> MaterialType { get; set; }
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<ProductPart> ProductPart { get; set; }
+        public virtual DbSet<Provider> Provider { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<SizeObject> SizeObject { get; set; }
         public virtual DbSet<SizeType> SizeType { get; set; }
         public virtual DbSet<Standart> Standart { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<TypeWorkstation> TypeWorkstation { get; set; }
         public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<Warehouse> Warehouse { get; set; }
+        public virtual DbSet<Worker> Worker { get; set; }
         public virtual DbSet<WorkerProcess> WorkerProcess { get; set; }
         public virtual DbSet<Workstation> Workstation { get; set; }
-        public virtual DbSet<Worker> Worker { get; set; }
-        public virtual DbSet<ComponentProduct> ComponentProduct { get; set; }
-        public virtual DbSet<MaterialProduct> MaterialProduct { get; set; }
-        public virtual DbSet<Provider> Provider { get; set; }
-        public virtual DbSet<Component> Component { get; set; }
-        public virtual DbSet<Material> Material { get; set; }
-        public virtual DbSet<Warehouse> Warehouse { get; set; }
-        public virtual DbSet<CreatingProcess> CreatingProcess { get; set; }
-        public virtual DbSet<Status> Status { get; set; }
+        public virtual DbSet<Icons> Icons { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<Workshop> Workshop { get; set; }
+        public virtual DbSet<WorkshopIcons> WorkshopIcons { get; set; }
     }
 }

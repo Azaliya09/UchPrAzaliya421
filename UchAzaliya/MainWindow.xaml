@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UchAzaliya"
         mc:Ignorable="d"
-        Title="MainWindow" MinHeight="500" MinWidth="850" Height="500" Width="850">
+        Title="Sirachova_azaliya" MinHeight="700" MaxHeight="700" MinWidth="1050" MaxWidth="1050" Height="700" Width="1050">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="24*"/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="193*"/>
         </Grid.RowDefinitions>
         <Rectangle Fill="#FFBB0C07" Grid.ColumnSpan="2"></Rectangle>

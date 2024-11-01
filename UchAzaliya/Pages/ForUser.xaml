@@ -5,17 +5,34 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:UchAzaliya.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="700" d:DesignWidth="1050"
       Title="ForUser" Background="#FFFEF9DE">
 
     <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button   x:Name="ListEmpl" Width="150" Height="30" Click="ListEmpl_Click">Учет работников</Button>
-            <Button   x:Name="ListOrder" Width="150" Height="30" Click="ListOrder_Click" >Список заказов</Button>
-            <Button x:Name="MatComp" Width="150" Height="50" Click="MatComp_Click">
-                <TextBlock Text="Учет материалов и комплектующих" TextAlignment="Center" TextWrapping="Wrap" />
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Visibility="Collapsed" Margin="20" ToolTip="Учет работников" BorderThickness="0" Background="Transparent" x:Name="ListEmpl" Width="160" Height="160" Click="ListEmpl_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Resorces/users.png" Width="150" Height="150"/>
+                </StackPanel>
             </Button>
 
+            <Button Visibility="Collapsed" Margin="20" ToolTip="Список заказов" BorderThickness="0" Background="Transparent" x:Name="ListOrder" Width="160" Height="160" Click="ListOrder_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Resorces/order.png" Width="150" Height="150"/>
+                </StackPanel>
+            </Button>
+
+            <Button Visibility="Collapsed" Margin="20" ToolTip="Планирование цехов" BorderThickness="0" Background="Transparent" x:Name="Workshops" Width="160" Height="160" Click="Workshops_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Resorces/plan.png" Width="150" Height="150"/>
+                </StackPanel>
+            </Button>
+
+            <Button Visibility="Collapsed" Margin="20" ToolTip="Учет материалов и комплектующих" BorderThickness="0" Background="Transparent"  x:Name="MatComp" Width="160" Height="160" Click="MatComp_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Resorces/matcomp.png" Width="150" Height="150"/>
+                </StackPanel>
+            </Button>
         </StackPanel>
     </Grid>
 </Page>

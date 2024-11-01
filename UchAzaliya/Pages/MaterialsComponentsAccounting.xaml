@@ -5,16 +5,17 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:UchAzaliya.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="700" d:DesignWidth="1050"
       Title="MaterialsComponentsAccounting" Background="#FFFEF9DE">
 
     <Grid>
         <Ellipse  Fill="#FFBB0C07" Width="40" Height="40" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10"/>
         <Viewbox Width="40" Height="40" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="20 10">
-            <TextBlock  ToolTip="Для удаления/редактирования выберите элемент из списка" Text="?" Foreground="White" TextAlignment="Center" />
+            <TextBlock ToolTip="новые заказы: статусы «Новый»,«Составление спецификации» и «Подтверждение»;&#x0A;выполненные заказы: статусы «Готов» и «Закрыт»;&#x0A;текущие заказы: статусы «Закупка», «Производство» и «Контроль»;&#x0A;отклоненные заказы: статус «Отклонен»."  Text="?" Foreground="White" TextAlignment="Center" />
         </Viewbox>
-        
-        <TabControl VerticalAlignment="Bottom" Margin="10" > 
+        <Button Grid.Column="1" x:Name="BackBtn" Width="100" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 20 60 0" Click="BackBtn_Click">Назад</Button>
+
+        <TabControl VerticalAlignment="Center" Margin="10" > 
             <TabItem Header="Материалы">
                 <StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5">
@@ -49,9 +50,9 @@
                         </ListView>
                     </ScrollViewer>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Button x:Name="DeleteMBtn" Width="130" Click="DeleteMBtn_Click">Удалить</Button>
-                        <Button x:Name="EditMBtn" Width="130" Click="EditMBtn_Click">Редактировать</Button>
-                        <Button x:Name="AddMBtn" Width="130" Click="AddMBtn_Click">Добавить</Button>
+                        <Button Visibility="Collapsed" x:Name="DeleteMBtn" Width="130">Удалить</Button>
+                        <Button Visibility="Collapsed" x:Name="EditMBtn" Width="130" Click="EditMBtn_Click">Редактировать</Button>
+                        <Button Visibility="Collapsed" x:Name="AddMBtn" Width="130" Click="AddMBtn_Click">Добавить</Button>
                     </StackPanel>
                     <StackPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
                         <TextBlock x:Name="MaterialCountTb" FontWeight="Bold">0 из 0</TextBlock>

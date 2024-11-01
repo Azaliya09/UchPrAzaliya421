@@ -42,3 +42,5 @@ C:\Users\user\Desktop\Uchebka\Uchebnaya_Azaliya\UchPrAzaliya421\UchAzaliya\obj\D
 C:\Users\user\Desktop\Uchebka\Uchebnaya_Azaliya\UchPrAzaliya421\UchAzaliya\obj\Debug\Pages\OrdersList.g.cs
 C:\Users\user\Desktop\Uchebka\Uchebnaya_Azaliya\UchPrAzaliya421\UchAzaliya\obj\Debug\Pages\OrdersList.baml
 C:\Users\user\Desktop\Uchebka\Uchebnaya_Azaliya\UchPrAzaliya421\UchAzaliya\obj\Debug\Pages\Workshops.baml
+C:\Users\user\Desktop\Uchebka\Uchebnaya_Azaliya\UchPrAzaliya421\UchAzaliya\obj\Debug\Pages\AddEditOrder.g.cs
+C:\Users\user\Desktop\Uchebka\Uchebnaya_Azaliya\UchPrAzaliya421\UchAzaliya\obj\Debug\Pages\AddEditOrder.baml

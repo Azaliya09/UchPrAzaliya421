@@ -31,6 +31,23 @@ namespace UchAzaliya.Pages
             {
                 App.ExitBtn.Visibility = Visibility.Visible;
             }
+            if(App.CorUser.Id_Role ==1)
+            {
+                ListOrder.Visibility = Visibility.Visible;
+            }
+            else if(App.CorUser.Id_Role ==3 || App.CorUser.Id_Role == 4 || App.CorUser.Id_Role == 5)
+            {
+                ListOrder.Visibility = Visibility.Visible;
+                MatComp.Visibility = Visibility.Visible;
+            }
+            else if(App.CorUser.Id_Role == 2)
+            {
+                ListEmpl.Visibility = Visibility.Visible;
+                ListOrder.Visibility = Visibility.Visible;
+                MatComp.Visibility = Visibility.Visible;
+                Workshops.Visibility = Visibility.Visible;
+            }
+
         }
 
         private void ListEmpl_Click(object sender, RoutedEventArgs e)
@@ -47,6 +64,11 @@ namespace UchAzaliya.Pages
         {
             NavigationService.Navigate(new OrdersList());
             
+        }
+
+        private void Workshops_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Workshops());
         }
     }
 }

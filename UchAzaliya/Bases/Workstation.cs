@@ -25,8 +25,8 @@ namespace UchAzaliya.Bases
         public Nullable<int> Id_TypeWorkstation { get; set; }
         public string Name__Workstation { get; set; }
     
-        public virtual TypeWorkstation TypeWorkstation { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CreatingProcess> CreatingProcess { get; set; }
+        public virtual TypeWorkstation TypeWorkstation { get; set; }
     }
 }

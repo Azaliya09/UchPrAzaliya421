@@ -23,6 +23,7 @@ namespace UchAzaliya.Pages
     /// </summary>
     public partial class Authtorization : Page
     {
+        private Role role;
         public Authtorization()
         {
             InitializeComponent();
@@ -59,7 +60,7 @@ namespace UchAzaliya.Pages
                         App.Connection.SaveChanges();
                     }
                     App.CorUser = user;
-                    MessageBox.Show($"Добро пожаловать \n {user.Name}", "Добрый день", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show($"Добро пожаловать, {user.Surname}", "Приветствую", MessageBoxButton.OK, MessageBoxImage.Information);
                     NavigationService.Navigate(new ForUser());
                 }
                 else

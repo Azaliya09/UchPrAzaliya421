@@ -18,7 +18,7 @@ namespace UchAzaliya.Bases
         public string Login_Worker { get; set; }
         public string Name_Process { get; set; }
     
-        public virtual Worker Worker { get; set; }
         public virtual CreatingProcess CreatingProcess { get; set; }
+        public virtual Worker Worker { get; set; }
     }
 }

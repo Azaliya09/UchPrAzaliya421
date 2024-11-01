@@ -42,23 +42,30 @@ namespace UchAzaliya.Pages
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
             Material material = new Material() { IsDeleted = false };
-            //условие на айдишник
-            //if (IDTb.Text == App.Connection.Material.Id_Material.ToString())
-            //{
-            //    MessageBox.Show("Такой артикул уже существует");
-            //}
-            material.Id_Material = IDTb.Text;
-            material.Name_Material = NameTb.Text;
-            material.Count = int.Parse(CountTb.Text);
-            material.Id_SizeType = (SizeTypeCb.SelectedItem as SizeType).Id_SizeType;
-            material.Cost_Material = decimal.Parse(PriceTb.Text);
-            material.Name_Provider = (ProviderCb.SelectedItem as Provider).Name_Provider;
-            material.Id_Warehouse = (WarehouseCb.SelectedItem as Warehouse).Id_Warehuose;
+            if (App.Connection.Material.Any(z => z.Id_Material == IDTb.Text))
+            {
+                MessageBox.Show("Такой артикул уже существует");
+            }
+            else if (IDTb.Text != "" || NameTb.Text != "" || CountTb != null || SizeTypeCb.SelectedItem != null || PriceTb.Text != null || ProviderCb.SelectedItem != null || WarehouseCb.SelectedItem != null)
+            {
+                material.Id_Material = IDTb.Text;
+                material.Name_Material = NameTb.Text;
+                material.Count = int.Parse(CountTb.Text);
+                material.Id_SizeType = (SizeTypeCb.SelectedItem as SizeType).Id_SizeType;
+                material.Cost_Material = decimal.Parse(PriceTb.Text);
+                material.Name_Provider = (ProviderCb.SelectedItem as Provider).Name_Provider;
+                material.Id_Warehouse = (WarehouseCb.SelectedItem as Warehouse).Id_Warehuose;
 
-            material = App.Connection.Material.Add(material);
-            App.Connection.SaveChanges();
-            MessageBox.Show("Новый материал успешно добавлен");
-            NavigationService.Navigate(new MaterialsComponentsAccounting());
+                material = App.Connection.Material.Add(material);
+                App.Connection.SaveChanges();
+                MessageBox.Show("Новый материал успешно добавлен");
+                NavigationService.Navigate(new MaterialsComponentsAccounting());
+            }
+            else
+            {
+                MessageBox.Show("Не все поля заполнены");
+            }
+            
         }
 
         private void EditBtn_Click(object sender, RoutedEventArgs e)

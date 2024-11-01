@@ -18,6 +18,7 @@ namespace UchAzaliya.Bases
         public Provider()
         {
             this.Component = new HashSet<Component>();
+            this.Material = new HashSet<Material>();
         }
     
         public string Name_Provider { get; set; }
@@ -27,5 +28,7 @@ namespace UchAzaliya.Bases
         public virtual Address Address { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Component> Component { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Material> Material { get; set; }
     }
 }

@@ -5,13 +5,13 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:UchAzaliya.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="700" d:DesignWidth="1050"
       Title="OrdersList" Background="#FFFEF9DE">
 
     <Grid>
         <Ellipse  Fill="#FFBB0C07" Width="40" Height="40" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10"/>
         <Viewbox Width="40" Height="40" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="20 10">
-            <TextBlock  ToolTip="Данные с одинаковыми артикулами не будут сохраняться в базе данных" Text="?" Foreground="White" TextAlignment="Center" />
+            <TextBlock ToolTip="новые заказы:&#x0A;статусы «Новый»,«Составление спецификации» и «Подтверждение»;&#x0A;выполненные заказы:&#x0A;статусы «Готов» и «Закрыт»;&#x0A;текущие заказы: статусы «Закупка», «Производство» и «Контроль»;&#x0A;отклоненные заказы: статус «Отклонен»."  Text="?" Foreground="White" TextAlignment="Center" />
         </Viewbox>
         <StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">

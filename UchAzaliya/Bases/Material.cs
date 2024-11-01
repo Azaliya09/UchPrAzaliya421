@@ -36,10 +36,11 @@ namespace UchAzaliya.Bases
     
         public virtual ImageStockMaterial ImageStockMaterial { get; set; }
         public virtual MaterialType MaterialType { get; set; }
+        public virtual Provider Provider { get; set; }
         public virtual SizeType SizeType { get; set; }
         public virtual Standart Standart { get; set; }
+        public virtual Warehouse Warehouse { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MaterialProduct> MaterialProduct { get; set; }
-        public virtual Warehouse Warehouse { get; set; }
     }
 }
