@@ -11,7 +11,7 @@
     <Grid>
         <Ellipse  Fill="#FFBB0C07" Width="40" Height="40" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10"/>
         <Viewbox Width="40" Height="40" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="20 10">
-            <TextBlock ToolTip="новые заказы:&#x0A;статусы «Новый»,«Составление спецификации» и «Подтверждение»;&#x0A;выполненные заказы:&#x0A;статусы «Готов» и «Закрыт»;&#x0A;текущие заказы: статусы «Закупка», «Производство» и «Контроль»;&#x0A;отклоненные заказы: статус «Отклонен»."  Text="?" Foreground="White" TextAlignment="Center" />
+            <TextBlock ToolTip="новые заказы:&#x0A;статусы «Новый»,«Составление спецификации» и «Подтверждение»;&#x0A;выполненные заказы:&#x0A;статусы «Готов» и «Закрыт»;&#x0A;текущие заказы: статусы «Закупка», «Производство» и «Контроль»;&#x0A;"  Text="?" Foreground="White" TextAlignment="Center" />
         </Viewbox>
         <StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
@@ -73,9 +73,10 @@
             </ScrollViewer>
         </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button Width="130" Height="20" x:Name="DeleteBtn" Click="DeleteBtn_Click">Удалить</Button>
-                <Button Width="130" Height="20" x:Name="EditBtn">Редактировать</Button>
-                <Button Width="130" Height="20" x:Name="AddBtn">Добавить</Button>
+                <Button Visibility="Collapsed" Width="130" Height="20" x:Name="DeleteBtn" Click="DeleteBtn_Click">Удалить</Button>
+                <Button Visibility="Collapsed" Width="130" Height="20" x:Name="EditBtn">Редактировать</Button>
+                <Button Visibility="Collapsed" Width="130" Height="20" x:Name="AddBtn">Добавить</Button>
+                <Button Visibility="Collapsed" Width="130" Height="20" x:Name="OtklBtn">Отклонить</Button>
             </StackPanel>
         </StackPanel>
     </Grid>

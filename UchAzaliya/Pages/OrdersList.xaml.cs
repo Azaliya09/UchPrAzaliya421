@@ -25,7 +25,34 @@ namespace UchAzaliya.Pages
         public OrdersList()
         {
             InitializeComponent();
-            OrdersLV.ItemsSource = App.Connection.Order.Where(x=>x.IsDeleted == false).ToList();
+            if(App.CorUser.Id_Role == 1)
+            {
+                AddBtn.Visibility = Visibility.Visible;
+                DeleteBtn.Visibility = Visibility.Visible;
+                OtklBtn.Visibility = Visibility.Visible;
+                OrdersLV.ItemsSource = App.Connection.Order.Where(x => x.IsDeleted == false).ToList();
+            }
+            else if(App.CorUser.Id_Role == 3)
+            {
+                EditBtn.Visibility = Visibility.Visible;
+                AddBtn.Visibility = Visibility.Visible;
+                OrdersLV.ItemsSource = App.Connection.Order.Where(x => x.IsDeleted == false && x.Id_Status == 1).ToList();//добавить свои менеджерские заказы
+            }
+            else if(App.CorUser.Id_Role == 4)
+            {
+                EditBtn.Visibility = Visibility.Visible;
+                OrdersLV.ItemsSource = App.Connection.Order.Where(x => x.IsDeleted == false && x.Id_Status == 3).ToList();
+
+            }
+            else if(App.CorUser.Id_Role == 5)
+            {
+                OrdersLV.ItemsSource = App.Connection.Order.Where(x => x.IsDeleted == false && (x.Id_Status == 6 || x.Id_Status == 7)).ToList();
+
+            }
+            else
+            {
+                OrdersLV.ItemsSource = App.Connection.Order.Where(x => x.IsDeleted == false).ToList();
+            }
         }
 
         private void StatusCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -59,6 +86,7 @@ namespace UchAzaliya.Pages
         {
             if(OrdersLV.SelectedItem != null)
             {
+                //прописать условие для заказчика для удаления только новых
                 selectedOrder.IsDeleted = true;
                 App.Connection.SaveChanges();
                 MessageBox.Show("Заказ удален");

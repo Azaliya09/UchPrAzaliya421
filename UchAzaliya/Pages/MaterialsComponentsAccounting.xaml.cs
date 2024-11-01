@@ -50,7 +50,7 @@ namespace UchAzaliya.Pages
         {
             NavigationService.Navigate(new AddEditMaterials(new Material ()));
         }
-
+        //проверить удаление с нулевым кол-вом
         //private void DeleteMBtn_Click(object sender, RoutedEventArgs e)
         //{
         //    if (MaterialsLV.SelectedItem != null)
